@@ -1,0 +1,181 @@
+CSE-111 * Advanced Programming * Fall 2020 * Final Exam SOLUTION
+$Id: soln-cse111-2020q4-final.txt,v 1.1 2020-12-14 12:36:41-08 - - $
+
+Grade each question in increments of 0.5 points and
+assign a score between 0 and the max, inclusive.
+
+_______________________________________________________
+Question 1.  [[4pt]] <PRE>
+
+template <typename itor>
+double inner_product (itor begin1, itor end1,
+                      itor begin2, itor end2) { 
+   double result = 0;
+   while (begin1 != end1 and begin2 != end2) {
+      result += *begin1++ * *begin2++;
+   }
+   if (begin1 != end1 or begin2 != end2) throw domain_error ("ip");
+   return result;
+}
+
+_______________________________________________________
+Question 2.  [[3pt]] <PRE>
+
+template <typename Iter>
+void reverse (Iter begin, Iter end) {
+   while (begin != end && begin != --end) {
+      swap (*begin, *end);
+      ++begin;
+   }
+}
+
+_______________________________________________________
+Question 3.  [[4pt]] <PRE>
+
+(a)
+foo& operator++();       // 0.5 pt
+foo operator++ (int);    // 0.5 pt
+
+(b)
+bar& operator++ (bar&);   // 1 pt
+
+(c)
+bar operator++ (bar& b, int) {  2 pt
+   bar t = b;
+   ++b;
+   return t;
+}
+
+_______________________________________________________
+Question 4.  [[1pt]] <PRE>
+
+for (auto p = c.begin(); p != c.end(); ++p) f(*p);
+// Note: must use ++p, not p++
+
+_______________________________________________________
+Question 5.  [[6pt]] <PRE>
+
+template <typename itor1, typename itor2, typename equal_to>
+bool equal_range (itor1 begin1, itor1 end1,
+                  itor2 begin2, itor2 end2,
+                  equal_to equal = equal_to()) {
+   while (begin1 != end1 and begin2 != end2) {
+      if (not equal (*begin1, *begin2)) return false;
+      ++begin1; ++begin2;
+   }
+   return begin1 == end1 and begin2 == end2;
+}
+
+// OK if (not equal (*begin1++, *begin2++)) return false;
+// without the line after that.
+
+_______________________________________________________
+Question 6.  [[4pt]] <PRE>
+
+template <typename itor, typename unit, typename binop>
+unit fold (itor begin, itor end, unit u, binop op) {
+   for (; begin != end; ++begin) u = op (u, *begin);
+   return u;
+}
+
+// If u is passed by reference, must make a local
+// copy.  Local copy OK in any case.
+
+_______________________________________________________
+Question 7.  [[2pt]] <PRE>
+
+
+ivec::iterator ivec::begin() { return iterator (&vp[0]); }
+ivec::iterator ivec::end() { return iterator (&vp[siz]); }
+
+// OK if vp and vp+size instead of above.
+
+_______________________________________________________
+Question 8.  [[6pt]] <PRE>
+
+class ivec::iterator {
+   private:
+      int* p;
+   public:
+      iterator (int* a): p(a) {}
+      iterator& operator++() { ++p; return *this; }
+      bool operator!= (iterator i) { return p != i.p; }
+      int& operator*() { return *p; }
+};
+
+_______________________________________________________
+Question 9.  [[5pt]] <PRE>
+
+template <typename T, typename lesst>
+tree<T>* find (tree<T>* t, T item, lesst less) {
+   while (t != nullptr) {
+      if      (less (item, t->value)) t = t->left;
+      else if (less (t->value, item)) t = t->right;
+      else return t;
+   }
+   return nullptr;
+}
+
+OR:
+
+template <typename T, typename lesst>
+tree<T>* find2 (tree<T>* t, T item, lesst less) {
+   if (t == nullptr) return t;
+   if (less (item, t->value)) return find2 (t->left, item, less);
+   if (less (t->value, item)) return find2 (t->right, item, less);
+   return t;
+}
+
+// Deduct 1.5 if any comparison other than less parameter.
+
+_______________________________________________________
+Question 10.  [[2pt]] <PRE>
+
+class expr {
+   friend ostream& operator<< (ostream&, const expr*);
+   public:
+      virtual double eval() const = 0;
+      virtual void print (ostream&) const = 0;
+      virtual ~expr() {} //// deduct 0.5 if not virtual
+};
+
+_______________________________________________________
+Question 11.  [[4pt]] <PRE>
+
+class number: public expr {
+   private:
+      double value {};
+   public:
+      number (double v = 0): value(v) {}
+      virtual double eval() const override { return value; }
+      virtual void print (ostream& out) const override { out << value; }
+      virtual ~number() {}
+};
+
+// Dtor may be omitted or = default.
+// either virtual or override keywords may be omitted
+
+_______________________________________________________
+Question 12.  [[9pt]] <PRE>
+
+class adder: public expr {
+   private:
+      expr* left;
+      expr* right;
+   public:
+      adder (expr* lf, expr* rt): left(lf), right(rt) {}
+      virtual double eval() const override {
+         return left->eval() + right->eval();
+      }
+      virtual void print (ostream& out) const override {
+         out << "(" << left << "+" << right << ")";
+      }
+      virtual ~adder() override {
+         delete left;
+         delete right;
+      }
+};
+
+_______________________________________________________
+SCORE-TOTAL=50
+

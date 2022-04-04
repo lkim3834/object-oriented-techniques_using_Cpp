@@ -1,0 +1,198 @@
+$Id: soln-cmps109-2019q1-final.txt,v 1.3 2019-03-12 17:09:31-07 - - $
+Solution to CMPS-109 2019q1-midterm, page 1
+
+_________________________________________________________________
+Question 1. [2]
+
+template <typename pair1, typename pair2>
+bool operator< (const pair1& p1, const pair2& p2) {
+   return p1.first < p2.first
+       or not (p2.first < p1.first) and p1.second < p2.second;
+}
+
+_________________________________________________________________
+Question 2(a). [4]
+
+template <typename item_t, typename less_t>
+bool bstset<item_t,less_t>::contains (const item_t key) {
+   node* t = root;
+   while (t != nullptr) {
+      if (less (key, t->item)) t = t->left;
+      else if (less (t->item, key)) t = t->right;
+      else return true;
+   }
+   return false;
+}
+
+_________________________________________________________________
+Question 2(b). [1]
+
+~bstset() { if (root != nullptr) delete root; }
+
+_________________________________________________________________
+Question 2(c). [3]
+
+template <typename item_t, typename less_t>
+bstset<item_t,less_t>::bstset::node::~node() {
+   if (left != nullptr) delete left;
+   if (right != nullptr) delete right;
+}
+
+
+Solution to CMPS-109 2019q1-midterm, page 2
+
+_________________________________________________________________
+Question 3. [3]
+
+polynomial differentiate (const polynomial& p) {
+   polynomial r;
+   for (size_t i = 1; i < v.size(); ++i) {
+      r.push_back (v[i] * i);
+   }
+   return r;
+}   
+
+_________________________________________________________________
+Question 4. [2]
+
+template <typename in_itor, typename out_itor, typename predicate>
+void copy_if (in_itor begin, in_itor end, out_itor out, predicate p) {
+   for (; begin != end; ++begin) {
+      if (p (*begin)) { *out = *begin; ++out; }
+   }
+}
+
+_________________________________________________________________
+Question 5. [1]
+
+const GLubyte BLACK[] = { 0, 0, 0 };
+const GLubyte WHITE[] = { 255, 255, 255 };
+// obviously 0xFF is OK too.
+
+_________________________________________________________________
+Question 6. [4]
+
+void draw_chessboard (GLfloat xpos, GLfloat ypos, GLfloat sqsize) {
+   for (size_t row = 0; row < 8; ++row) {
+      for (size_t col = 0; col < 8; ++col) {
+         size_t llx = xpos + row * sqsize;
+         size_t lly = ypos + col * sqsize;
+         const GLubyte* color = (row + col) % 2 == 0 ? BLACK : WHITE;
+         glBegin (GL_POLYGON);
+         glColor3ubv (color);
+         glVertex2f (llx, lly);
+         glVertex2f (llx + sqsize, lly);
+         glVertex2f (llx + sqsize, lly + sqsize);
+         glVertex2f (llx, lly + sqsize);
+         glEnd();
+      }
+   }
+}
+
+
+Solution to CMPS-109 2019q1-midterm, page 3
+
+_________________________________________________________________
+Question 7. [1]
+
+foo& operator++();
+foo operator++ (int);
+
+_________________________________________________________________
+Question 8. [3]
+
+template <typename Initor1, typename Initor2,
+          typename Outitor, typename Less>
+void merge (Initor1 begin1, Initor1 end1,
+            Initor2 begin2, Initor2 end2,
+            Outitor result, Less less) {
+   while (begin1 != end1 and begin2 != end2) {
+      if (less (*begin1, *begin2)) *result++ = *begin1++;
+                              else *result++ = *begin2++;
+   }
+   while (begin1 != end1) *result++ = *begin1++;
+   while (begin2 != end2) *result++ = *begin2++;
+}
+
+_________________________________________________________________
+Question 9(a). [3]
+
+class animal {
+   private:
+      const string name_;
+   public:
+      animal (const string& name): name_(name) {}
+      virtual ~animal() {}
+      virtual const string& name() const { return name_; };
+      virtual string noise() const = 0;
+};
+
+_________________________________________________________________
+Question 9(b). [3]
+
+class dog: public animal {
+   public:
+      dog (const string& name): animal(name) {}
+      virtual string noise() const override { return "woof"; }
+};
+
+class cat: public animal {
+   public:
+      cat (const string& name): animal(name) {}
+      virtual string noise() const override { return "meow"; }
+};
+
+
+Solution to CMPS-109 2019q1-midterm, page 4
+
+ 1.   (C) constexpr size_t MAX = 10;
+
+ 2.   (C) template <typename T> class stack
+
+ 3.   (B) list
+
+ 4.   (B)      20
+
+ 5.   (C) override
+
+ 6.   (C) unordered_set
+
+ 7.   (B) operator<
+
+ 8.   (A) *(c.end()-1)
+
+ 9.   (D) c.begin()==c.end()
+
+10.   (D) auto p = new string();
+
+11.   (C) 0x78563412
+
+12.   (B) i->second
+
+
+Solution to CMPS-109 2019q1-midterm, page 5
+
+ 1.   (D) vector
+
+ 2.   (C) foo::~foo
+
+ 3.   (D) 2 * sizeof (uintptr_t)
+
+ 4.   (B) 16
+
+ 5.   (B) {127,   0,   0};
+
+ 6.   (A) at compile time
+
+ 7.   (C) reinterpret_cast
+
+ 8.   (C) xmap::mapped_type
+
+ 9.   (A) $<
+
+10.   (A)       1
+
+11.   (B) catch (exception& exn)
+
+12.   (D) 128
+

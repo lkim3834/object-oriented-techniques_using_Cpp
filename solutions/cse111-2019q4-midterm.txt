@@ -1,0 +1,185 @@
+$Id: soln-cse111-2019q4-midterm.txt,v 1.1 2019-11-15 15:20:34-08 - - $
+Solution to CMPS-109 2019q3-midterm, page 1
+
+Any logically correct variation on these answers is ok too.
+Assign fractional points in increments of 1/2 per question.
+
+_________________________________________________________________
+Question 1. [4]
+
+#include <iostream>
+using namespace std;
+int main (int argc, char** argv) {
+   for (int i = 1; i < argc; ++i) {
+      if (i > 1) cout << " ";
+      cout << argv[i];
+   }
+   cout << endl;
+   return 0;
+}
+
+_________________________________________________________________
+Question 2. [1]
+
+void ubigint::trim() {
+   while (ubigvalue.size() > 0 and ubigvalue.back() == 0) 
+      ubigvalue.pop_back();
+}
+//// or: ubigvalue[ubigvalue.size() - 1] != 0
+
+_________________________________________________________________
+Question 3(a). [2]
+
+template <typename container>
+void print (const container& c) {
+   for (const auto& i: c) cout << i << endl;
+}
+
+_________________________________________________________________
+Question 3(b). [3]
+
+template <typename container>
+void print (const container& c) {
+   for (auto p = c.cbegin(); p != c.cend(); ++p) {
+      cout << *p << endl;
+   }
+}
+
+
+Solution to CMPS-109 2019q3-midterm, page 2
+_________________________________________________________________
+Question 4. [3]
+
+template <typename itor1, typename itor2, typename equal_t>
+bool equal_range (itor1 begin1, itor1 end1,
+                  itor2 begin2, itor2 end2,
+                  equal_t equal) {
+   while (begin1 != end1 and begin2 != end2) {
+      if (not equal (*begin1, *begin2)) return false;
+      ++begin1; ++begin2;
+   }
+   return begin1 == end1 and begin2 == end2;
+}
+
+_________________________________________________________________
+Question 5. [2]
+
+bool bigint::operator< (const bigint& that) const {
+   if (is_negative) {
+      if (not that.is_negative) return true;
+                           else return that.uvalue < uvalue;
+   }else { // is positive
+      if (that.is_negative) return false;
+                       else return uvalue < that.uvalue;
+   }
+}
+
+_________________________________________________________________
+Question 6. [2]
+
+void ubigint::divide_by_2() {
+   if (value.size() == 0) return;
+   for (size_t i = 0; i < value.size() - 1; ++i) {
+      value[i] /= 2;
+      if (value[i + 1] % 2 == 1) value[i] += 5;
+   }
+   value.back() /= 2;
+   if (value.back() == 0) value.pop_back();
+}
+//// or: odd check:  (value[i + 1] & 1)....
+//// or: value[value.size() - 1] /= 2;
+
+_________________________________________________________________
+Question 7. [3]
+
+template <typename itor_t, typename equal_t>
+bool dup_adjacent (itor_t begin, itor_t end, equal_t equal) {
+   if (begin == end) return false;
+   for (auto prev = begin++; begin != end; prev = begin++) {
+      if (equal (*begin, *prev)) return true;
+   }
+   return false;
+}
+
+
+Solution to CMPS-109 2019q3-midterm, page 3
+_________________________________________________________________
+Question 8. [2]
+vector<double>::iterator minimum_itor (const vector<double>& v) {
+   auto min = v.begin();
+   for (auto i = v.begin(); i != v.end(); ++i) {
+      if (*min < *i) min = i;
+   }
+   return min;
+}
+_________________________________________________________________
+Question 9. // assign 1/2 point for each correct prototype
+            // if in the correct box.
+copiers:  foo (const foo&);
+          foo& operator= (const foo&);
+movers:   foo (foo&&);
+          foo& operator= (foo&&);
+
+_________________________________________________________________
+Question 10(a). [1]
+template <typename item_t>
+const item_t& tstack<item_t>::top() const {
+   return top_ptr->value;
+}
+
+_________________________________________________________________
+Question 10(b). [1]
+template <typename item_t>
+void tstack<item_t>::pop() {
+   top_ptr = top_ptr->link;
+}
+
+_________________________________________________________________
+Question 10(c). [2]
+template <typename item_t>
+void tstack<item_t>::push (const item_t& n) {
+   node_ptr t = make_shared<node>();
+   t->value = n;
+   t->link = top_ptr;
+   top_ptr = t;
+}
+
+_________________________________________________________________
+Question 11. [2]
+int main() {
+   string line;
+   for(;;) {
+      getline (cin, line);
+      if (cin.eof()) break;
+      cout << line << endl;
+   }
+   return 0;
+}
+
+Solution to CMPS-109 2019q3-midterm, page 4
+
+ 1.   (D) override
+
+ 2.   (B) const vector<double>&
+
+ 3.   (C) cyclic graph
+
+ 4.   (C) unordered_map<string,string>
+
+ 5.   (D) using namespace std;
+
+ 6.   (A) friend
+
+ 7.   (A) virtual double area() = 0;
+
+ 8.   (A) ${EXEC} : ${OBJS}
+                  ${GPP} -o ${EXEC} ${OBJS}
+
+ 9.   (A) ++i
+
+10.   (B) this->n
+
+11.   (B) int main (int, char**);
+
+12.   (C) #ifndef __FOO_H__
+

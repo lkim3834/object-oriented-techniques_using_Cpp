@@ -1,0 +1,1915 @@
+head	1.69;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.69
+date	2021.04.28.19.08.11;	author -;	state -;
+branches;
+next	1.68;
+
+1.68
+date	2021.04.28.18.47.37;	author -;	state -;
+branches;
+next	1.67;
+
+1.67
+date	2021.02.09.00.00.45;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2021.02.08.23.52.29;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2021.02.08.23.50.25;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2021.02.08.23.49.42;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2021.02.08.23.46.42;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2021.02.08.23.45.49;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2021.02.08.23.44.41;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2021.02.08.23.43.48;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2021.02.08.23.42.41;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2021.02.08.23.41.14;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2021.02.08.21.31.36;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2021.02.07.05.07.18;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2021.02.07.01.21.02;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2021.02.07.01.18.28;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2021.02.06.04.59.25;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2021.02.06.04.57.33;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2021.02.06.04.56.14;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2021.02.06.04.55.26;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2021.02.06.04.54.38;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2021.02.06.04.54.24;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2021.02.06.04.51.52;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2021.02.06.04.50.23;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2021.02.06.04.49.47;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2021.02.02.02.56.56;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2020.01.28.22.03.21;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2020.01.28.22.00.49;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2019.10.22.19.37.57;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2019.10.22.19.36.13;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2019.10.22.19.30.09;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2019.10.22.19.27.04;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2019.07.19.00.52.26;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2019.06.19.17.19.17;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2019.04.29.22.38.37;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2019.04.29.22.35.48;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2019.04.29.22.07.35;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2019.04.29.22.07.12;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2019.04.25.00.06.41;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2019.04.25.00.06.26;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2019.04.25.00.05.27;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2019.02.01.02.11.24;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2018.07.12.23.07.43;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2018.01.24.21.13.21;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2018.01.24.21.12.33;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2018.01.24.21.12.07;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2017.07.17.22.15.13;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2017.07.12.23.39.23;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2016.07.15.00.39.29;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2016.06.28.21.09.47;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2016.04.20.01.35.37;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2016.01.27.03.36.44;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2015.07.07.01.24.22;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2015.04.23.23.36.02;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2015.01.30.22.28.46;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2015.01.30.22.26.55;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2014.07.02.00.51.28;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2014.06.28.00.52.15;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2014.06.27.22.43.12;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2014.06.27.22.42.49;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2014.06.27.22.35.45;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2014.06.27.22.33.46;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2014.06.27.22.33.05;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2014.06.27.22.32.48;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2014.06.27.22.32.33;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2014.06.27.22.31.55;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2014.06.27.22.31.40;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.06.27.22.28.17;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.06.27.22.24.34;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.69
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.SIZE 12 14
+.TITLE CSE-111 Spring\~2021 Program\~3 "Templates and Iterators"
+.RCS \
+"$Id: asg3-listmap-templates.mm,v 1.68 2021-04-28 11:47:37-07 - - $"
+.PWD
+.URL
+.EQ
+delim $$
+.EN
+.H 1 "Overview"
+In this assignment,
+you will implement template code and not use any template
+classes from the standard library.
+You will also write your own code to handle files.
+Refer to the earlier assignment as to how to open and read files.
+.P
+You may use the following includes,
+and if you think anything else is needed,
+post a question to Piazza\(::
+.V= <cassert> ,
+.V= <cerrno> ,
+.V= <cstdlib> ,
+.V= <exception> ,
+.V= <fstream> ,
+.V= <iomanip> ,
+.V= <iostream> ,
+.V= <regex> ,
+.V= <stdexcept> ,
+.V= <string> ,
+.V= <typeinfo> .
+.P
+Specifically, you may not use any classes that take template
+parameters,
+such as
+.V= <iterator> ,
+.V= <list> ,
+.V= <map> ,
+.V= <pair> ,
+.V= <vector> ,
+except for those you write yourself.
+Do not use
+.V= shared_ptr ,
+and instead, explicitly manage pointers yourself using
+.V= new
+and
+.V= delete .
+Ensure that there are no dangling pointers and no memory leak.
+Use
+.V= valgrind
+to check on this.
+.H 1 "Program specification"
+The program is specified in the format of a Unix
+.V= man (1)
+page.
+.SH=BVL
+.MANPAGE=LI "NAME"
+keyvalue \[em] manage a list of key and value pairs
+.MANPAGE=LI "SYNOPSIS"
+.V= keyvalue
+.=V \|[ -@@
+.IR flags ]
+.RI \|[ filename \|.\|.\|.]
+.MANPAGE=LI "DESCRIPTION"
+Input is read from each file in turn.
+Before any processing,
+each input line is echoed to
+.V= cout ,
+preceded by its filename and line number within the file.
+The name of
+.V= cin
+is printed as a minus sign
+.=V ( - ).
+.MANPAGE=LI "OPTIONS"
+The
+.V= -@@
+option is followed by a sequence of flags to enable debugging output,
+which is written to the standard error.
+The option flags are only meaningful to the programmer.
+.MANPAGE=LI "OPERANDS"
+Each operand is the name of a file to be read.
+If no filenames are specified,
+.V= cin
+is read.
+If filenames are specified,
+a filename consisting of a single minus sign
+.=V ( - )
+causes 
+.V= cin
+to be read in sequence at that position.
+Any file that can not be accessed causes a message in proper format to
+be printed to
+.V= cerr .
+.MANPAGE=LI "INPUT DESCRIPTION"
+Each non-comment line causes some action on the part of the program.
+Before processing a command,
+leading and trailing white space is trimmed off of the key and off of
+the value.
+White space interior to the key or value is not trimmed.
+When a key and value pair is printed,
+the equivalent of the format string used is
+.V= "\[Dq]%s\0=\0%s\[rs]n\[Dq]" .
+Use
+.V= <iostream> ,
+not
+.V= <stdio> .
+The newline character is removed from any input line before
+processing.
+If there is more than one equal sign on the line,
+the first separates the key from the value,
+and the rest are part of the value.
+Input lines are one of the following\(::
+.BVL \n[Pi]
+.LI \f[CB]#\f[R]
+Any input line whose first non-whitespace character is a hash
+.=V ( # )
+is ignored as a comment.
+This means that no key can begin with a hash.
+An empty line or a line
+consisting of nothing but white space is ignored.
+.LI \f[I]key\f[R]
+A line consisting of at least one non-whitespace character and no equal
+sign causes the key and value pair to be printed.
+If not found, the message
+.VINDENT* "\f[I]key\f[CB]:\~key\~not\~found\f[R]"
+is printed.
+Note that the characters in italics are not printed exactly.
+The actual key is printed.
+This message is printed to
+.V= cout .
+.LI \f[I]key\f[R]\~\f[CB]=\f[R]
+If there is only whitespace after the equal sign,
+the key and value pair is deleted from the map.
+.LI \f[I]key\f[R]\~\f[CB]=\f[R]\~\f[I]value\f[R]
+If the key is found in the map,
+its value field is replaced by the new value.
+If not found, the key and value are inserted in increasing
+lexicographic order, sorted by key.
+The new key and value pair is printed.
+.LI \f[CB]=\f[R]
+All of the key and value pairs in the map are printed in
+lexicographic order.
+.LI \f[CB]=\f[R]\~\f[I]value\f[R]
+All of the key and value pairs with the given value are printed in
+lexicographic order sorted by key.
+.LE
+.MANPAGE=LI "EXIT STATUS"
+.VL \n[Pi]
+.LI 0
+No errors were found.
+.LI 1
+There were some problems accessing files,
+and error messages were reported to
+.V= cerr .
+.LE
+.LE
+.H 1 "Implementation sequence"
+In this assignment,
+you will constuct a program from scratch,
+using some of the code from previous assignments.
+.ALX a ()
+.LI
+Study the behavior of
+.V= misc/pkeyvalue.perl ,
+whose behavior your program should emulate.
+The Perl version does not support the debug option of your program.
+.LI
+Copy
+.V= Makefile
+from your previous assignment,
+and edit it so that it will build and submit your new assignment.
+.LI
+Implement your main program whose name is
+.V= main.cpp ,
+and handle files in the same way as the sample Perl code.
+Instead of trying to use a map,
+just print debug statements showing which of the five
+kinds of statements are recognized,
+printing out the key and value portion of the statement.
+.LI
+Instead of
+.V= <pair>
+from the standard library,
+you will use
+.V= xpair .
+.LI
+You will be using a linear linked list to implement your data
+structure.
+This is obviously unacceptable in terms of a real data structures
+problem,
+since unit operations will run in $ O ( n ) $ time instead of
+the proper $ O ( log sub 2 n ) $ time for a balanced binary search
+tree.
+But iteration over a binary search tree is rather complex and
+will not contribute to your learning about how to implement templates.
+.LI
+Look at 
+.V= xless.h
+and
+.V= misc/testxless.cpp ,
+which show how to create and use an
+.V= xless
+object to make comparisons.
+The 
+.V= listmap
+class assumes this has already been declared.
+.LI
+The files
+.V= *.tcc
+are explicit template instantiations.
+Templates are type-safe macros and the source is needed at
+the point where they are compiled.
+.LI
+For the two queries requiring iteration,
+your main module must make use of the 
+.V= listmap
+iterators.
+Do not copy anything from the listmap into another data structure,
+such as a vector.
+That is,
+there may be no function of
+.V= listmap
+which copies out all of the items into another data structure.
+.LE
+.H 1 "The main function"
+Replace the code in the main function to do options analysis.
+Then, for each input line,
+use
+.V= regex_search
+using regular expressions to parse the line into one of the
+three kinds of lines described above.
+Use the field captures to extract the key and value fields.
+See the example
+.V= matchlines.cpp ,
+which shows how to use regular expressions from the
+.V= <regex>
+library.
+.H 1 "Template class \f[CB]listmap\f[P]"
+We now examine the class
+.V= listmap ,
+which is partially implemented for you.
+You need not implement functions that are never called.
+.de VV
+.   VTCODE* 0 \\$@@
+..
+.de LI=VV
+.   LI
+.   V= \\$@@
+.   br
+..
+.ALX a ()
+.LI=VV \
+"template <typename key_t, typename mapped_t, \
+class less_t=xless<key_t>>"
+.VV "class listmap"
+defines the template class with three arguments.
+.V= key_t
+and
+.V= mapped_t
+are the elements to be kept in the list.
+.V= less_t
+is the class used to determine the ordering of the list and
+defaults to
+.V= xless<key_t> .
+.LI=VV "using key_type = key_t;"
+.VV "using mapped_type = mapped_t;"
+.VV "using value_type = xpair<const key_type, mapped_type>;"
+are some standard names given to usual standard library types.
+Note that the value type is an
+.V= xpair,
+not what is normally thought as the value,
+which here is called the
+mapped type.
+.LI=VV "struct link"
+represents the list itself and is contained in every node.
+The list is kept as a circular doubly linked list with the
+list itself being the start and end,
+as well as the
+.V= end()
+result.
+In a list with $n$ nodes, 
+there are $n + 1$ links,
+each node having a link, and the list itself having a link,
+but not node values.
+.LI=VV "struct node"
+is a private node used to hold a value type along with forward
+and backword links to form a doubly linked list.
+It inherits from
+.V= "struct link" .
+The private function
+.V= anchor()
+downcasts from a
+.V= link
+to a
+.V= node.
+.LI=VV "listmap();"
+.VV "listmap (const listmap&);"
+.VV "listmap& operator= (const listmap&);"
+.VV "listmap (listmap&&);"
+.VV "listmap& operator= (listmap&&);"
+.VV "~listmap();"
+The usual six members are overriden and explicitly defined.
+.LI=VV "iterator insert (const value_type&);"
+Note that insertion takes a pair as a single argument.
+If the key is already there, the value is replaced,
+otherwise there is a new entry inserted into the list.
+An iterator pointing at the inserted item is returned.
+.LI=VV "iterator find (const key_type&);"
+Searches and returns an iterator.
+If find fails, it returns the
+.V= end()
+iterator.
+.LI=VV "iterator erase (iterator position);"
+The item pointed at by the argument iterator is deleted from
+the list.
+The returned iterator points at the position immediately
+following that which was erased.
+.LI=VV "iterator begin();"
+.VV "iterator end();"
+The usual iterator generators.
+We don't bother here with a constant iterator.
+Since the list is circular,
+.V= end()
+is just the list itself.
+.LE
+.H 1 "Template class \f[CB]listmap::iterator\f[P]
+Although the iterator is nested inside the list map,
+it is easier to read when specified separately.
+.ALX a ()
+.LI=VV "class listmap<key_t,mapped_t,less_t>::iterator"
+specifies precisely which class the iterator belongs to.
+.LI=VV "friend class listmap<key_t,mapped_t>;"
+Only a listmap is permitted to construct a valid iterator.
+.LI=VV "iterator (listmap* map, node* where);"
+The iterator keeps track of both the node and the list as a whole,
+so that
+.V= end()
+can return an iterator ``off the end'',
+.LI=VV "value_type& operator*();"
+Returns a reference to some value type (key and value pair)
+in the list.
+Selections are then by dot
+.=V ( . ).
+.LI=VV "value_type* operator->();"
+Returns a pointer to some value type, from which fields can be
+selected with an arrow
+.=V ( -> ).
+.LI=VV "iterator& operator++(); //++itor"
+.VV "iterator& operator--(); //--itor"
+Move backwards and forwards along the list.
+Moving off the end with
+.V= ++
+and moving from an end iterator to the last element
+does not require special coding,
+since the list is a circular list.
+We don't bothere here with the postfix operators.
+.LI=VV "void erase();"
+Removes the key and value pair from the list.
+.LE
+.H 1 "Diagram of listmap with data"
+.DS CB
+.SP
+.ft CB
+         end       begin
+         |         |
+         V         V                             last
+         anchor    node      node      node      node
+         +-----+   +-----+   +-----+   +-----+   +-----+
+(last)-->|  *--|-->|  *--|-->|  *--|-->|  *--|-->|  *--|-->(anchor)
+(last)<--|--*  |<--|--*  |<--|--*  |<--|--*  |<--|--*  |<--(anchor)
+         +-----+   +-----+   +-----+   +-----+   +-----+
+                   |     |   |     |   |     |   |     |
+                   | key |   | key |   | key |   | key |
+                   |     |   |     |   |     |   |     |
+                   | map |   | map |   | map |   | map |
+                   |     |   |     |   |     |   |     |
+                   +-----+   +-----+   +-----+   +-----+
+.SP
+.DE
+.H 1 "What to Submit"
+.V= Makefile ,
+.V= README ,
+and all necessary C++ header and implementation
+.=V ( *.h ,
+.V= *.tcc ,
+.V= *.cpp )
+files.
+If you are using pair programming, also submit
+.V= PARTNER .
+@
+
+
+1.68
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.67 2021-02-08 16:00:45-08 - - $"
+d377 1
+a377 1
+                   | val |   | val |   | val |   | val |
+@
+
+
+1.67
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CSE-111 Winter\~2021 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.66 2021-02-08 15:52:29-08 - - $"
+@
+
+
+1.66
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.65 2021-02-08 15:50:25-08 - - $"
+d366 3
+a368 1
+         end       begin                         last
+@
+
+
+1.65
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.64 2021-02-08 15:49:42-08 - - $"
+d366 2
+a367 2
+          end        begin                         last
+          anchor     node      node      node      node
+@
+
+
+1.64
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.63 2021-02-08 15:46:42-08 - - $"
+d97 1
+a97 2
+Each non-comment line causes some action on the part of the program,
+as described below.
+@
+
+
+1.63
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.62 2021-02-08 15:45:49-08 - - $"
+d369 10
+a378 10
+          +----+    +----+    +----+    +----+    +----+
+(last)--->|  *-|--->|  *-|--->|  *-|--->|  *-|--->|  *-|--->(anchor)
+(last)<---|-*  |<---|-*  |<---|-*  |<---|-*  |<---|-*  |<---(anchor)
+          +----+    +----+    +----+    +----+    +----+
+                    |    |    |    |    |    |    |    |
+                    |key |    |key |    |key |    |key |
+                    |    |    |    |    |    |    |    |
+                    |val |    |val |    |val |    |val |
+                    |    |    |    |    |    |    |    |
+                    +----+    +----+    +----+    +----+
+@
+
+
+1.62
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.61 2021-02-08 15:44:41-08 - - $"
+d376 1
+a376 1
+                    |mapd|    |mapd|    |mapd|    |mapd|
+@
+
+
+1.61
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.60 2021-02-08 15:43:48-08 - - $"
+d106 1
+a106 1
+Of course, use
+@
+
+
+1.60
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.56 2021-02-06 21:07:18-08 - - $"
+d96 1
+a96 1
+.P
+@
+
+
+1.59
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.58 2021-02-08 15:41:14-08 - - $"
+d76 9
+d96 1
+a96 1
+.MANPAGE=LI "INPUT FORMAT"
+a149 9
+.MANPAGE=LI "OPTIONS"
+The
+.V= -@@
+option is followed by a sequence of flags to enable debugging output,
+which is written to the standard error.
+The option flags are only meaningful to the programmer.
+.MANPAGE=LI "OPERANDS"
+Each operand is the name of a file to be read.
+If no filenames are specified,
+@
+
+
+1.58
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.56 2021-02-06 21:07:18-08 - - $"
+d76 12
+a87 1
+.P
+a149 11
+.V= cin
+is read.
+If filenames are specified,
+a filename consisting of a single minus sign
+.=V ( - )
+causes 
+.V= cin
+to be read in sequence at that position.
+Any file that can not be accessed causes a message in proper format to
+be printed to
+.V= cerr .
+@
+
+
+1.57
+log
+@-
+@
+text
+@a75 6
+If any filename is specified as a minus sign,
+.V= cin
+is read at that point in processing the files from the command line.
+If no files are specified on the command line,
+.V= cin
+is read.
+@
+
+
+1.56
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.55 2021-02-06 17:21:02-08 - - $"
+d76 6
+@
+
+
+1.55
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.54 2021-02-06 17:18:28-08 - - $"
+d374 1
+d376 1
+a376 2
+                    |data|    |data|    |data|    |data|
+                    |    |    |    |    |    |    |    |
+@
+
+
+1.54
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.53 2021-02-05 20:59:25-08 - - $"
+a379 61
+.DE
+.DS CB
+.PS 5.75i
+.S -1 -1
+boxht=1
+boxwid=1.3
+arrowwid=.1
+arrowht=.2
+boxdelta=boxwid/2
+boxsep=boxwid+boxdelta
+Anchor: box
+Node1: box at Anchor+(boxsep,0)
+Node2: box at Node1+(boxsep,0)
+Node3: box at Node2+(boxsep,0)
+Node4: box at Node3+(boxsep,0)
+"anchor" at Anchor.n+(0,.15)
+"node1" at Node1.n+(0,.15)
+"node2" at Node2.n+(0,.15)
+"node3" at Node3.n+(0,.15)
+"node4" at Node4.n+(0,.15)
+"\f[CB]end()\f[P]" at Anchor.n+(0,.45)
+"\f[CB]begin()\f[P]" at Node1.n+(0,.45)
+"last" at Node4.n+(0,.45)
+Data1: box ht 2 at Node1.s-(0,1)
+Data2: box ht 2 at Node2.s-(0,1)
+Data3: box ht 2 at Node3.s-(0,1)
+Data4: box ht 2 at Node4.s-(0,1)
+arrow from Anchor.w+(-boxdelta,.2) to Anchor.w+(0,.2)
+arrow from Anchor+(0,.2) to Node1.w+(0,.2)
+arrow from Node1+(0,.2) to Node2.w+(0,.2)
+arrow from Node2+(0,.2) to Node3.w+(0,.2)
+arrow from Node3+(0,.2) to Node4.w+(0,.2)
+arrow from Node4+(0,.2) to Node4.e+(boxdelta,.2)
+arrow from Anchor-(0,.2) to Anchor.w-(boxdelta,.2)
+arrow from Node1-(0,.2) to Anchor.e-(0,.2)
+arrow from Node2-(0,.2) to Node1.e-(0,.2)
+arrow from Node3-(0,.2) to Node2.e-(0,.2)
+arrow from Node4-(0,.2) to Node3.e-(0,.2)
+arrow from Node4.e-(-boxdelta,.2) to Node4.e-(0,.2)
+circle fill 1 diam arrowwid at Anchor+(0,.2)
+circle fill 1 diam arrowwid at Anchor-(0,.2)
+circle fill 1 diam arrowwid at Node1+(0,.2)
+circle fill 1 diam arrowwid at Node1-(0,.2)
+circle fill 1 diam arrowwid at Node2+(0,.2)
+circle fill 1 diam arrowwid at Node2-(0,.2)
+circle fill 1 diam arrowwid at Node3+(0,.2)
+circle fill 1 diam arrowwid at Node3-(0,.2)
+circle fill 1 diam arrowwid at Node4+(0,.2)
+circle fill 1 diam arrowwid at Node4-(0,.2)
+box invis at Anchor.w-(boxdelta,0)
+"(last)" at Anchor.w-(boxdelta,0)
+"(anchor)" at Node4.e+(boxdelta,0)
+"key1" at Data1+(0,.3)
+"mapped1" at Data1-(0,.3)
+"key2" at Data2+(0,.3)
+"mapped2" at Data2-(0,.3)
+"key3" at Data3+(0,.3)
+"mapped3" at Data3-(0,.3)
+"key4" at Data4+(0,.3)
+"mapped4" at Data4-(0,.3)
+.PE
+@
+
+
+1.53
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.52 2021-02-05 20:57:33-08 - - $"
+d380 61
+@
+
+
+1.52
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.51 2021-02-05 20:56:14-08 - - $"
+d370 2
+a371 2
+      --->|  *-|--->|  *-|--->|  *-|--->|  *-|--->|  *-|--->(anchor)
+(last)<---|-*  |<---|-*  |<---|-*  |<---|-*  |<---|-*  |<---
+@
+
+
+1.51
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.50 2021-02-05 20:55:26-08 - - $"
+d364 1
+a364 1
+.DS
+d370 2
+a371 2
+      --->|   -|--->|   -|--->|   -|--->|   -|--->|   -|--->(anchor)
+(last)<---|-   |<---|-   |<---|-   |<---|-   |<---|-   |<---
+@
+
+
+1.50
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.49 2021-02-05 20:54:38-08 - - $"
+d370 2
+a371 2
+      --->|   ----->|   ----->|   ----->|   ----->|   ----->(anchor)
+(last)<-----   |<-----   |<-----   |<-----   |<-----   |<---
+@
+
+
+1.49
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.48 2021-02-05 20:54:24-08 - - $"
+d365 1
+a365 1
+.B1
+d379 1
+a379 1
+.B2
+@
+
+
+1.48
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.47 2021-02-05 20:51:52-08 - - $"
+d365 1
+a366 1
+.B1
+@
+
+
+1.47
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.46 2021-02-05 20:50:23-08 - - $"
+d366 1
+d370 2
+a371 2
+      --->|   -|--->|   -|--->|   -|--->|   -|--->|   -|--->(anchor)
+(last)<---|-   |<---|-   |<---|-   |<---|-   |<---|-   |<---
+d379 1
+@
+
+
+1.46
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.45 2021-02-05 20:49:47-08 - - $"
+d365 1
+a365 1
+.ft CR
+@
+
+
+1.45
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.44 2021-02-01 18:56:56-08 - - $"
+d365 1
+@
+
+
+1.44
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.43 2020-01-28 14:03:21-08 - - $"
+d54 1
+a54 1
+.H 1 "Program Specification"
+d160 1
+a160 1
+.H 1 "Implementation Sequence"
+d363 15
+@
+
+
+1.43
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CSE-111 Winter\~2020 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.42 2020-01-28 14:00:49-08 - - $"
+@
+
+
+1.42
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CSE-111 Fall\~2019 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.41 2019-10-22 12:37:57-07 - - $"
+@
+
+
+1.41
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.40 2019-10-22 12:36:13-07 - - $"
+d216 11
+@
+
+
+1.40
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Summer\~2019 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.39 2019-10-22 12:30:09-07 - - $"
+@
+
+
+1.39
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.38 2019-10-22 12:27:04-07 - - $"
+d245 2
+a246 1
+"template <typename key_t, typename mapped_t, class Less=xless<key_t>>"
+d253 1
+a253 1
+.V= Less
+d322 1
+a322 1
+.LI=VV "class listmap<key_t,mapped_t,Less>::iterator"
+@
+
+
+1.38
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.37 2019-07-18 17:52:26-07 - - $"
+d244 2
+a245 1
+.LI=VV "template <typename Key, typename Value, class Less=xless<Key>>"
+d248 1
+a248 1
+.V= Key
+d250 1
+a250 1
+.V= Value
+d255 3
+a257 3
+.V= xless<Key> .
+.LI=VV "using key_type = Key;"
+.VV "using mapped_type = Value;"
+d321 1
+a321 1
+.LI=VV "class listmap<Key,Value,Less>::iterator"
+d323 1
+a323 1
+.LI=VV "friend class listmap<Key,Value>;"
+@
+
+
+1.37
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.36 2019-06-19 10:19:17-07 - - $"
+a198 2
+And balancing a BST is part of CMPS-101,
+which is not a prerequisite for this course.
+d255 3
+a257 3
+.LI=VV "typedef Key key_type;"
+.VV "typedef Value mapped_type;"
+.VV "typedef xpair<key_type,mapped_type> value_type;"
+@
+
+
+1.36
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.35 2019-04-29 15:38:37-07 - - $"
+d30 1
+@
+
+
+1.35
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Spring\~2019 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.34 2019-04-29 15:35:48-07 - - $"
+@
+
+
+1.34
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.33 2019-04-29 15:07:35-07 - - $"
+d313 3
+d345 3
+a347 1
+requires special coding.
+@
+
+
+1.33
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.32 2019-04-29 15:07:12-07 - - $"
+d299 1
+a299 1
+.LI=VV "iterator find (const key_type&) const;"
+@
+
+
+1.32
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.31 2019-04-24 17:06:41-07 - - $"
+d349 1
+a349 1
+and all necessary C++ header and implementation files
+d352 2
+a353 1
+.V= *.cpp ).
+@
+
+
+1.31
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.30 2019-04-24 17:06:26-07 - - $"
+d349 4
+a352 1
+and all necessary C++ header and implementation files.
+@
+
+
+1.30
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.29 2019-04-24 17:05:27-07 - - $"
+a351 1
+.FINISH
+@
+
+
+1.29
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.28 2019-01-31 18:11:24-08 - - $"
+d49 4
+@
+
+
+1.28
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Winter\~2019 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.27 2018-07-12 16:07:43-07 - - $"
+@
+
+
+1.27
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Summer\~2018 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.26 2018-01-24 13:13:21-08 - - $"
+@
+
+
+1.26
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Winter\~2018 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.25 2018-01-24 13:12:33-08 - - $"
+@
+
+
+1.25
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.24 2018-01-24 13:12:07-08 - - $"
+a345 2
+And don't forget 
+.V= checksource .
+@
+
+
+1.24
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.23 2017-07-17 15:15:13-07 - - $"
+d16 1
+a16 1
+classes from the STL.
+d181 1
+a181 1
+from the STL,
+d255 1
+a255 1
+are some standard names given to usual STL types.
+@
+
+
+1.23
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Summer\~2017 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.22 2017-07-12 16:39:23-07 - - $"
+@
+
+
+1.22
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Summer\~2016 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.21 2016-07-14 17:39:29-07 - - $"
+@
+
+
+1.21
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.20 2016-06-28 14:09:47-07 - - $"
+d22 1
+a22 1
+post a question to the mailing list\(::
+@
+
+
+1.20
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.19 2016-04-19 18:35:37-07 - - $"
+d216 11
+a226 30
+Then for each input line, parse the line by splitting it up into
+two pieces separated by the first equal
+.=V ( = )
+sign.
+Then trim leading and trailing white space off each end,
+and perform the appropriate function.
+.ALX a ()
+.LI
+Use
+.V= find_first_of
+to locate the first
+.V= \&'='
+in the string
+and then
+.V= substr
+to pull off the various parts.
+.LI
+Use
+.V= find_first_not_of
+and
+.V= find_last_not_of
+to find the first and last non-whitespace characters in the
+string.
+Write your own function
+.V= trim .
+.LI
+Use an 
+.V= if-else
+sequence to determine which command is being parsed.
+.LE
+@
+
+
+1.19
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Spring\~2016 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.18 2016-01-26 19:36:44-08 - - $"
+@
+
+
+1.18
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Winter\~2016 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.17 2015-07-06 18:24:22-07 - - $"
+@
+
+
+1.17
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Summer\~2015 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.16 2015-04-23 16:36:02-07 - - $"
+@
+
+
+1.16
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Spring\~2015 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.15 2015-01-30 14:28:46-08 - - $"
+@
+
+
+1.15
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Winter\~2015 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.14 2015-01-30 14:26:55-08 - - $"
+@
+
+
+1.14
+log
+@-
+@
+text
+@d5 1
+a5 1
+.TITLE CMPS-109 Summer\~2014 Program\~3 "Templates and Iterators"
+d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.13 2014-07-01 17:51:28-07 - - $"
+d296 6
+@
+
+
+1.13
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.12 2014-06-27 17:52:15-07 - - $"
+a279 4
+.LI=VV "struct node"
+is a private node used to hold a value type along with forward
+and backword links to form a doubly linked list.
+A list map keeps track of the head and tail.
+d291 5
+@
+
+
+1.12
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.11 2014-06-27 15:43:12-07 - - $"
+d298 2
+d301 2
+a302 2
+The usual four members are overriden and explicitly defined.
+.LI=VV "void insert (const value_type&);"
+d306 1
+d312 5
+@
+
+
+1.11
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.10 2014-06-27 15:42:49-07 - - $"
+d291 4
+@
+
+
+1.10
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.9 2014-06-27 15:35:45-07 - - $"
+d19 1
+d33 1
+@
+
+
+1.9
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.8 2014-06-27 15:33:46-07 - - $"
+d41 6
+@
+
+
+1.8
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.7 2014-06-27 15:33:05-07 - - $"
+d272 1
+a272 1
+.LI=VV "struct node
+d276 7
+@
+
+
+1.7
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.6 2014-06-27 15:32:48-07 - - $"
+d272 1
+a272 1
+.VV "struct node
+@
+
+
+1.6
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.5 2014-06-27 15:32:33-07 - - $"
+a21 2
+.br
+.nj
+d31 1
+a31 3
+.V= <typeinfo> ,
+.br
+.ad
+@
+
+
+1.5
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.4 2014-06-27 15:31:55-07 - - $"
+a23 1
+.in +\n[Pi]
+a34 1
+.in -\n[Pi]
+@
+
+
+1.4
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.3 2014-06-27 15:31:40-07 - - $"
+d21 2
+a22 2
+post a question to the mailing list.
+.bf
+d24 1
+d36 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.2 2014-06-27 15:28:17-07 - - $"
+d23 1
+a23 1
+.nf
+d35 1
+a35 1
+.fi
+@
+
+
+1.2
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg3-listmap-templates.mm,v 1.1 2014-06-27 15:24:34-07 - - $"
+d22 14
+a35 10
+.VTCODE* 1  <cassert>
+.VTCODE* 1  <cerrno>
+.VTCODE* 1  <cstdlib>
+.VTCODE* 1  <exception>
+.VTCODE* 1  <fstream>
+.VTCODE* 1  <iomanip>
+.VTCODE* 1  <iostream>
+.VTCODE* 1  <stdexcept>
+.VTCODE* 1  <string>
+.VTCODE* 1  <typeinfo>
+d291 3
+a311 1
+which can the find the tail element.
+@
+
+
+1.1
+log
+@-
+@
+text
+@d7 1
+a7 1
+"$Id: asg4-listmap-templates.mm,v 1.32 2014-05-06 19:08:59-07 - - $"
+d19 1
+a19 11
+You may use
+.V= <cassert> ,
+.V= <cerrno> ,
+.V= <cstdlib> ,
+.V= <exception> ,
+.V= <fstream> ,
+.V= <iomanip> ,
+.V= <iostream> ,
+.V= <stdexcept> ,
+.V= <string> ,
+.V= <typeinfo> ,
+d22 10
+d175 1
+a175 1
+.V= xpair.* .
+d249 1
+@

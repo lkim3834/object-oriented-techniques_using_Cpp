@@ -1,0 +1,181 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2020.10.11.19.47.51;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.06.21.39.55;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.12.13.02.19.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: bigint.cpp,v 1.2 2020-01-06 13:39:55-08 - - $
+
+#include <cstdlib>
+#include <exception>
+#include <stack>
+#include <stdexcept>
+using namespace std;
+
+#include "bigint.h"
+
+bigint::bigint (long that): uvalue (that), is_negative (that < 0) {
+   DEBUGF ('~', this << " -> " << uvalue)
+}
+
+bigint::bigint (const ubigint& uvalue_, bool is_negative_):
+                uvalue(uvalue_), is_negative(is_negative_) {
+}
+
+bigint::bigint (const string& that) {
+   is_negative = that.size() > 0 and that[0] == '_';
+   uvalue = ubigint (that.substr (is_negative ? 1 : 0));
+}
+
+bigint bigint::operator+ () const {
+   return *this;
+}
+
+bigint bigint::operator- () const {
+   return {uvalue, not is_negative};
+}
+
+bigint bigint::operator+ (const bigint& that) const {
+   ubigint result = uvalue + that.uvalue;
+   return result;
+}
+
+bigint bigint::operator- (const bigint& that) const {
+   ubigint result = uvalue - that.uvalue;
+   return result;
+}
+
+
+bigint bigint::operator* (const bigint& that) const {
+   bigint result = uvalue * that.uvalue;
+   return result;
+}
+
+bigint bigint::operator/ (const bigint& that) const {
+   bigint result = uvalue / that.uvalue;
+   return result;
+}
+
+bigint bigint::operator% (const bigint& that) const {
+   bigint result = uvalue % that.uvalue;
+   return result;
+}
+
+bool bigint::operator== (const bigint& that) const {
+   return is_negative == that.is_negative and uvalue == that.uvalue;
+}
+
+bool bigint::operator< (const bigint& that) const {
+   if (is_negative != that.is_negative) return is_negative;
+   return is_negative ? uvalue > that.uvalue
+                      : uvalue < that.uvalue;
+}
+
+ostream& operator<< (ostream& out, const bigint& that) {
+   return out << "bigint(" << (that.is_negative ? "-" : "+")
+              << "," << that.uvalue << ")";
+}
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: bigint.cpp,v 1.78 2019-04-03 16:44:33-07 - - $
+a9 2
+#include "debug.h"
+#include "relops.h"
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: bigint.cpp,v 1.79 2019-12-12 17:20:17-08 - - $
+d34 3
+a36 3
+bigint& bigint::operator+= (const bigint& that) {
+   uvalue += that.uvalue;
+   return *this;
+d39 3
+a41 3
+bigint& bigint::operator-= (const bigint& that) {
+   uvalue -= that.uvalue;
+   return *this;
+d45 3
+a47 3
+bigint& bigint::operator*= (const bigint& that) {
+   uvalue *= that.uvalue;
+   return *this;
+d50 3
+a52 3
+bigint& bigint::operator/= (const bigint& that) {
+   uvalue /= that.uvalue;
+   return *this;
+d55 3
+a57 3
+bigint& bigint::operator%= (const bigint& that) {
+   uvalue %= that.uvalue;
+   return *this;
+a72 25
+}
+
+bigint operator+ (const bigint& lhs, const bigint& rhs) {
+   bigint result = lhs;
+   return result += rhs;
+}
+
+bigint operator- (const bigint& lhs, const bigint& rhs) {
+   bigint result = lhs;
+   return result -= rhs;
+}
+
+bigint operator* (const bigint& lhs, const bigint& rhs) {
+   bigint result = lhs;
+   return result *= rhs;
+}
+
+bigint operator/ (const bigint& lhs, const bigint& rhs) {
+   bigint result = lhs;
+   return result /= rhs;
+}
+
+bigint operator% (const bigint& lhs, const bigint& rhs) {
+   bigint result = lhs;
+   return result %= rhs;
+@

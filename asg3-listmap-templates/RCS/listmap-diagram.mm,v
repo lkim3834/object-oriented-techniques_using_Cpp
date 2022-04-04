@@ -1,0 +1,1137 @@
+head	1.54;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.54
+date	2021.04.28.18.50.16;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2021.02.08.23.58.57;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2021.02.08.23.58.36;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2021.02.08.23.58.17;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2021.02.08.23.57.31;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2021.02.08.23.56.52;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2021.02.08.23.56.24;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2021.02.08.23.55.15;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2021.02.08.23.54.53;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2021.02.08.23.53.37;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2021.02.07.05.53.09;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2021.02.07.05.50.02;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2021.02.07.05.49.36;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2021.02.07.05.49.20;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2021.02.07.05.47.17;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2021.02.07.05.45.18;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2021.02.07.05.44.11;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2021.02.07.05.43.12;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2021.02.07.05.41.07;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2021.02.07.05.40.47;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2021.02.07.05.40.33;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2021.02.07.05.39.36;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2021.02.07.05.37.22;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2021.02.07.05.35.39;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2021.02.07.05.35.12;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2021.02.07.05.34.03;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2021.02.07.05.33.45;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2021.02.07.05.32.40;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2021.02.07.05.32.01;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2021.02.07.05.31.12;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2021.02.07.05.28.52;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2021.02.07.05.28.08;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2021.02.07.05.27.09;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2021.02.07.05.26.49;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2021.02.07.05.26.37;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2021.02.07.05.26.26;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2021.02.07.05.26.14;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2021.02.07.05.25.55;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2021.02.07.05.25.37;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2021.02.07.05.22.15;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2021.02.07.05.21.04;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2021.02.07.05.19.16;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2021.02.07.05.17.28;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2021.02.07.05.13.33;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2021.02.07.05.12.59;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2021.02.07.05.12.46;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2021.02.07.05.12.13;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2021.02.07.05.11.43;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.02.07.05.11.19;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.02.07.05.08.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.02.07.01.24.19;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.02.07.01.23.48;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.02.07.01.22.42;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.02.07.01.21.21;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.54
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.TITLE CSE-111 "Program 3" "Listmap Diagram"
+.RCS "$Id: listmap-diagram.mm,v 1.53 2021-02-08 15:58:57-08 - - $"
+.PWD
+.URL
+.DS CB
+.PS 5.75i
+boxht=1
+boxwid=1.3
+arrowwid=.1
+arrowht=.2
+linethick=1
+boxdelta=boxwid/2
+boxsep=boxwid+boxdelta
+Anchor: box
+Node1: box at Anchor+(boxsep,0)
+Node2: box at Node1+(boxsep,0)
+Node3: box at Node2+(boxsep,0)
+Node4: box at Node3+(boxsep,0)
+"\f[CB]::anchor\f[P]" rjust at Anchor.ne+(0,.15)
+"\f[CB]listmap\f[P]" rjust at Anchor.ne+(0,.45)
+"node1" rjust at Node1.ne+(0,.15)
+"node2" rjust at Node2.ne+(0,.15)
+"node3" rjust at Node3.ne+(0,.15)
+"node4" rjust at Node4.ne+(0,.15)
+"(last)" rjust at Node4.ne+(0,.45)
+"\f[CB]::end()\f[P]" ljust at Anchor.nw+(0,boxht+0.1)
+"\f[CB]listmap\f[P]" ljust at Anchor.nw+(0,boxht+.40)
+"\f[CB]::begin()\f[P]" ljust at Node1.nw+(0,boxht+0.1)
+"\f[CB]listmap\f[P]" ljust at Node1.nw+(0,boxht+.40)
+arrow from Node1.nw+(.05,boxht) to Node1.nw+(.05,0)
+arrow from Anchor.nw+(.05,boxht) to Anchor.nw+(.05,0)
+Data1: box ht 2 at Node1.s-(0,1)
+Data2: box ht 2 at Node2.s-(0,1)
+Data3: box ht 2 at Node3.s-(0,1)
+Data4: box ht 2 at Node4.s-(0,1)
+arrow from Anchor.w+(-boxdelta,.2) to Anchor.w+(0,.2)
+arrow from Anchor+(0,.2) to Node1.w+(0,.2)
+arrow from Node1+(0,.2) to Node2.w+(0,.2)
+arrow from Node2+(0,.2) to Node3.w+(0,.2)
+arrow from Node3+(0,.2) to Node4.w+(0,.2)
+arrow from Node4+(0,.2) to Node4.e+(boxdelta,.2)
+arrow from Anchor-(0,.2) to Anchor.w-(boxdelta,.2)
+arrow from Node1-(0,.2) to Anchor.e-(0,.2)
+arrow from Node2-(0,.2) to Node1.e-(0,.2)
+arrow from Node3-(0,.2) to Node2.e-(0,.2)
+arrow from Node4-(0,.2) to Node3.e-(0,.2)
+arrow from Node4.e-(-boxdelta,.2) to Node4.e-(0,.2)
+circle fill 1 diam arrowwid at Anchor+(0,.2)
+circle fill 1 diam arrowwid at Anchor-(0,.2)
+circle fill 1 diam arrowwid at Node1+(0,.2)
+circle fill 1 diam arrowwid at Node1-(0,.2)
+circle fill 1 diam arrowwid at Node2+(0,.2)
+circle fill 1 diam arrowwid at Node2-(0,.2)
+circle fill 1 diam arrowwid at Node3+(0,.2)
+circle fill 1 diam arrowwid at Node3-(0,.2)
+circle fill 1 diam arrowwid at Node4+(0,.2)
+circle fill 1 diam arrowwid at Node4-(0,.2)
+box invis at Anchor.w-(boxdelta,0)
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,0)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,0)
+"key1" at Data1+(0,.3)
+"mapped1" at Data1-(0,.3)
+"key2" at Data2+(0,.3)
+"mapped2" at Data2-(0,.3)
+"key3" at Data3+(0,.3)
+"mapped3" at Data3-(0,.3)
+"key4" at Data4+(0,.3)
+"mapped4" at Data4-(0,.3)
+.PE
+.DE
+@
+
+
+1.53
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.52 2021-02-08 15:58:36-08 - - $"
+d65 1
+a65 1
+"value1" at Data1-(0,.3)
+d67 1
+a67 1
+"value2" at Data2-(0,.3)
+d69 1
+a69 1
+"value3" at Data3-(0,.3)
+d71 1
+a71 1
+"value4" at Data4-(0,.3)
+@
+
+
+1.52
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.51 2021-02-08 15:58:17-08 - - $"
+d62 2
+a63 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,0.05)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,-0.05)
+@
+
+
+1.51
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.50 2021-02-08 15:57:31-08 - - $"
+d62 1
+a62 1
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,+0.05)
+@
+
+
+1.50
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.49 2021-02-08 15:56:52-08 - - $"
+d62 2
+a63 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,-0.1)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,-0.1)
+@
+
+
+1.49
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.48 2021-02-08 15:56:24-08 - - $"
+d62 2
+a63 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,+.1)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,+.1)
+@
+
+
+1.48
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.47 2021-02-08 15:55:15-08 - - $"
+d62 2
+a63 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,-.1)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,-.1)
+@
+
+
+1.47
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.46 2021-02-08 15:54:53-08 - - $"
+d62 2
+a63 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,0)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,0)
+@
+
+
+1.46
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.45 2021-02-08 15:53:37-08 - - $"
+d62 2
+a63 2
+"(last)" rjust at Anchor.w-(boxdelta+arrowht,0)
+"(anchor)" ljust at Node4.e+(boxdelta+arrowht,0)
+@
+
+
+1.45
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.44 2021-02-06 21:53:09-08 - - $"
+d62 2
+a63 2
+"(last)" rjust at Anchor.w-(boxdelta,0)
+"(anchor)" ljust at Node4.e+(boxdelta,0)
+@
+
+
+1.44
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.43 2021-02-06 21:50:02-08 - - $"
+d65 1
+a65 1
+"mapped1" at Data1-(0,.3)
+d67 1
+a67 1
+"mapped2" at Data2-(0,.3)
+d69 1
+a69 1
+"mapped3" at Data3-(0,.3)
+d71 1
+a71 1
+"mapped4" at Data4-(0,.3)
+@
+
+
+1.43
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.42 2021-02-06 21:49:36-08 - - $"
+d23 1
+d28 1
+a28 1
+"\f[CB]listmap\f[P]" ljust at Anchor.nw+(0,boxht+.45)
+d30 1
+a30 1
+"\f[CB]listmap\f[P]" ljust at Node1.nw+(0,boxht+.45)
+d32 1
+a34 2
+"(last)" rjust at Node4.ne+(0,.45)
+"\f[CB]listmap\f[P]" rjust at Anchor.ne+(0,.45)
+@
+
+
+1.42
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.41 2021-02-06 21:49:20-08 - - $"
+d27 1
+a27 1
+"\f[CB]listmap\f[P]" ljust at Anchor.nw+(0,.45)
+d29 1
+a29 1
+"\f[CB]listmap\f[P]" ljust at Node1.nw+(0,.45)
+@
+
+
+1.41
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.40 2021-02-06 21:47:17-08 - - $"
+d30 1
+a30 1
+"\f[CB]::begin()\f[P]" ljust at Node.nw+(0,boxht+0.1)
+@
+
+
+1.40
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.39 2021-02-06 21:45:18-08 - - $"
+d27 4
+a30 2
+"\f[CB]end()\f[P]" ljust at Node1.nw+(0,boxht+0.1)
+"\f[CB]begin()\f[P]" ljust at Anchor.nw+(0,boxht+0.1)
+@
+
+
+1.39
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.38 2021-02-06 21:44:11-08 - - $"
+d22 5
+a26 5
+"\f[CB]::anchor\f[P]" at Anchor.n+(0,.15)
+"node1" at Node1.n+(0,.15)
+"node2" at Node2.n+(0,.15)
+"node3" at Node3.n+(0,.15)
+"node4" at Node4.n+(0,.15)
+d31 2
+a32 2
+"(last)" at Node4.n+(0,.45)
+"\f[CB]listmap\f[P]" at Anchor.n+(0,.45)
+@
+
+
+1.38
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.37 2021-02-06 21:43:12-08 - - $"
+d22 1
+a22 1
+".anchor" at Anchor.n+(0,.15)
+d32 1
+a32 1
+"listmap" at Anchor.n+(0,.45)
+@
+
+
+1.37
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.36 2021-02-06 21:41:07-08 - - $"
+d22 1
+a22 1
+"anchor" at Anchor.n+(0,.15)
+d31 1
+a31 1
+"last" at Node4.n+(0,.45)
+@
+
+
+1.36
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.35 2021-02-06 21:40:47-08 - - $"
+d32 1
+@
+
+
+1.35
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.34 2021-02-06 21:40:33-08 - - $"
+d9 1
+a9 1
+.PS 6.0i
+@
+
+
+1.34
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.33 2021-02-06 21:39:36-08 - - $"
+d9 1
+a9 1
+.PS 5.8i
+@
+
+
+1.33
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.32 2021-02-06 21:37:22-08 - - $"
+d9 1
+a9 1
+.PS 5.75i
+@
+
+
+1.32
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.31 2021-02-06 21:35:39-08 - - $"
+d27 4
+a30 4
+"\f[CB]end()\f[P]" ljust at Node1.nw+(0,1.1)
+"\f[CB]begin()\f[P]" ljust at Anchor.nw+(0,1.1)
+arrow from Node1.nw+(.05,1) to Node1.nw+(.05,0)
+arrow from Anchor.nw+(.05,1) to Anchor.nw+(.05,0)
+@
+
+
+1.31
+log
+@-
+@
+text
+@d4 2
+a5 2
+.TITLE CSE-111 "Listmap Diagram"
+.RCS "$Id: listmap-diagram.mm,v 1.30 2021-02-06 21:35:12-08 - - $"
+@
+
+
+1.30
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.29 2021-02-06 21:34:03-08 - - $"
+d29 2
+a30 2
+arrow from Node1.nw+(.1,1) to Node1.nw+(.1,0)
+arrow from Anchor.nw+(.1,1) to Anchor.nw+(.1,0)
+@
+
+
+1.29
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.28 2021-02-06 21:33:45-08 - - $"
+d29 2
+a30 2
+arrow from Node1.nw+(0,1) to Node1.nw
+arrow from Anchor.nw+(0,1) to Anchor.nw
+@
+
+
+1.28
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.27 2021-02-06 21:32:40-08 - - $"
+d27 2
+a28 2
+"\f[CB]end()\f[P]" ljust at Node1.nw+(0,1.05)
+"\f[CB]begin()\f[P]" ljust at Anchor.nw+(0,1.05)
+@
+
+
+1.27
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.26 2021-02-06 21:32:01-08 - - $"
+d27 2
+a28 2
+"\f[CB]end()\f[P]" ljust at Node1.nw+(0,1.2)
+"\f[CB]begin()\f[P]" ljust at Anchor.nw+(0,1.2)
+@
+
+
+1.26
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.25 2021-02-06 21:31:12-08 - - $"
+d27 4
+a30 4
+"\f[CB]end()\f[P]" ljust at Node1.nw+(0,1)
+"\f[CB]begin()\f[P]" ljust at Anchor.nw+(0,1)
+arrow from Node1.nw+(0,.9) to Node1.nw
+arrow from Anchor.nw+(0,.9) to Anchor.nw
+@
+
+
+1.25
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.24 2021-02-06 21:28:52-08 - - $"
+d27 4
+a30 4
+"\f[CB]\^end()\f[P]" ljust at Node1.nw+(0,1)
+"\f[CB]\^begin()\f[P]" ljust at Anchor.nw+(0,1)
+arrow from Node1.nw+(0,1) to Node1.nw
+arrow from Anchor.nw+(0,1) to Anchor.nw
+@
+
+
+1.24
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.22 2021-02-06 21:27:09-08 - - $"
+d27 2
+a28 2
+"\f[CB] end()\f[P]" ljust at Node1.nw+(0,1)
+"\f[CB] begin()\f[P]" ljust at Anchor.nw+(0,1)
+@
+
+
+1.23
+log
+@-
+@
+text
+@d27 2
+a28 4
+.ft CB
+"end()" ljust at Node1.nw+(0,1)
+"begin()" ljust at Anchor.nw+(0,1)
+.ft P
+@
+
+
+1.22
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.21 2021-02-06 21:26:49-08 - - $"
+d27 4
+a30 2
+"\f[CB]end()\f[P]" ljust at Node1.nw+(0,1)
+"\f[CB]begin()\f[P]" ljust at Anchor.nw+(0,1)
+@
+
+
+1.21
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.20 2021-02-06 21:26:37-08 - - $"
+d14 1
+a14 1
+linethick=1.5
+@
+
+
+1.20
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.19 2021-02-06 21:26:26-08 - - $"
+d14 1
+a14 1
+linethick=2
+@
+
+
+1.19
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.18 2021-02-06 21:26:14-08 - - $"
+d14 1
+a14 1
+linethick=1
+@
+
+
+1.18
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.17 2021-02-06 21:25:55-08 - - $"
+d14 1
+a14 1
+linethick=.1
+@
+
+
+1.17
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.16 2021-02-06 21:25:37-08 - - $"
+d14 1
+a16 1
+linethick=.05
+@
+
+
+1.16
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.15 2021-02-06 21:22:15-08 - - $"
+d16 1
+a16 1
+linethick=5
+@
+
+
+1.15
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.14 2021-02-06 21:21:04-08 - - $"
+d16 1
+@
+
+
+1.14
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.13 2021-02-06 21:19:16-08 - - $"
+d26 4
+a29 4
+Begin: "\f[CB]end()\f[P]" ljust at Node1.nw+(0,1)
+End: "\f[CB]begin()\f[P]" ljust at Anchor.nw+(0,1)
+arrow from Begin to Node1.nw
+arrow from End to Anchor.nw
+@
+
+
+1.13
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: listmap-diagram.mm,v 1.12 2021-02-06 21:17:28-08 - - $"
+d26 4
+a29 2
+"\f[CB]end()\f[P]" ljust at Anchor.nw+(0,1)
+"\f[CB]begin()\f[P]" ljust at Node1.nw+(0,1)
+@
+
+
+1.12
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: asg3-listmap-templates.mm,v 1.56 2021-02-06 21:07:18-08 - - $"
+d26 2
+a27 2
+"\f[CB]end()\f[P]" at Anchor.n+(0,.45)
+"\f[CB]begin()\f[P]" at Node1.n+(0,.45)
+@
+
+
+1.11
+log
+@-
+@
+text
+@d4 4
+@
+
+
+1.10
+log
+@-
+@
+text
+@d52 2
+a53 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,0)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,0)
+@
+
+
+1.9
+log
+@-
+@
+text
+@d53 1
+a53 1
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht2,0)
+@
+
+
+1.8
+log
+@-
+@
+text
+@d52 2
+a53 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht*2,0)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht*2,0)
+@
+
+
+1.7
+log
+@-
+@
+text
+@d52 2
+a53 2
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,0)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,0)
+@
+
+
+1.6
+log
+@-
+@
+text
+@d52 1
+a52 1
+"(last)" rjust at Anchor.w-(boxdelta+arrowht,0)
+@
+
+
+1.5
+log
+@-
+@
+text
+@d52 2
+a53 2
+"(last)" rjust at Anchor.w-(boxdelta+2m,0)
+"(anchor)" ljust at Node4.e+(boxdelta-2m,0)
+@
+
+
+1.4
+log
+@-
+@
+text
+@d52 2
+a53 2
+"(last)" rjust at Anchor.w-(boxdelta,0)
+"(anchor)" ljust at Node4.e+(boxdelta,0)
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 2
+a4 1
+.S -1 -1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d50 2
+a51 2
+"(last)" at Anchor.w-(boxdelta,0)
+"(anchor)" at Node4.e+(boxdelta,0)
+@

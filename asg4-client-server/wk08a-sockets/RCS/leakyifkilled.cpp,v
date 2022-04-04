@@ -1,0 +1,59 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2021.02.26.23.26.40;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.02.26.23.25.53;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// $Id: leakyifkilled.cpp,v 1.1 2021-02-26 15:25:53-08 - - $
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+#include <unistd.h>
+
+int main (int argc, char** argv) {
+   vector<string> argvec {&argv[0], &argv[argc]};
+   for (size_t count = 0;; ++count) {
+      cout << argvec[0] << ": count = " << count << endl;
+      sleep (5);
+   }
+   
+}
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d14 1
+a14 1
+      sleep (10);
+@

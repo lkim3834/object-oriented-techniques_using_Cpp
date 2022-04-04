@@ -1,0 +1,10 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting powerint.cpp
+checksource powerint.cpp
+ident powerint.cpp
+powerint.cpp:
+     $Id: powerint.cpp,v 1.14 2016-06-13 13:44:54-07 - - $
+cpplint.py.perl powerint.cpp
+Done processing powerint.cpp
+g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++2a -Wold-style-cast -g -O0 powerint.cpp -o powerint -lm
+rm -f powerint.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished powerint.cpp

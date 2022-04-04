@@ -1,0 +1,72 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2021.05.01.20.01.06;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.05.01.19.59.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// $Id: asm-code-sum.cpp,v 1.1 2021-05-01 12:59:38-07 - - $
+
+#include <list>
+#include <vector>
+using namespace std;
+
+int sum_list (const list<int>& lst) {
+   int sum = 0;
+   for (int n: lst) sum += n;
+   return sum;
+}
+
+int sum_vector (const vector<int>& vec) {
+   int sum = 0;
+   for (int n: vec) sum += n;
+   return sum;
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: sum-list.cpp,v 1.1 2021-05-01 12:53:11-07 - - $
+d7 1
+a7 2
+template <typename container>
+int sum_cont (const container& cont) {
+d9 1
+a9 1
+   for (int n: cont) sum += n;
+d13 4
+a16 5
+void test() {
+   vector<int> vi;
+   list<int> li;
+   int vs = sum_cont (vi);
+   int ls = sum_cont (li);
+d18 1
+@

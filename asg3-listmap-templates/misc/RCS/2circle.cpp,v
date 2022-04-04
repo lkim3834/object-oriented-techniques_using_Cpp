@@ -1,0 +1,234 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2021.04.29.04.27.27;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.29.03.31.22;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.29.03.29.30;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: circle-list.cpp,v 1.30 2021-04-28 19:53:48-07 - - $
+
+#include <cxxabi.h>
+#include <iostream>
+#include <memory>
+#include <string>
+#include <typeinfo>
+#include <vector>
+using namespace std;
+
+//////////////// begin demangle ////////////////
+
+#include <cxxabi.h>
+template <typename type>
+string demangle() {
+   const char* name = typeid (type).name();
+   int status = 0;
+   using deleter = void (*) (void*);
+   unique_ptr<char,deleter> result {
+      abi::__cxa_demangle (name, nullptr, nullptr, &status),
+      std::free,
+   };
+   return status == 0 ? result.get() : name;
+}
+
+//////////////// end demangle ////////////////
+
+//////////////// end xlist.h ////////////////
+
+#ifndef __XLIST_H__
+#define __XLIST_H__
+
+template <typename value_type>
+struct xlist {
+   struct node;
+   struct link {
+      node* next;
+      node* prev;
+      link (node* next_, node* prev_): next(next_), prev(prev_) {}
+   };
+   struct node: link {
+      value_type item;
+      explicit node (node* next_ = nullptr, node* prev_ = nullptr,
+                     const value_type& item_ = value_type()):
+            link(next_, prev_), item(item_) {}
+   };
+   node* anchor() { return static_cast<node*> (&anchor_); }
+   link anchor_;
+
+   xlist(): anchor_ (anchor(), anchor()) {}
+   xlist (const xlist&) = delete;
+   xlist& operator= (const xlist&) = delete;
+   ~xlist() { while (not empty()) pop_back(); }
+
+   bool empty() { return anchor_.next == anchor(); }
+   void push_back (const value_type&);
+   void pop_back();
+   value_type& back() { return anchor_.prev->item; }
+
+   class iterator;
+   iterator begin() { return iterator (anchor_.next); }
+   iterator end() { return iterator (anchor()); }
+};
+
+
+template <typename value_type>
+struct xlist<value_type>::iterator {
+   node* curr;
+   explicit iterator (node* curr_ = nullptr): curr(curr_) {}
+   value_type& operator*() { return curr->item; }
+   iterator& operator++() { curr = curr->next; return *this; }
+   iterator& operator--() { curr = curr->prev; return *this; }
+   bool operator== (const iterator &that) { return curr == that.curr; }
+   bool operator!= (const iterator &that) { return curr != that.curr; }
+};
+
+template <typename value_type>
+void xlist<value_type>::push_back (const value_type& item) {
+   node* tmp = new node (anchor(), anchor_.prev, item);
+   anchor_.prev = tmp;
+   tmp->prev->next = tmp;
+}
+
+template <typename value_type>
+void xlist<value_type>::pop_back() {
+   node* tmp = anchor_.prev;
+   anchor_.prev = tmp->prev;
+   anchor_.prev->next = anchor();
+   delete tmp;
+}
+
+#endif
+
+//////////////// end xlist.h ////////////////
+
+//////////////// begin main test file ////////////////
+
+template <typename type, typename show_t>
+ostream& show_node (typename xlist<type>::node* ptr,
+                    show_t show) {
+   cout << ptr << "->{next=" << ptr->next << ", prev=" << ptr->prev;
+   show();
+   cout << "}" << endl;
+   return cout;
+}
+
+template <typename type>
+void show_xlist (const string &str, xlist<type>& thelist) {
+   cout << str << ":" << endl;
+   show_node<type> (thelist.anchor(), [](){});
+   for (typename xlist<type>::iterator itor = thelist.begin();
+        itor != thelist.end(); ++itor) {
+       struct {
+          decltype(itor) item;
+          void operator()() { cout << ", item=" << *item; }
+       } show (itor);
+//      auto show = [itor](){ cout << ", item=" << *itor; };
+      show_node<type> (itor.curr, show);
+   }
+}
+
+template <typename type>
+void print_size() {
+   cout << "sizeof (" << demangle<type>() << ") = "
+        << sizeof (type) << endl;
+}
+
+template <typename type>
+void test_xlist (const vector<type>& data) {
+   cout << string (72, '-') << endl;
+   cout << "Testing:" << endl << __PRETTY_FUNCTION__ << endl;
+   print_size<type>();
+   print_size<xlist<type>>();
+   print_size<typename xlist<type>::link>();
+   print_size<typename xlist<type>::node>();
+   xlist<type> list;
+   show_xlist ("After declaration", list);
+   for (const auto& item: data) list.push_back (item);
+   show_xlist ("After vector.push_back", list);
+   for (size_t num = 0; num < data.size() / 2; ++num) list.pop_back();
+   show_xlist ("After vector.pop", list);
+}
+
+template <typename T1, typename T2>
+ostream& operator<< (ostream& out, const pair<T1,T2>& a_pair) {
+   return out << "{" << a_pair.first << "," << a_pair.second << "}";
+}
+
+int main() {
+   static vector<int> v_int {2, 3, 5, 7, 11};
+   static vector<string> v_str {"hello", "world", "foo", "bar", "baz"};
+   static vector<pair<int,char>> v_pair {
+      {'A','A'}, {'B','B'}, {'C','C'}, {'D','D'}, {'E','E'},
+   };
+   test_xlist (v_int);
+/*
+   test_xlist (v_str);
+   test_xlist (v_pair);
+*/
+   cout << endl;
+   return 0;
+}
+
+//////////////// end main test file ////////////////
+
+//TEST// testxlist >testxlist.out 2>&1
+//TEST// mkpspdf testxlist.ps xlist.h testxlist.cpp testxlist.out
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d98 1
+a98 1
+template <typename type>
+d100 1
+a100 1
+                    void(*show)()) {
+a108 2
+   auto null = [](){};
+   auto node = [](auto p){ cout << ", item=" << p; };
+d113 5
+a117 1
+      auto show = [](){ cout << ", item=" << *itor; }
+d156 1
+d159 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d115 2
+a116 1
+      show_node<type> (itor.curr) << ", item=" << *itor << "}" << endl;
+@

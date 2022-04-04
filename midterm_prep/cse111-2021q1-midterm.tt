@@ -1,0 +1,248 @@
+CSE-111 * Advanced Programming * Winter 2021 * Midterm Exam     1 of 1
+$Id: cse111-2021q1-midterm.mm,v 1.51 2021-02-03 17:12:25-08 - - $
+
+Answer each question using valid compilable code.  Do
+not use pseudo-code.  Your answers should compile and
+run if copied verbatim into an appropriate source file.
+
+Use proper indentation.  Points will be deducted for
+messy or unreadable answers.  Assume appropriate
+#include directives.  Assume using namespace std.
+
+Do not use any functions from <algorithm>.  Write the
+required code yourself.
+
+_______________________________________________________
+
+
+<PRE>
+Question 1.  [[7pt]]
+
+Define class stack.
+
+ (a) None of the implicitly generated functions are
+     declared.  All of them provided by default work.
+
+ (b) Do not inherit from vector.  Use vector as an
+     internal private field.
+
+ (c) Stack is a template class with a template argument
+     which is the type of the elements in the stack.
+     Assume nothing about the template argument, except
+     that it has the usual default members defined for
+     it.
+
+ (d) Implement the following functions, with
+     appropriate qualifiers and assume copyng is
+     possible.  None of these functions check for
+     overflow or underflow.
+
+     All answers should be as they appear in stack.cpp.
+     Do not show anything that might appear in stack.h.
+
+       i. pop removes the element at the top of the
+          stack, but does not return anything.
+
+      ii. push adds a new element to the top of the
+          stack.
+
+     iii. top is a const function which returns by
+          reference the element at the top of the
+          stack, but does not allow changes to that
+          element.
+
+      iv. empty returns true if the stack is empty,
+          false if not.
+
+_______________________________________________________
+
+
+<PRE>
+Question 2.  [[2pt]]
+
+Rewrite the following statement without the colon
+version of the for loop.  Use the two-semicolon version
+of the for loop, with iterators marked explicitly.
+
+for (const auto& item: cont) cout << item << endl;
+
+_______________________________________________________
+
+
+<PRE>
+Question 3.  [[2pt]]
+
+Write the function ubigint::trim, which removes high
+order zeros.  Show the code as it would appear in the
+implementation (.cpp) file.
+
+class ubigint {
+   private:
+      vector<uint8_t> value;
+      void trim();
+      ...........
+
+_______________________________________________________
+
+
+<PRE>
+Question 4.  [[6pt]]
+
+Write the main function of the program countcharslines.
+cpp.  It has only a main function and does not have any
+other functions of its own.  It reads all lines from
+cin (standard input) until end of file, and then prints
+out the number of lines and characters in the file.
+
+Example:
+bash 47: cat file
+This is a test file.
+It has some lines.
+bash 48: countcharslines <file
+ 2 40
+
+_______________________________________________________
+
+
+<PRE>
+Question 5.  [[3pt]]
+
+Write the prorotypes of the members (ctors, etc.)  in
+class foo that would be generated implicitly in most
+cases.  For each one, after the prototype, write a
+comment indicating the generic purpose of the member.
+
+class foo {
+   public:
+      ..........
+
+_______________________________________________________
+
+
+<PRE>
+Question 6.  [[4pt]]
+
+Define the template function find_if.
+
+ (a) It has two template arguments:  a forward iterator
+     type which can point into a container;  and a
+     predicate type which can be used as a function or
+     function object.
+
+ (b) It has three function parameters:  begin and end
+     iterators of the iterator type, assuming the usual
+     semantics;  and a third argument of the predicate
+     type.
+
+ (c) It returns an iterator to the first element of the
+     range for which the predicte returns true.  Make
+     the usual assumption for not found.
+
+_______________________________________________________
+
+
+<PRE>
+Question 7.  [[2pt]]
+
+Write a function find_int whose arguments are a
+vector<int> and an int.  It returns true if and only if
+the int appears somewhere in the vector.  Use the
+for(:) version of the for loop, not the for(;;) version
+of the for loop.
+
+_______________________________________________________
+
+
+<PRE>
+Question 8.  [[5pt]]
+
+Write a Makefile which compiles a C++ program.  Make
+the following assumptions:
+
+  i. The macro GPP has already been defined to run g++
+     with appropriate options.
+ ii. CPPSOURCES is a macro that lists all of the cpp
+     files.
+iii. EXECBIN has been set to define the executable
+     binary.
+ iv. Makefile.deps has already been properly included.
+
+Show the following:
+
+ (a) 1 point.
+     Define the macro CPPOBJECTS.
+
+ (b) 2 points.
+     Specify the target all to link the object files
+     into the binary, and its command.
+
+ (c) 2 points.
+     Using wildcards, specify the compilation step for
+     the source files, and its command.
+
+_______________________________________________________
+
+
+<PRE>
+Question 9.  [[2pt]]
+
+Assume that class foo has a member function that
+implements the prefix version of operator++.  Code the
+postfix version of operator++ as a non-member function.
+
+_______________________________________________________
+
+
+<PRE>
+Question 10.  [[2pt]]
+
+Assume class foo has operator+= as a member function
+whose right operand is another foo.  Code the non-
+member function operator+ which adds two operands of
+class foo.  The obvious semantics are that the
+expression a+=b and a=a+b will preform the same
+operation, although with different efficiency.
+
+_______________________________________________________
+
+
+<PRE>
+Question 11.  [[1pt]]
+
+Define the non-member template operator> as an inline
+function.  It takes two arguments of the same class.
+It makes use of a previously defined operator<, defined
+somewhere else.
+
+_______________________________________________________
+
+
+<PRE>
+Question 12.  [[1pt]]
+
+Write one statement which declares
+   vector<string> args
+as it would appear at the beginning of function main.
+It initializes the vector to all arguments from the
+command line, excluding the name of the executable
+binary itself.
+
+_______________________________________________________
+
+
+<PRE>
+Question 13.  [[3pt]]
+
+Write a template function average which returns the
+average of a sequence of numbers.  Assume the iterators
+point at things which are doubles or which can be
+implicitly converted to doubles.  Assume only a forward
+iterator.  Average means compute the sum of all the
+items divided by the number of items.
+
+template <typename iterator>
+double average (iterator begin, iterator end) {
+
+_______________________________________________________
+SCORE-TOTAL=40
+

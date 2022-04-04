@@ -1,0 +1,72 @@
+
+Multiple choice.  To the left of each question, write the letter
+that indicates your answer.  Write Z if you don't want to risk a
+wrong answer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+------+------+------------+
+|number of                 |      | x1 = |      $= a$ |
+|correct answers           |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |x1/2= |      $= b$ |
+|wrong answers             |      |      |            |
++--------------------------+------+------+------------+
+|number of                 |      |  0 = |  0         |
+|missing answers           |      |      |            |
++--------------------------+------+------+------------+
+|column total              |   12 |      |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |      |      |            |
++--------------------------+------+------+------------+
+
+ xx.  Which of the following will list the names of the Java
+      source files in your current directory?
+      [A] ls +.java
+      [B] ls -.java
+      [C] ls *.java
+      [D] ls /.java
+
+Note that you are penalized for making incorrect guesses.  The
+following lesson in probability applies:
+
+1.  You have no idea as to which answer is the correct one.
+    This means that there is 1/4 of a chance of guessing
+    correctly and 3/4 of a chance of getting it wrong.  Your
+    likely score is therefore going to be
+
+        (1/4) * ( 1   point) =  0.25  point
+      + (3/4) * (-0.5 point) = -0.375 point
+                       total = -0.125 point for that question
+
+    So you lose.
+
+2.  One answer is obviously wrong, but of the other three, you
+    have no idea which one is right.  So your likely score is:
+
+        (1/3)*( 1   point) =  0.333 point
+      + (2/3)*(-0.5 point) = -0.333 point
+                     total =  0.    point for that question
+
+    In other words, you likely break even.  But why risk an
+    answer?  Leaving it blank and writing a `Z' will have
+    the same effect.  Or are you feeling lucky?
+
+3.  Two answers are obviously wrong, but of the other two, you
+    have no idea.  Your likely score is:
+
+        (1/2)*( 1   point) =  0.5  point
+      + (1/2)*(-0.5 point) = -0.25 point
+                     total = +0.25 point for that question
+
+    You win by guessing.
+
+4.  You are certain which three answers are wrong and which one
+    is correct.  Obviously you answer.
+
+5.  Sometimes there is a typo in the question, but not
+    frequently.  This skews the probability.
+
+In order to avoid giving preference to any particular letter
+(e.g., mostly `B' being correct), answers are frequently
+sorted into lexicographic order.  When this is not obvious,
+it is possible due to some hidden markup in the `.mm' file.
+
+$Id: multiple-choice.txt,v 1.2 2018-07-18 13:09:20-07 - - $

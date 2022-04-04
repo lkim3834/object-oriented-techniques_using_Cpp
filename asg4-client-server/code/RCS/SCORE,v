@@ -1,0 +1,534 @@
+head	1.15;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.15
+date	2021.03.06.00.02.45;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2021.03.04.01.12.12;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2020.12.08.20.17.52;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.12.02.01.30.25;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.02.27.20.48.44;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.02.04.01.08.29;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2019.11.19.20.07.08;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2018.08.06.22.20.31;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2018.03.12.21.14.33;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2018.02.15.23.31.23;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2015.07.23.02.01.19;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2015.05.13.02.05.51;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2014.06.06.19.28.03;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.06.05.01.00.41;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.06.04.19.58.40;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.15
+log
+@-
+@
+text
+@$Id: SCORE,v 1.14 2021-03-03 17:12:12-08 - - $
+
+Copy all of the files in this directory into the student's
+directory.  For each point deduction, give a reason.  Numbers in
+parens are the max points for each check.
+
+Check to see if they are working alone or doing pair
+programming.  If pair programming, they should have a symlink to
+their partner's directory.  If it is not there, you should make
+one.  Grade only one partner's code and assign them the same score.
+
+*****************************************************************
+
+SOURCE CODE.
+
+     Grader: examine code only in cxi.cpp and cxid.cpp.
+     If students submitted both cxi and cix files, ignore
+     the older files.  Use the files named in Makefile.
+
+     Run mk.build
+
+     (3) Checksource was silent, did not complain.  No extra
+         files were submitted, except as per asgt spec.
+         C++ source are all called .h or .cpp as appropriate.
+         (.cc suffix also ok instead of .cpp)
+
+     (3) Indentation, formatting, and identifier names readable.
+         Did not leave any commented-out code interspersed
+         with running code.
+
+     (3) client get - code to parse command, make packet to
+         send to server, and receive data reply.  Code to
+         save file in current directory.
+
+     (3) server get - responds to get request, ifstream to
+         open file and load into buffer.  Send back in  a
+         FILE packet
+
+     (3) client put - code to open file, load into buffer,
+         make PUT packet and send it, follow by payload
+         containing file bytes.  Accept ACK or NAK
+
+     (3) server put - code to accept PUT followed by payload
+         open file and save.  Send back ACK or NAK
+
+     (3) client rm - parse command and send header, receive
+         reply.
+
+     (3) server rm - accept packet call unlink(2), send back
+         reply.
+
+     (3) server ACK NAK check on any syscalls and send an ACK
+         for success and a NAK with errno for fail.
+         client:  print an OK message for an ACK and a 
+         syserror message for a NAK.
+
+     (3) somewhere in one or more files are functions to read
+         a file into a buffer and write a file from a buffer
+         Possibly in protocol, but possibly in client or
+         serverl
+
+source points: /30
+min 1, max 30
+
+*****************************************************************
+
+PROGRAM TESTING:
+
+     Run mk.build - if an executable was not built, assign 0
+     points to this section.
+
+     Note to grader:  You must be logged into unix.ucsc.edu
+     using separate xterms.  Use 'hostname' to verify
+     that you have logged into the SAME machine.
+
+     In one xterm, edit the SCORE file so you can record things
+     that happen.
+
+     Instructions for copying in .score are a little different:
+     cp -R .score/* .
+     that way the two subdirectories local and remote are
+     copied into the student's directory.
+     For each test, keep a typescript of the testing.
+
+     daemon:
+     in the daemon, cd remote:
+     which cxid
+     script daemon.log1
+     ../cxid 8888 (or whatever port works for you)
+
+     in the client xterm: cd local
+     script client.log
+     ../cxi localhost 8888
+
+     That starts things, then move back and forth between each
+     of the clients watching the daemon chatter.
+     For the following, type in a command to see if it works.
+     the prefix tells you which client to test.
+
+     Do not examine any files until you exit from script.
+     After exiting from script, answer the following questions.
+     This requires two passes by the grader.
+
+     (4) client: ls
+         do you get the output?
+
+     (4) client: put localfile
+         client: put localtto
+         did the server respond?
+
+     (4) client: ls
+         are the new files there?
+
+     (4) client: get server1file
+         is the file now in client's directory?
+
+     (4) client: rm to-remove
+         does client now have client's local file
+         were the server files unlinked?
+
+     (4) client: rm no-such-file
+         Suitable error message?  no change to server directory?
+  
+     (4) type "exit" to client, then 
+         ls -la to the bash shell
+         exit will stop recording the typescript.
+         after grading make sure you exit the typescript.
+         Were the script log files there and did the
+         file transfers take effect as usual.
+
+     (2) These are two free points if neither client nor
+         server crashed.
+
+testing points: /30
+min 0, max 30.
+
+*****************************************************************
+
+SUBTOTAL=
+min 1, max 60
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTALPAIR.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 60
+
+
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.13 2020-12-08 12:17:52-08 - - $
+d99 4
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.12 2020-12-01 17:30:25-08 - - $
+d57 4
+a60 1
+     (3) Do not deduct this point.
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.11 2020-02-27 12:48:44-08 - - $
+d17 2
+d70 1
+a70 1
+     using four separate xterms.  Use 'hostname' to verify
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.10 2020-02-03 17:08:29-08 - - $
+d16 1
+a16 1
+     Grader: examine code only in cix.cpp and cixd.cpp.
+d82 1
+a82 1
+     which cixd
+d84 1
+a84 1
+     ../cixd 8888 (or whatever port works for you)
+d88 1
+a88 1
+     ../cix localhost 8888
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.9 2019-11-19 12:07:08-08 - - $
+d109 1
+a109 1
+         does client2 now have client's local file
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.8 2018-08-06 15:20:31-07 - - $
+d133 1
+a133 1
+If pair programming, TOTALSCORE = SUBTOTAL - TOTAL1.
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.7 2018-03-12 14:14:33-07 - - $
+d35 1
+a35 1
+         CIX_FILE packet
+d38 2
+a39 2
+         make CIX_PUT packet and send it, follow by payload
+         containing file bytes.  Accept CIX_ACK or CIX_NAK
+d41 1
+a41 1
+     (3) server put - code to accept CIX_PUT followed by payload
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.6 2018-02-15 15:31:23-08 - - $
+d16 2
+d55 1
+a55 2
+     (3) common library code (cix_protocol) to load a file
+         into a buffer or to write a buffer to a file.
+d69 1
+a69 2
+     that you have logged into the SAME machine, either
+     unix1.lt.ucsc.edu or unix2.lt.ucsc.edu
+d81 2
+a82 6
+     in the daemon directory, cd remote:
+     cp ../cixd .
+     Both programs must be copied to the daemon directory and
+     make sure that . is in your path
+     which cix-server
+     will verify that it is.
+d84 1
+a84 5
+     cixd 8888 (or whatever port works for you)
+
+     in the client1 xterm: cd local1
+     script client1.log1
+     ../cix localhost 8888
+d86 2
+a87 2
+     in the client2 xterm: cd local2
+     script client2.log2
+d95 1
+a95 1
+     (4) client1: ls
+d98 2
+a99 5
+     (4) client2: ls
+         do you get the same output?
+
+     (4) client1: put localfile
+         client1: put localtto
+d102 1
+a102 1
+     (4) client1: ls
+d105 5
+a109 10
+     (4) client2: ls
+         client2: get server1
+         client2: exit
+         did the file get transferred?
+
+     (4) client2 (in local2)
+         client2: get localfile
+         client2: rm to-remove
+         client2: rm server1
+         does client2 now have client1's local file
+d111 3
+d115 1
+a115 1
+     (4) type "exit" to each client, then 
+d119 1
+a119 1
+         were the script log files there and did the
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.5 2015-07-22 19:01:19-07 - - $
+d19 7
+a25 8
+	 files were submitted, except as per asgt spec.
+	 C++ source are all called .h or .cc as appropriate.
+	 Indentation, formatting, and identifier names readable.
+	 Did not leave any commented-out code interspersed
+	 with running code.
+
+     (3) Fixed client:main handling of args to properly
+         check [host] [port] so that it works with only port
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.4 2015-05-12 19:05:51-07 - - $
+d20 4
+a23 2
+         C++ source are all called .h or .cc as appropriate.
+         Indentation, formatting, and identifier names readable.
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.3 2014-06-06 12:28:03-07 - - $
+d81 1
+a81 1
+     cp ../cixd ../cix-server .
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.2 2014-06-04 18:00:41-07 - - $
+d23 1
+a23 1
+     (3) Fixed cix-client:main handling of args to properly
+d81 1
+a81 1
+     cp ../cix-daemon ../cix-server .
+d87 1
+a87 1
+     cix-daemon 8888 (or whatever port works for you)
+d91 1
+a91 1
+     ../cix-client localhost 8888
+d95 1
+a95 1
+     ../cix-client localhost 8888
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.1 2014-06-04 12:58:40-07 - - $
+d81 5
+d91 1
+a91 1
+     cix-client localhost 8888
+d95 1
+a95 1
+     cix-client localhost 8888
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+$Id: SCORE,v 1.1 2014-05-20 15:42:30-07 - - $
+d66 1
+a66 1
+     using three separate xterms.  Use 'hostname' to verify
+d70 61
+@

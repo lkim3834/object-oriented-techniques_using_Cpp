@@ -1,0 +1,158 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.5
+date	2020.10.11.19.25.22;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.06.21.39.55;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2019.12.13.04.33.02;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.12.13.04.20.36;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.12.13.02.19.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@// $Id: ubigint.h,v 1.4 2020-01-06 13:39:55-08 - - $
+
+#ifndef __UBIGINT_H__
+#define __UBIGINT_H__
+
+#include <exception>
+#include <iostream>
+#include <limits>
+#include <utility>
+using namespace std;
+
+#include "debug.h"
+
+class ubigint {
+   friend ostream& operator<< (ostream&, const ubigint&);
+   private:
+      using unumber = unsigned long;
+      unumber uvalue {};
+   public:
+      void multiply_by_2();
+      void divide_by_2();
+
+      ubigint() = default; // Need default ctor as well.
+      ubigint (unsigned long);
+      ubigint (const string&);
+
+      ubigint operator+ (const ubigint&) const;
+      ubigint operator- (const ubigint&) const;
+      ubigint operator* (const ubigint&) const;
+      ubigint operator/ (const ubigint&) const;
+      ubigint operator% (const ubigint&) const;
+
+      bool operator== (const ubigint&) const;
+      bool operator<  (const ubigint&) const;
+};
+
+#endif
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.h,v 1.11 2016-03-24 19:43:57-07 - - $
+a12 1
+#include "relops.h"
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.h,v 1.2 2019-12-12 20:20:36-08 - - $
+d20 1
+a20 1
+
+a22 1
+      void divrem (ubigint, bool want_quotient);
+a23 1
+   public:
+d28 5
+a32 5
+      ubigint& operator+= (const ubigint&);
+      ubigint& operator-= (const ubigint&);
+      ubigint& operator*= (const ubigint&);
+      ubigint& operator/= (const ubigint&);
+      ubigint& operator%= (const ubigint&);
+a36 6
+
+ubigint operator+ (const ubigint&, const ubigint&);
+ubigint operator- (const ubigint&, const ubigint&);
+ubigint operator* (const ubigint&, const ubigint&);
+ubigint operator/ (const ubigint&, const ubigint&);
+ubigint operator% (const ubigint&, const ubigint&);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.h,v 1.1 2019-12-12 18:19:23-08 - - $
+a20 1
+      enum divrem_type {QUOTIENT, REMAINDER};
+d23 1
+a23 1
+      void divrem (ubigint, divrem_type);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.h,v 1.12 2019-12-12 17:20:17-08 - - $
+d20 2
+a21 1
+   public:
+d24 1
+d26 1
+@

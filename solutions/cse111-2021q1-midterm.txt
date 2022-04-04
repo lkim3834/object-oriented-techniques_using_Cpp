@@ -1,0 +1,250 @@
+CSE-111 * Advanced Programming * Winter q2021 * Midterm Exam SOLUTION
+$Id: soln-cse111-2021q1-midterm.txt,v 1.3 2021-02-17 21:25:31-08 - - $
+
+Grade each question in increments of 0.5 points and
+assign a score between 0 and the max, inclusive.
+
+Negative deductions specified are not necessarily the
+ONLY reasons to deduct points, just specific things
+to check for.
+
+_______________________________________________________
+Question 1.   7 pts
+
+stack.h presented here is just for completeness.
+It is not in any way part of the answer.
+Do not accept any code in the answer from stack.h.
+
+template <typename T>
+class stack {
+   private:
+      vector<T> vec;
+   public:
+      void pop();
+      void push (const T&);
+      const T& top() const;
+      bool empty() const;
+};
+
+.......................................................
+
+The following functions are to be considered both
+individually and as whole for grading.  Some errors
+will apply to multiple functions.
+
+template <typename T>
+void stack<T>::pop() {
+   vec.pop_back();
+}
+
+template <typename T>
+void stack<T>::push (const T& item) {
+   vec.push_back (item);
+}
+
+template <typename T>
+const T& stack<T>::top() const {
+   return vec.back();
+}
+
+template <typename T>
+bool stack<T>::empty() const {
+   return vec.size() == 0; // or vect.empty();
+}
+
+Assign 1 point each for correctness of the body of
+the function.
+
+Deduct points for:
+-1 ) const { functions are not marked const
+-1 push argument is not const T&
+-1 template<typename T> not repeated for each function
+-1 stack<T>:: has the stack:: or stack<T>:: missing
+-1 for miscellanious silly syntax or semantic errors
+
+Do not assign less than 0 for this question.
+
+_______________________________________________________
+Question 2.  2pt
+
+for (auto itor = cont.begin(); itor != cont.end(); ++itor)
+      cout << *itor << endl;
+
+-0.5 if used itor++ instead of ++itor
+-0.5 if comparison is < instead of !=
+-0.5 if itor instead of *itor in cout<<
+
+_______________________________________________________
+Question 3.   2pt
+
+void ubigint::trim() {
+   while (value.size() > 0 and value.back() == 0)
+         value.pop_back();
+}
+
+OK to use && instead of and
+
+-1 if the tests around the and are missing or in wrong order.
+
+_______________________________________________________
+Question 4.  6 pt
+
+int main() { //// ok if int main (int, char**) or with argc/argv too
+   size_t lines = 0;
+   size_t chars = 0;
+   for(;;) { // while(true) is OK too
+      string line;
+      getline (cin, line);
+      if (cin.eof()) break;
+      ++lines;
+      chars += line.size() + 1; // for the NL char
+   }
+   cout << " " << lines << " " << chars << endl;
+   return 0;
+}
+
+Points to consider.
+- declarations of lines and chars (int is OK)
+- infinite loop
+- string declaration and getline
+- check for eof
+- add +1 to account for NL char, and ++lines
+- print final answer
+- return 0 or return EXIT_SUCCESS
+- return type for main is int
+Assign points in 0.5 increments.
+
+OK if main has argc,argv
+
+_______________________________________________________
+Question 5.  3pt
+
+class foo {
+   public:
+      foo();                       // default ctor
+      foo (const foo&);            // copy ctor
+      foo (foo&&);                 // move ctor
+      foo& operator= (const foo&); // copy operator=
+      foo& operator= (foo&&);      // move operator=
+      ~foo();                      // destructor
+
+0.5 points for each
+
+_______________________________________________________
+Question 6.   4pt
+
+template <typename iterator, class predicate>
+iterator find_if (iterator begin, iterator end, predicate pred) {
+   while (begin != end) {
+      if (pred (*begin)) break;
+      ++begin;
+   }
+   return begin;
+}
+
+OK if:
+for (auto itor = begin; itor != end; ++itor) instead of this code
+
+0.5 template decl
+0.5 find_if prototypte correct
+0.5 while (if begin is const, make a copy of itor)
+0.5 if and break
+0.5 called pred
+0.5 pred has *begin or other itor as arg
+0.5 ++begin
+0.5 return
+
+_______________________________________________________
+Question 7.   2pt
+
+bool find_int (const vector<int>& v, int n) {
+   for (auto i: v) if (i == n) return true;
+   return false;
+}
+
+-0.5 if vector is not const&
+-0.5 if uses for(;;) instead of for(:)
+
+_______________________________________________________
+Question 8.   5pt
+
+CPPOBJECTS = ${CPPSOURCES:.cpp=.o}
+
+${EXECBIN} : ${CPPOBJECTS}
+	${GPP} -o $@ ${CPPOBJECTS}
+
+%.o : %.cpp
+	${GPP} -c $<
+
+-0.5 if missing -o option in link
+-0.5 if missing -c in compile
+-0.5 if $< not used
+
+OK if ${EXECBIN} instead of $@
+OK if $^ instead of $CPPOBJECTS} in link step command
+
+_______________________________________________________
+Question 9.   2pt
+
+foo operator++ (foo& obj, int) {
+   foo result = obj;
+   ++obj;
+   return result;
+}
+
+OK foo result (obj); or with {obj}
+-1 if uses obj++ instead of ++obj in increment
+
+_______________________________________________________
+Question 10.  2pt
+
+foo operator+ (const foo& a, const foo& b) {
+   foo result = a;
+   return result += b;
+}
+
+-0.5 if both args are not const ref
+-0.5 if result not returned by value
+ok if slightly more verbose but correct, such as:
+result += b; return result;
+
+_______________________________________________________
+Question 11. 1pt
+
+template <typename T>
+inline bool operator>  (const T& left, const T& right) {
+   return right < left; 
+}
+
+0.5 if used only right < left and no other operator
+0.5 if the template correct, AND args are const refs
+
+_______________________________________________________
+Question 12.   1pt
+
+vector<string> args (&argv[1], &argv[argc]);
+--or--
+vector<string> args (argv + 1, argv + argc);
+
+_______________________________________________________
+Question 13.   3pt
+
+template <typename iterator>
+double average (iterator begin, iterator end) {
+   size_t count = 0;
+   double sum = 0;
+   for (; begin != end; ++begin) {
+      ++count;
+      sum += *begin;
+   }
+   return sum / count;
+}
+
+alternate loop:
+while (begin != end) sum += *begin++, ++count;
+
+or anything logically equivalent which does the job.
+
+_______________________________________________________
+SCORE-TOTAL=40
+

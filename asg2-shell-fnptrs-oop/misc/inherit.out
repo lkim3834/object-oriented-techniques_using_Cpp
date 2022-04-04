@@ -1,0 +1,24 @@
+==24574== Memcheck, a memory error detector
+==24574== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==24574== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==24574== Command: inherit c c10 s s15 x
+==24574== 
+c:
+c10:
+s:
+s15:
+x:
+shape(1): circle radius 0, area 0, circum 0
+shape(2): circle radius 10, area 314.159, circum 62.8319
+shape(3): square side 0, area 0, circum 0
+shape(4): square side 15, area 225, circum 60
+shape(5): nothing , area 0, circum 0
+==24574== 
+==24574== HEAP SUMMARY:
+==24574==     in use at exit: 0 bytes in 0 blocks
+==24574==   total heap usage: 22 allocs, 22 frees, 854 bytes allocated
+==24574== 
+==24574== All heap blocks were freed -- no leaks are possible
+==24574== 
+==24574== For counts of detected and suppressed errors, rerun with: -v
+==24574== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

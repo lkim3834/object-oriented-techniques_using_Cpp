@@ -1,0 +1,10 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting newtonsqrt.cpp
+checksource newtonsqrt.cpp
+ident newtonsqrt.cpp
+newtonsqrt.cpp:
+     $Id: newtonsqrt.cpp,v 1.21 2016-06-13 13:44:53-07 - - $
+cpplint.py.perl newtonsqrt.cpp
+Done processing newtonsqrt.cpp
+g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++2a -Wold-style-cast -g -O0 newtonsqrt.cpp -o newtonsqrt -lm
+rm -f newtonsqrt.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished newtonsqrt.cpp

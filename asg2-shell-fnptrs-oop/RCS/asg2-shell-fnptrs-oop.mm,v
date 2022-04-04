@@ -1,0 +1,1775 @@
+head	1.53;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.53
+date	2021.04.10.21.05.04;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2021.01.11.23.52.56;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2020.02.03.23.02.45;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2020.01.09.00.05.17;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2019.10.08.22.40.49;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2019.10.08.22.40.07;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2019.10.08.22.39.45;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2019.10.08.22.38.09;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2019.10.08.22.36.58;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2019.10.08.22.36.39;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2019.10.08.20.39.26;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2019.07.03.22.23.19;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2019.06.26.23.47.45;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2019.06.26.23.47.28;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2019.06.26.23.46.59;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2019.06.26.23.45.58;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2019.06.18.22.28.06;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2019.04.24.20.29.01;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2019.04.10.23.51.45;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2019.01.10.21.13.19;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2018.07.11.20.49.38;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2018.07.11.20.48.25;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2018.07.11.20.48.02;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2018.07.11.20.47.12;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2018.07.11.20.46.53;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2018.07.11.20.46.32;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2018.07.11.20.45.54;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2018.06.27.21.41.40;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2018.06.27.21.41.03;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2018.06.27.21.38.45;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2018.06.27.21.36.53;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2018.06.27.21.36.22;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2018.06.27.21.33.55;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2018.06.27.21.33.17;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2018.06.27.21.31.26;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2018.06.27.21.26.45;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2018.06.27.21.25.28;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2018.01.19.05.23.41;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2018.01.09.21.32.03;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2018.01.09.21.31.21;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2018.01.09.21.30.49;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2017.12.14.19.44.36;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2017.12.14.19.43.42;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2017.12.14.19.43.28;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2017.12.14.19.42.54;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2017.07.05.22.01.12;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2017.06.26.22.46.43;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2016.06.21.21.24.25;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2016.04.02.01.12.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2016.01.13.21.32.16;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2016.01.13.21.30.25;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2016.01.13.21.29.08;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.01.13.21.27.31;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.53
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.SIZE 12 14
+.ds QUARTER Spring\~2021
+.TITLE CSE-111 \*[QUARTER] Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.52 2021-01-11 15:52:56-08 - - $"
+.PWD
+.URL
+.ds dots \|.\|.\|.
+.nr bash_count 0 1
+.de UNIX_COMMAND
+.   nop bash-\\n+[bash_count]\[Do] \f[CB]\\$*\f[P]
+.   pso \\$*
+..
+.hw un-a-vail-a-ble
+.EQ
+delim $$
+.EN
+.H 1 "Overview"
+You will maintain a tree structure with a simple hierarchy,
+maintained by a map of functions.
+The program will involve object-oriented programming using
+virtual functions,
+and displatching functions from a table of functions.
+.P
+Programming will be done \[C++] style, not C style,
+as shown in the following table.
+.DS
+.TS
+center tab(|); |le |le |.
+_
+Do not use\(::|Instead, use\(::
+_
+raw \f[CB]char*\fP strings|\f[CB]<string>\fP
+raw C arrays|\f[CB]<vector>\fP
+T{
+\f[CB]<stdio.h>\fP, \f[CB]<cstdio>\fP
+T}|T{
+\f[CB]<iostream>\fP, \f[CB]<iomanip>\fP
+T}
+raw pointers|\f[CB]<shared_ptr>\fP or \f[CB]<unique_ptr>\fP
+\f[CB]union\fP|inheritance
+\f[CB]<\fP\fIheader\fP\f[CB].h>\fP|\f[CB]<c\fP\fIheader\fP\f[CB]>\fP
+_
+.TE
+.DE
+Header files\(::
+Include only C++11/14/17 header files and facilities where feasable,
+and use namespace
+.V= std .
+Include 
+.VI <c header >
+files only when C++-style files are unavailable.
+Include
+.VI < header \&.h>
+files from C only when an appropriate
+.VI <c header >
+files is unavailable.
+Use the script
+.V= cpplint.py.perl
+(a wrapper for
+.V= cpplint.py )
+to check style,
+and
+.V= checksource
+to check some formatting considerations.
+.H 1 "Program specification"
+The program specification is given in terms of a Unix 
+.V= man (1)
+page.
+.SH=BVL
+.B=LI "NAME"
+yshell
+\[em]
+in memory simulated tree shell
+.B=LI "SYNOPSIS"
+.V= yshell
+.=V \|[ -@@
+.IR flags ]
+.B=LI "DESCRIPTION"
+This shell reads commands from the standard input and write output to
+the standard output,
+with errors being written to
+the standard error.
+Each line read by the shell is parsed into words by splitting
+using space characters, 
+with any number of spaces between words.
+There may also be leading and trailing spaces.
+The first word on any line is a command to be simulated,
+and the rest are operands to that command.
+If either the standard input or the standard output is not a tty,
+each line from the standard input is echoed to the standard output.
+.P
+The commands modify an inode tree,
+where each inode is either a file or a directory.
+Files contain data and directories contain inodes.
+An inode is specified by means of a pathname.
+A pathname consists of a sequence of characters separated by
+slash
+.=V ( / )
+characters.
+.P
+The inode tree has a root, which is a special node,
+and also a current inode as well.
+Whenever a pathname is decoded,
+if the first character is a slash
+.=V ( / ),
+decoding begins at the root,
+otherwise it begins with the current directory.
+Whenever a pathname component is a dot
+.=V ( . ),
+it refers to the current directory.
+If a component is a double dot
+.=V ( .. )
+it refers to the parent of the current directory.
+Every directory has both of these entries,
+with the root being its own parent.
+Multiple adjacent slashes are treated as a single slash.
+Trailing slashes are permitted only on directories.
+.P
+Every inode has three attributes\(::
+an inode number, which is uniquely assigned,
+starting from 1 for the root\(;;
+contents, which is a map from filenames to inodes for a directory,
+and text for a file\(;;
+and a size, which is the byte count for text,
+and the number of sub-inodes for a directory.
+.B=LI "OPERANDS"
+None.
+All input comes from the standard input.
+.B=LI "OPTIONS"
+The
+.V= -@@
+option is followed by a sequence of flags to enable debug output,
+written to
+the standard error.
+.B=LI "COMMANDS"
+The following commands are interpreted.
+Error messages are printed and nothing is done in the case
+of invalid operands.
+.BVL \n[Pi]
+.LI "\f[CB]#\f[R] \|\f[I]string\f[R]"
+If the first non-space character on a line is a hash,
+the line is a comment and is ignored.
+.LI "\f[CB]cat\f[R] \|\f[I]pathname\*[dots]\f[R]"
+The contents of each file is copied to the standard output.
+An error is reported if no files are specified,
+a file does not exist,
+or is a directory.
+.LI "\f[CB]cd\f[R] \|[\f[I]pathname\f[R]]"
+The current directory is set the the pathname given.
+If no pathname is specified, the root directory
+.=V ( / )
+is used.
+It is an error if the pathname does not exist or is a plain file,
+or if more than one operand is given.
+.LI "\f[CB]echo\f[R] \|[\f[I]words\*[dots]\f[R]]"
+The string, which may be empty, is echoed to the standard output on a
+line by
+itself.
+.LI "\f[CB]exit\f[R] \|[\f[I]status\f[R]]"
+Exit the program with the given status.
+If the status is missing, exit with status 0.
+If a non-numeric argument is given, exit with status 127.
+.LI "\f[CB]ls\f[R] \|[\f[I]pathname\*[dots]\f[R]]"
+A description of the files or directories are printed to the standard
+output.
+It is an error if any of the file or directory does not exist.
+If no pathname is specified, the current working directory is used.
+If a pathname specified is a directory,
+then the contents of the directory are listed.
+A directory listed within a directory is shown by a terminating slash.
+Elements of a directory are listed lexicographically.
+.P
+For each file listed,
+output consists of
+the inode number, then the size, then the filename.
+Output is lined up into columns and each column is separated
+from the next by two spaces.
+The numeric fields are exactly 6 characters wide and the units
+position in a column must be aligned.
+.LI "\f[CB]lsr\f[R] \|[\f[I]pathname\*[dots]\f[R]]"
+As for \f[CB]ls\f[R],
+but a recursive depth-first preorder traversal
+is done for subdirectories.
+.LI "\f[CB]make\f[R] \|\f[I]pathname\f[R] \|[\f[I]words\*[dots]\f[R]]"
+The file specified is created and the rest of the words are put
+in that file.
+If the file already exists,
+a new one is not created, but its contents are replaced.
+It is an error to specify a directory.
+If there are no words, the file is empty.
+.LI "\f[CB]mkdir\f[R] \|\f[I]pathname\f[R]"
+A new directory is created.
+It is an error if a file or directory of the same name already exists,
+or if the complete pathname to the parent of this new directory
+does not already exist.
+Two entries are added to the directory, namely dot
+.=V ( . )
+and dotdot
+.=V ( .. ).
+Directory entries are always kept in sorted lexicographic order.
+.LI "\f[CB]prompt\f[R] \|\f[I]string\f[R]"
+Set the prompt to the words specified on the command line.
+Each word is separated from the next by one space and the prompt
+itself is terminated by an extra space.
+The default prompt is a single percent sign and a space
+.=V ( %\[VS] ).
+.LI "\f[CB]pwd\f[R]"
+Prints the current working directory.
+.LI "\f[CB]rm\f[R] \|\f[I]pathname\f[R]"
+The specified file or directory is deleted
+(removed from its parent's list of files and subdirectories).
+It is an error for the pathname not to exist.
+If the pathname is a directory, it must be empty.
+.LI "\f[CB]rmr\f[R] \|\f[I]pathname\f[R]"
+A recursive removal is done, 
+using a depth-first postorder traversal.
+.LE
+.B=LI "EXIT STATUS"
+.VL \n[Pi]
+.LI 0
+No errors were detected.
+.LI 1
+Error messages were printed to
+the standard error.
+.LE
+.H 1 "A sample run"
+The following table shows a sample run.
+Each interaction with the shell is listed in a separate box
+with shell output in
+.T= "Courier Roman"
+and user input in
+.V= "Courier Bold"
+typeface.
+A commentary about what is happening is opposite in the right column.
+.TS H
+allbox tab(|); lw(219p)fCR lw(219p).
+.TH
+T{
+.nf
+.=V "% " "pwd"
+/
+T}|T{
+Initially the cwd is the root directory.
+T}
+T{
+.nf
+.=V "% " "ls"
+/:
+     1       2  ./
+     1       2  ../
+T}|T{
+The absence of an operand to 
+.V= ls
+means that dot is used as its operand,
+which is currently the root.
+Directories always contain at least two items,
+namely dot and dotdot.
+The inode number of the root is always inode #1.
+The parent of dotdot is itself.
+T}
+T{
+.nf
+.=V "% " "make foo this is a test"
+T}|T{
+Make a file called
+.V= foo
+which contains the string
+.=V `` "this is a test" '',
+which is 14 characters.
+An inode is allocated, namely inode #2.
+T}
+T{
+.nf
+.=V "% " "make bar test a is this"
+T}|T{
+Another file, similarly created, with inode #3.
+T}
+T{
+.nf
+.=V "% " "ls"
+/:
+     1       4  ./
+     1       4  ../
+     3      14  bar
+     2      14  foo
+T}|T{
+Same as the previous output of
+.V= ls ,
+except with two more files.
+Note that files are kept in lexicographic order, so
+.V= bar
+is listed before
+.V= foo .
+T}
+T{
+.nf
+.=V "% " "cat food"
+cat: food: No such file or directory
+T}|T{
+An error message is printed, 
+causing the return code from the shell eventually to be 1 rather
+than 0.
+Note the error format\(::
+command followed by object causing the problem followed by
+the reason for the failure.
+T}
+T{
+.nf
+.=V "% " "cat foo"
+this is a test
+T}|T{
+Files can consist of only one line, 
+namely a string.
+T}
+T{
+.nf
+.=V "% " "echo O for a muse of fire"
+O for a muse of fire
+T}|T{
+Arguments to
+.V= echo
+are simply written to the standard output.
+T}
+T{
+.nf
+.=V "% " "prompt =>"
+T}|T{
+The prompt is changed to the characters
+.=V `` => ''
+followed by a space.
+Multiple words would have been permitted.
+T}
+T{
+.nf
+.=V "=> " "rm bar"
+T}|T{
+The file
+.V= bar
+is deleted and the size of the root directory is reduced by 1.
+T}
+T{
+.nf
+.=V "=> " "make baz foo bar baz"
+T}|T{
+A new file is created with inode #4.
+T}
+T{
+.nf
+.=V "=> " "mkdir test"
+T}|T{
+Inode #5 is created as a directory called 
+.V= test .
+This directory is a child of the root and contains the
+two usual entries, dot and dotdot.
+T}
+T{
+.nf
+.=V "=> " "prompt %"
+T}|T{
+The prompt is changed back to a
+.V= %
+followed by a space.
+T}
+T{
+.nf
+.=V "% " "ls /"
+/:
+     1       5  ./
+     1       5  ../
+     4      11  baz
+     2      14  foo
+     5       2  test/
+T}|T{
+Just checking the contents of the root.
+T}
+T{
+.nf
+.=V "% " "cd test"
+T}|T{
+The cwd is now
+.V= test .
+T}
+T{
+.nf
+.=V "% " "pwd"
+/test
+T}|T{
+Yes, it is.
+T}
+T{
+.nf
+.=V "% " "cd"
+T}|T{
+Without arguments
+.V= cd
+goes back to the root directory.
+T}
+T{
+.nf
+.=V "% " "pwd"
+/
+T}|T{
+OK.
+T}
+T{
+.nf
+.=V "% " "cd test"
+T}|T{
+Go to a directory called
+.V= test
+which is a subdirectory of the cwd, whose alias name is always dot.
+T}
+T{
+.nf
+.=V "% " "pwd"
+/test
+T}|T{
+T}
+T{
+.nf
+.=V "% " "cd .."
+T}|T{
+Dotdot is always an alias for the parent of the cwd.
+T}
+T{
+.nf
+.=V "% " "pwd"
+/
+T}|T{
+T}
+T{
+.nf
+.=V "% " "cd test"
+.=V "% " "make me me me me"
+T}|T{
+This would have errored out if 
+.V= test
+were not a directory or did not exist.
+The next available inode is #6.
+T}
+T{
+.nf
+.=V "% " "cat me"
+me me me
+T}|T{
+T}
+T{
+.nf
+.=V "% " "cd .."
+.=V "% " "cd test"
+T}|T{
+T}
+T{
+.nf
+.=V "% " "cat me"
+me me me
+T}|T{
+T}
+T{
+.nf
+.=V "% " "cd"
+T}|T{
+T}
+T{
+.nf
+.=V "% " "lsr /"
+/:
+     1       5  ./
+     1       5  ../
+     4      11  baz
+     2      14  foo
+     5       3  test/
+/test:
+     5       3  ./
+     1       5  ../
+     6       8  me
+T}|T{
+Recursive directory listing.
+This is done using a preorder traversal.
+Withing a given level, lexicographic ordering is used.
+Recursion will go through all subdirectories at all levels.
+T}
+T{
+.nf
+.=V "% " "cd test"
+T}|T{
+T}
+T{
+.nf
+.=V "% " "mkdir foo"
+.=V "% " "cd foo"
+.=V "% " "mkdir bar"
+.=V "% " "cd bar"
+.=V "% " "mkdir baz"
+.=V "% " "cd baz"
+T}|T{
+Note that
+.V= foo
+uses inode #7,
+.V= bar
+uses inode #8, and
+.V= baz
+uses inode #9.
+T}
+T{
+.nf
+.=V "% " "ls ."
+\&.:
+     9       2  ./
+     8       3  ../
+T}|T{
+At this point dot is
+.V= baz
+and dotdot is
+.V= bar .
+T}
+T{
+.nf
+.=V "% " "cd /"
+.=V "% " "lsr test"
+/test:
+     5       4  ./
+     1       5  ../
+     7       3  foo/
+     6       8  me
+/test/foo:
+     7       3  ./
+     5       4  ../
+     8       3  bar/
+/test/foo/bar:
+     8       3  ./
+     7       3  ../
+     9       2  baz/
+/test/foo/bar/baz:
+     9       2  ./
+     8       3  ../
+T}|T{
+A rather large test showing inode numbers,
+file and directory sizes, and filenames.
+Note that directory names are indicated in the listing with
+a trailing slash.
+Again, the size of a file is the number of characters in it
+and the size of a directory is the sum of the number of files
+The subdirectory count is not recursive.
+T}
+T{
+.nf
+.=V "% " "\[ha]D"
+T}|T{
+End of file or Ctrl/D exits the shell.
+T}
+.TE
+.H 1 "A tour of the code"
+Begin by studying the code provided in the
+.V= code/
+subdirectory.
+There are four modules arranged into a header
+.=V ( \&.h )
+file and an implementation
+.=V ( \&.cpp )
+file, the main program in
+.V= main.cpp ,
+and, of course, a 
+.V= Makefile .
+Notice that comments are in the header for when specifying general
+functionality,
+and only in the implementation as a way of explaining how something
+works.
+.nr file-Pi \n[Pi]*4
+.VL \n[file-Pi]
+.V=LI Makefile
+Study the various targets
+.V= all ,
+.V= \[Do]{EXECBIN} ,
+.V= %.o ,
+.V= ci ,
+.V= lis ,
+.V= clean ,
+.V= spotless ,
+.V= submit ,
+.V= verify ,
+and
+.V= deps ,
+which perform their usual functions.
+.V=LI debug.{h,cpp}
+The
+.V= debug
+module is already written for you.
+It is useful in tracing through your code.
+Other parts of the code may want to have more 
+.V= DEBUGF
+and
+.V= DEBUGS
+calls added.
+Note that you should also use
+.V= gdb
+to track down bugs.
+Use
+.V= valgrind
+to check for invalid memory references and memory leak.
+.V=LI util.{h,cpp}
+The
+.V= util
+module is just a collection of independent functions which are
+herded together.
+It is a module without any cohesion,
+but a useful place to park various random functions.
+.V=LI main.cpp
+The main program is mostly complete.
+It scans options, then loops reading and executing commands.
+.V=LI commands.{h,cpp}
+Note that the functions are provided but do not do more than print
+a trace.
+Each function as a 
+.V= inode_state 
+argument, passed by reference, which it might update,
+and a
+.V= wordvec
+arlgument.
+.V= words[0]
+is the name of the command itself,
+so the first argument is
+.V= words[1] .
+This will take the most work, but commands can be added one at a time,
+by addition to the organization that is already there.
+You may add private functions is you need to.
+This is the major execution engine.
+.V=LI file_sys.{h,cpp}
+The 
+.V= inode ,
+or file system, module is the main data structure that you are working
+on.
+As you implement commands,
+also implement the functions of this module as well.
+.H 1 "What to submit"
+Submit the files
+.V= Makefile ,
+.V= README ,
+and all C++ header and source files.
+All header files must end with
+.V= \&.h ,
+and source files must end with
+.V= \&.cpp
+as the suffix.
+.P
+Run
+.V= gmake
+to verify that the build is possible.
+And when you run
+.V= submit ,
+do so from the 
+.V= Makefile
+target of that name.
+That way you won't forget to submit a file.
+If you forget to submit a file,
+or submit the wrong version,
+you will lose at least 50% of your program's value.
+Make sure that you do not get any warnings from
+.V= g++
+and that
+.V= checksource
+and
+.V= cpplint.py.perl
+dot not complain about anything.
+Be sure that
+.V= valgrind
+shows no uninitialized variables and no memory leak.
+Do not submit any file that is built by the
+.V= Makefile .
+.P
+If you are doing pair programming,
+follow the additional instructions in\(::
+.VTCODE* 1 \
+/afs/cats.ucsc.edu/courses/cse111-wm/Syllabus/pair-programming
+Note that points will be deducted for an improperly formatted
+.V= PARTNER
+file.
+.P
+The code must compile and run using
+.V= g++
+on
+.V= unix.ucsc.edu ,
+regardless of whether it runs elsewhere.
+When this document was formatted (\*[OLDDATE])
+that was\(::
+.DS
+.in +\n[VCODENWIDTH]u
+.ft CR
+.UNIX_COMMAND "which g++"
+.UNIX_COMMAND "g++ --version | head -1"
+.UNIX_COMMAND "uname -srp"
+.UNIX_COMMAND "hostname"
+.DE
+.H 1 "Instructions to graders"
+Look in the
+.V= \&.score/
+subdirectory for instructions to graders.
+@
+
+
+1.52
+log
+@-
+@
+text
+@d5 1
+a5 1
+.ds QUARTER Winter\~2021
+d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.51 2020-02-03 15:02:45-08 - - $"
+@
+
+
+1.51
+log
+@-
+@
+text
+@d5 1
+a5 1
+.ds QUARTER Winter\~2020
+d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.50 2020-01-08 16:05:17-08 - - $"
+@
+
+
+1.50
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.49 2019-10-08 15:40:49-07 - - $"
+d252 2
+a253 2
+     1       2  .
+     1       2  ..
+d285 2
+a286 2
+     1       4  .
+     1       4  ..
+d371 2
+a372 2
+     1       5  .
+     1       5  ..
+d471 2
+a472 2
+     1       5  .
+     1       5  ..
+d477 2
+a478 2
+     5       3  .
+     1       5  ..
+d512 2
+a513 2
+     9       2  .
+     8       3  ..
+d525 2
+a526 2
+     5       4  .
+     1       5  ..
+d530 2
+a531 2
+     7       3  .
+     5       4  ..
+d534 2
+a535 2
+     8       3  .
+     7       3  ..
+d538 2
+a539 2
+     9       2  .
+     8       3  ..
+@
+
+
+1.49
+log
+@-
+@
+text
+@d5 1
+a5 1
+.ds QUARTER Fall\~2019
+d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.48 2019-10-08 15:40:07-07 - - $"
+@
+
+
+1.48
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.47 2019-10-08 15:39:45-07 - - $"
+d64 4
+a67 1
+to check style.
+@
+
+
+1.47
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.46 2019-10-08 15:38:09-07 - - $"
+d81 1
+a81 1
+with errors being set to
+@
+
+
+1.46
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.45 2019-10-08 15:36:58-07 - - $"
+d79 2
+a80 1
+This shell reads commands from stdin and write output to stdout,
+d82 1
+a82 1
+.V= cerr .
+d89 2
+a90 2
+If either stdin or stdout is not a tty,
+each line from stdin is echoed to stdout.
+d128 1
+a128 1
+All input comes from stdin.
+d134 1
+a134 1
+.V= cerr .
+d144 1
+a144 1
+The contents of each file is copied to stdout.
+d156 2
+a157 1
+The string, which may be empty, is echoed to stdout on a line by
+d164 2
+a165 1
+A description of the files or directories are printed to stdout.
+d224 1
+a224 1
+.V= cerr .
+@
+
+
+1.45
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.44 2019-10-08 15:36:39-07 - - $"
+d23 4
+@
+
+
+1.44
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.43 2019-10-08 13:39:26-07 - - $"
+d543 1
+a543 1
+End of file or Ctrl/D causes the shell to exit.
+@
+
+
+1.43
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.42 2019-07-03 15:23:19-07 - - $"
+d543 1
+a543 1
+End of file or Control/D causes the shell to exit.
+@
+
+
+1.42
+log
+@-
+@
+text
+@d5 3
+a7 3
+.ds QUARTER Summer\~2019
+.TITLE CMPS-109 \*[QUARTER] Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.41 2019-06-26 16:47:45-07 - - $"
+d667 1
+a667 1
+/afs/cats.ucsc.edu/courses/cmps109-wm/Syllabus/pair-programming
+@
+
+
+1.41
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.40 2019-06-26 16:47:28-07 - - $"
+d31 2
+a32 2
+\f[CB]char*\fP strings|\f[CB]<string>\fP
+C arrays|\f[CB]<vector>\fP
+d38 1
+a38 1
+pointers|\f[CB]<shared_ptr>\fP
+@
+
+
+1.40
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.39 2019-06-26 16:46:59-07 - - $"
+d687 1
+a687 1
+.HY 1 "Instructions to graders"
+@
+
+
+1.39
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.38 2019-06-26 16:45:58-07 - - $"
+d61 1
+a61 1
+.H 1 "Program Specification"
+d219 1
+a219 1
+.H 1 "A Sample Run"
+d546 1
+a546 1
+.H 1 "A Tour of the Code"
+@
+
+
+1.38
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.37 2019-06-18 15:28:06-07 - - $"
+d628 1
+a628 1
+.H 1 "What to Submit"
+d687 1
+a687 1
+.P
+@
+
+
+1.37
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.36 2019-04-24 13:29:01-07 - - $"
+d687 4
+@
+
+
+1.36
+log
+@-
+@
+text
+@d5 1
+a5 1
+.ds QUARTER Spring\~2019
+d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.35 2019-04-10 16:51:45-07 - - $"
+@
+
+
+1.35
+log
+@-
+@
+text
+@d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.34 2019-01-10 13:13:19-08 - - $"
+a686 1
+.FINISH
+@
+
+
+1.34
+log
+@-
+@
+text
+@d5 1
+a5 1
+.ds QUARTER Winter\~2019
+d7 1
+a7 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.33 2018-07-11 13:49:38-07 - - $"
+@
+
+
+1.33
+log
+@-
+@
+text
+@d5 3
+a7 2
+.TITLE CMPS-109 Summer\~2018 Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.32 2018-07-11 13:48:25-07 - - $"
+@
+
+
+1.32
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.31 2018-07-11 13:48:02-07 - - $"
+d654 6
+a659 1
+does not complain about anything.
+@
+
+
+1.31
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.30 2018-07-11 13:47:12-07 - - $"
+a636 2
+You must be consistent and
+use one or the other suffix for all files.
+@
+
+
+1.30
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.29 2018-07-11 13:46:53-07 - - $"
+d634 1
+a634 1
+and source files must end with either
+a635 2
+or
+.V= \&.cc 
+@
+
+
+1.29
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.28 2018-07-11 13:46:32-07 - - $"
+d680 1
+a680 1
+.UNIX_COMMEND "which g++"
+@
+
+
+1.28
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.27 2018-07-11 13:45:54-07 - - $"
+d680 1
+@
+
+
+1.27
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.26 2018-06-27 14:41:40-07 - - $"
+a683 2
+Compile your code with
+.VTCODE* 1 "g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wold-style-cast"
+@
+
+
+1.26
+log
+@-
+@
+text
+@d5 2
+a6 2
+.TITLE CMPS-109 Spring\~2018 Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.25 2018-06-27 14:41:03-07 - - $"
+@
+
+
+1.25
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.24 2018-06-27 14:38:45-07 - - $"
+d666 3
+@
+
+
+1.24
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.23 2018-06-27 14:36:53-07 - - $"
+d665 1
+a665 1
+/afs/cats.ucsc.edu/courses/cmps012b-wm/Syllabus/pair-programming/ 
+@
+
+
+1.23
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.22 2018-06-27 14:36:22-07 - - $"
+d672 1
+a672 2
+When this document was formatted
+.pso echo "(`date`),"
+@
+
+
+1.22
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.21 2018-06-27 14:33:55-07 - - $"
+d672 1
+a672 1
+As of the time of formatting this document
+@
+
+
+1.21
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.20 2018-06-27 14:33:17-07 - - $"
+d672 2
+a673 2
+As of the time of formatting this document (\*[OLDDATE]),
+.\".pso date
+@
+
+
+1.20
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.19 2018-06-27 14:31:26-07 - - $"
+d672 1
+a672 1
+As of the time of formatting this document (\*[DEFAULTDATE]),
+@
+
+
+1.19
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.18 2018-06-27 14:26:45-07 - - $"
+d672 1
+a672 1
+As of the time of formatting this document (\*[DT]),
+@
+
+
+1.18
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.17 2018-06-27 14:25:28-07 - - $"
+d672 2
+a673 2
+As of the time of formatting this document,
+.pso date
+@
+
+
+1.17
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.16 2018-01-18 21:23:41-08 - - $"
+d673 1
+a673 1
+.sy date
+@
+
+
+1.16
+log
+@-
+@
+text
+@d5 2
+a6 2
+.TITLE CMPS-109 Winter\~2018 Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.15 2018-01-09 13:32:03-08 - - $"
+d673 1
+@
+
+
+1.15
+log
+@-
+@
+text
+@d5 2
+a6 2
+.TITLE CMPS-109 Summer\~2017 Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.14 2018-01-09 13:31:21-08 - - $"
+@
+
+
+1.14
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.13 2018-01-09 13:30:49-08 - - $"
+d75 2
+a76 1
+with errors being set to stderr.
+d127 2
+a128 1
+written to stderr.
+@
+
+
+1.13
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.12 2017-12-14 11:44:36-08 - - $"
+d45 2
+a46 2
+and
+.V= "using namespace std;" .
+@
+
+
+1.12
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.11 2017-12-14 11:43:42-08 - - $"
+d46 1
+a46 1
+.V= "use namespace std" .
+@
+
+
+1.11
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.10 2017-12-14 11:43:28-08 - - $"
+d680 1
+a680 1
+.VTCODE* 1 "g++ -std=gnu++14 -g -O0 -Wall -Wextra -Wold-style-cast"
+@
+
+
+1.10
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.9 2017-12-14 11:42:54-08 - - $"
+d44 1
+a44 1
+Include only C++11/C++14 header files and facilities where feasable,
+@
+
+
+1.9
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.8 2017-07-05 15:01:12-07 - - $"
+d44 1
+a44 1
+Include only C++11 header files and facilities where feasable,
+@
+
+
+1.8
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.7 2017-06-26 15:46:43-07 - - $"
+d32 5
+a36 1
+\f[CB]<stdio.h>\fP|\f[CB]<iostream>\fP, \f[CB]<iomanip>\fP
+@
+
+
+1.7
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.6 2016-06-21 14:24:25-07 - - $"
+d675 2
+a676 2
+For a summary of C++11 support in GCC, refer to\(::
+.VTCODE* 1 http://gcc.gnu.org/projects/cxx0x.html
+@
+
+
+1.6
+log
+@-
+@
+text
+@d5 2
+a6 2
+.TITLE CMPS-109 Summer\~2016 Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.5 2016-04-01 18:12:53-07 - - $"
+@
+
+
+1.5
+log
+@-
+@
+text
+@d5 2
+a6 2
+.TITLE CMPS-109 Spring\~2016 Program\~2 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.4 2016-01-13 13:32:16-08 - - $"
+@
+
+
+1.4
+log
+@-
+@
+text
+@d5 2
+a6 2
+.TITLE CMPS-109 Summer\~2015 Program\~1 "Function pointers, a shell"
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.3 2016-01-13 13:30:25-08 - - $"
+@
+
+
+1.3
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.2 2016-01-13 13:29:08-08 - - $"
+d614 1
+a614 1
+.V=LI inode.{h,cpp}
+@
+
+
+1.2
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg2-shell-fnptrs-oop.mm,v 1.1 2016-01-13 13:27:31-08 - - $"
+d51 5
+@
+
+
+1.1
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS "$Id: asg1-shell-fnptrs.mm,v 1.66 2016-01-12 17:34:24-08 - - $"
+d32 1
+a32 1
+\f[CB]<stdio.h>\fP|\f[CB]<iostream>\fP
+@

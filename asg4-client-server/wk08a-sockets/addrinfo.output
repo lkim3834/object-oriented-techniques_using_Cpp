@@ -1,0 +1,41 @@
+IP addresses for www.google.com:
+   stream   IPv4 142.250.68.4 www.google.com
+    dgram   IPv4 142.250.68.4
+      raw   IPv4 142.250.68.4
+   stream   IPv6 2607:f8b0:4007:80f::2004
+    dgram   IPv6 2607:f8b0:4007:80f::2004
+      raw   IPv6 2607:f8b0:4007:80f::2004
+IP addresses for www.nohost.zone:
+   Name or service not known
+IP addresses for www.soe.ucsc.edu:
+   stream   IPv4 128.114.47.214 soe-vm.soe.ucsc.edu
+    dgram   IPv4 128.114.47.214
+      raw   IPv4 128.114.47.214
+IP addresses for unix.ucsc.edu:
+   stream   IPv4 128.114.104.101 unix.lt.ucsc.edu
+    dgram   IPv4 128.114.104.101
+      raw   IPv4 128.114.104.101
+   stream   IPv4 128.114.104.100
+    dgram   IPv4 128.114.104.100
+      raw   IPv4 128.114.104.100
+   stream   IPv4 128.114.104.57
+    dgram   IPv4 128.114.104.57
+      raw   IPv4 128.114.104.57
+   stream   IPv4 128.114.104.55
+    dgram   IPv4 128.114.104.55
+      raw   IPv4 128.114.104.55
+IP addresses for unix1.lt.ucsc.edu:
+   stream   IPv4 128.114.104.54 unix1.lt.ucsc.edu
+    dgram   IPv4 128.114.104.54
+      raw   IPv4 128.114.104.54
+IP addresses for unix2.lt.ucsc.edu:
+   stream   IPv4 128.114.104.55 unix2.lt.ucsc.edu
+    dgram   IPv4 128.114.104.55
+      raw   IPv4 128.114.104.55
+IP addresses for localhost:
+   stream   IPv6 ::1 localhost
+    dgram   IPv6 ::1
+      raw   IPv6 ::1
+   stream   IPv4 127.0.0.1
+    dgram   IPv4 127.0.0.1
+      raw   IPv4 127.0.0.1

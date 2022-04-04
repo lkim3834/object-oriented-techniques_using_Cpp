@@ -1,0 +1,5 @@
+#!/bin/sh
+# $Id: mk,v 1.2 2019-04-03 16:17:52-07 - - $
+cid -is $0 egyptian-div.perl
+egyptian-div.perl 76543 123 >egyptian-div.out
+mkpspdf egyptian-div.ps egyptian-div.perl egyptian-div.out

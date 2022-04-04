@@ -1,0 +1,174 @@
+$Id: soln-cmps109-2019q1-midterm.txt,v 1.8 2019-02-14 17:35:09-08 - - $
+Solution to CMPS-109 2019q1-midterm, page 1
+
+_________________________________________________________________
+Question 1. [1]
+
+#include <iostream>
+using namespace std;
+int main (int argc, char**) {
+   cout << "Hello, World!" << endl;
+   return 0; //// or return EXIT_SUCCESS if #included <cstdlib>
+}
+
+_________________________________________________________________
+Question 2. [3]
+
+class iterator {
+   public:
+      iterator& operator++();
+      bool operator!= (const iterator&) const;
+      const foo& operator* () const; //// can return foo or anything
+      foo& operator* (); //// question doesn't say iterator of what
+}
+
+_________________________________________________________________
+Question 3(a). [3]
+
+void ubigint::divide_by_2() {
+   for (size_t i = 0; i < uvalue.size() - 1; ++i) {
+      uvalue[i] /= 2;
+      if (uvalue[i + 1] & 1) uvalue[i] += 5;
+   }
+   if (uvalue.size() > 0) uvalue[uvalue.size() - 1] /= 2;
+}
+
+_________________________________________________________________
+Question 3(b). [3]
+
+void ubigint::multiply_by_2() {
+   size_t carry = 0;
+   for (size_t i = 0; i < uvalue.size() - 1; ++i) {
+      size_t sum = uvalue[i] * 2 + carry;
+      uvalue[i] = sum % 10;
+      carry = sum / 10;
+   }
+   if (carry != 0) uvalue.push_back (carry);
+}
+
+
+Solution to CMPS-109 2019q1-midterm, page 2
+
+_________________________________________________________________
+Question 4. [1]
+
+for (auto p = cont.begin(); p != cont.end(); ++p) foo (*p);
+
+_________________________________________________________________
+Question 5. [2]
+
+int main() {
+   map<string,size_t> m;
+   string word;
+   while (cin >> word) ++m[word];
+   for (const auto& p: m) {
+      cout << p.first() << " " << p.second() << endl;
+   }
+   return 0;
+}
+
+_________________________________________________________________
+Question 6. [2]
+
+template <typename in_itor, typename out_itor>
+void copy (in_itor in_begin, in_itor in_end, out_itor out_begin) {
+   while (in_begin != in_end) *out_begin++ = *in_begin++;
+}
+
+_________________________________________________________________
+Question 7. [5]
+
+template <typename item_t>
+class stack {
+   private:
+      vector<item_t> stk;
+   public:
+      void pop() { stk.pop_back(); }
+      item_t& top() { return stk.back(); }
+      void push (const item_t& item) { stk.push_back (item); }
+      bool empty() { return stk.empty(); }
+}
+
+
+Solution to CMPS-109 2019q1-midterm, page 3
+_________________________________________________________________
+Question 8. [2]
+foo();
+foo (const foo&);
+foo (foo&&);
+foo& operator= (const foo&);
+foo& operator= (foo&&);
+~foo();
+_________________________________________________________________
+Question 9. [2]
+template <class T>
+inline bool operator!= (const T& x, const T& y) { return not (x == y);
+template <class T>
+inline bool operator>  (const T& x, const T& y) { return y < x;
+template <class T>
+inline bool operator<= (const T& x, const T& y) { return not (y < x);
+template <class T>
+inline bool operator>= (const T& x, const T& y) { return not (x < y);
+
+_________________________________________________________________
+Question 10. [2]
+
+// The question as stated contains an error, namely that no value
+// to search for is given as an argument.  An extra template
+// argument and function argument must be given.  Accept any
+// reasonable modification to the questions, such as is presented
+// here, or otherwise makes some sense.
+template <typename iterator, typename wanted, class comparator>
+iterator find (iterator begin, iterator end, const wanted& want,
+               comparator equal) {
+   while (begin != end and not equal (*begin, want)) ++begin;
+   return begin;
+}
+_________________________________________________________________
+Question 11. [2]
+
+template <typename iterator, class predicate>
+iterator find_if (iterator begin, iterator end, predicate pred) {
+   while (begin != end and not pred (*begin)) ++begin;
+   return begin;
+}
+_________________________________________________________________
+Question 12. [2]
+
+template <typename iterator, class less_fn>
+iterator find_min (iterator begin, iterator end, less_fn less) {
+   if (begin == end) return end;
+   iterator min = begin++;
+   for (; begin != end; ++begin) {
+      if (less (*begin, *min)) min = begin;
+   }
+   return min;
+}
+
+Solution to CMPS-109 2019q1-midterm, page 4
+
+ 1.   (A) c.begin() - c.end()
+
+ 2.   (D) vector
+
+ 3.   (B) prog 1>foo.out 2>&1
+
+ 4.   (B) list
+
+ 5.   (D) Grants B access to the private parts of A,
+          but not vice-versa.
+
+ 6.   (B) foo (const foo &);
+
+ 7.   (C) using namespace std;
+
+ 8.   (C) <iostream>
+
+ 9.   (C) member function
+
+10.   (C) if (this == &that)
+
+11.   (A) ++i
+
+12.   (B) a pointer
+

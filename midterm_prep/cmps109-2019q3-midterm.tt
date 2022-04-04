@@ -1,0 +1,258 @@
+CMPS-109 · Advanced Programming · Summer 2019 · Midterm Exam    1 of 1
+$Id: cmps109-2019q3-midterm.mm,v 1.106 2019-07-22 16:25:18-07 - -
+$
+
+.PS
+examboxes(4)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Points will be deducted for messy
+or unreadable answers.  Do your scratch work elsewhere and enter only
+your final answer into the spaces provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. Finish the implementation of the function minimum, which returns
+    an iterator pointing at the minimum element in the range.  Assume
+    that the items pointed at by the iterators have operator< avail-
+    able.  [2pt]
+
+    template <typename iterator>
+    iterator minimum (iterator begin, iterator end) {
+
+ 2. Finish the implementation of the function find, which returns true
+    if some element in the range is equal to the third argument.  As-
+    sume that the items pointed at by the iterators have operator==
+    available.  [2pt]
+
+    template <typename iterator, typename item_t>
+    bool find (iterator begin, iterator end, item_t item) {
+
+ 3. Write a non-template function called sum.  The argument is a vec-
+    tor<double> and the result is a double.  [2pt]
+
+ 4. Write a template function called tsum, whose template argument is
+    an arbitrary type of iterator, and whose function arguments are a
+    pair of iterators indicating a range.  Its result is a double.
+    Assume the iterators point at doubles.  [2pt]
+
+ 5. Implement ubigint::trim, a member function which ensures that a
+    ubigint is in canonical form.  Canonical form means that there are
+    no leading zeros and that zero is represented by an empty vector.
+    The name of the vector field is ubig_value.  [2pt]
+
+ 6. Assume that bigint::operator< has been implemented.  Code a non-
+    template non-member operator> whose arguments are two bigints.
+    [1pt]
+
+ 7. Assume class foo has a prefix member operator++ defined for it.
+    Define the postfix operator++ as a non-member which makes use of
+    foo::operator++().  Assume foo has a copy ctor.  [2pt]
+
+ 8. Circle.
+     (a) Write the function circle, which returns, as a pair, the area
+         (as the first field) and circumference (as the second field)
+         of an circle, given its radius.  Use M_PI from <cmath>.  All
+         numbers are double.  For the mathematically unsophisticated,
+         $ A = pi r sup 2 $ and $ C = 2 pi r $.  [1pt]
+
+     (b) Given the declaration auto x = circle (e);  using x, write
+         one line of code to print out the area and circumference.
+         The line of output (assuming appropriate data) should look
+         like the following:  [1pt]
+         area = 23.2134, circumference = 17.0795
+
+ 9. Write a copy function which takes forward iterators pointing into
+    an input container, and a forward iterator pointing at an output
+    container.  Copy the items from the input container to the output
+    container.  Assume the output iterator is such that the output
+    container does not overflow or cause memory errors.  [2pt]
+
+    template <typename in_itor, typename out_itor>
+    void copy (in_itor in_begin, in_itor in_end, out_itor out_begin) {
+
+10. Define equal_range which takes two pairs of forward iterators and
+    returns true if all of the elements of the ranges are equal and
+    the ranges are of the same length.  There is no size() function,
+    and forward iterators can not be subtracted.  Assume the elements
+    of the range have operator==.  [3pt]
+
+    template <typename itor1, typename itor2>
+    bool equal_range (itor1 begin1, itor1 end1, itor2 begin2, itor2 end2) {
+
+11. Assuming string s;  and string t;  write an expression (not a com-
+    plete statement) equivalent to s == t, but use only operator< and
+    no other comparison operators.  Use some combination of the opera-
+    tors and (&&), or (||), and not (!).  Use parentheses as appropri-
+    ate.  [1pt]
+
+12. Code a fragment of a Makefile which will build an object (.o) file
+    from a C++ (.cpp) source file.  Show the wildcard target, prereq-
+    uisite, and command.  Assume the following macro has already been
+    defined.  [1pt]
+
+    COMPILECPP = g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wold-style-cast
+
+13. Code a non-member multiply_by_2 function which is useable by ubig-
+    int which will double the value represented by a vector argument.
+    Write code as a loop manipulating each digit individually.  Do not
+    call any functions from multiply_by_2.  The value is to be updated
+    in place.  [3pt]
+
+    void multiply_by_2 (vector<unsigned char>& value) {
+
+14. Define the function print.  It prints out all of the elements in a
+    range assuming that operator<< is defined for the elements in the
+    range.  A single space is printed out between successive elements
+    of the range, but no space is printed before the first or after
+    the last element.  [2pt]
+
+    template <typename iterator>
+    void print (iterator begin, iterator end) {
+
+15. The Collatz conjecture states that for any arbitrary positive in-
+    teger $n$, if $n$ is even, replace $n$ by $ n / 2 $, but if $n$ is
+    odd, replace $n$ by $ 3 n + 1 $.  Repeat until $ n = 1 $, and the
+    procedure will terminate.  Write the non-template function col-
+    latz.  Its argument is of type int and it returns a vector<int>
+    containing a trace of a sequence of collatz numbers.  The result-
+    ing vector will contain all of the numbers in sequence, starting
+    from the original argument, and ending with the number 1.  Here is
+    a sample program that calls collatz, followed by its output.
+    [3pt]
+
+    int main() {
+       vector<int> a {30, 5, 11};
+       for (int i: a) {
+          vector<int> v = collatz (i);
+          for (int j: v) cout << " " << j;
+          cout << endl;
+       }
+    }
+    -bash-$ ./collatz
+     30 15 46 23 70 35 106 53 160 80 40 20 10 5 16 8 4 2 1
+     5 16 8 4 2 1
+     11 34 17 52 26 13 40 20 10 5 16 8 4 2 1
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write Z if you don't want to risk a wrong an-
+swer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+-----+-------+------------+
+|number of                 |     |× 1 =  |      $= a$ |
+|correct answers           |     |       |            |
++--------------------------+-----+-------+------------+
+|number of                 |     |× ½ =  |      $= b$ |
+|wrong answers             |     |       |            |
++--------------------------+-----+-------+------------+
+|number of                 |     |× 0 =  |  0         |
+|missing answers           |     |       |            |
++--------------------------+-----+-------+------------+
+|column total              |  12 |       |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |     |       |            |
++--------------------------+-----+-------+------------+
+
+1. Multiplication of an $m$-digit number by an $n$-digit number takes
+   how many single-digit multiplications?
+
+.EQ
+tdefine /     |{type binary "/"}|
+.EN
+   (A) $ O ( m * n ) $
+   (B) $ O ( m + n ) $
+   (C) $ O ( m - n ) $
+   (D) $ O ( m / n ) $
+
+2. How should the function f be declared so that it accepts a string
+   by constant reference?
+   (A) void f (const string&);
+   (B) void f (const string);
+   (C) void f (const string*);
+   (D) void f (const string->);
+
+3. Memory mangement using shared_ptr needs special handline for what
+   kind of data structure?
+   (A) graph possibly with cycles
+   (B) graph with no cycles
+   (C) linear non-circular linked list
+   (D) vector of pointers to objects
+
+4. It is expected that v.size() should return a value equivalent to:
+   (A) v.begin() - v.end()
+   (B) v.begin() - v.end() + 1
+   (C) v.end() - v.begin()
+   (D) v.end() - v.begin() + 1
+
+5. What keyword will allow another arbitrary class or function access
+   to all members of the class?
+   (A) friend
+   (B) private
+   (C) protected
+   (D) public
+
+6. What keyword will allow access only to members of the class, but
+   also to any class derived from it?
+   (A) friend
+   (B) private
+   (C) protected
+   (D) public
+
+7. What will produce an object (.o) file but suppress linking to an
+   executable binary?
+   (A) g++ -MM
+   (B) g++ -c
+   (C) g++ -g
+   (D) g++ -o
+
+8. How long does it take to insert, delete, or find elements of a map?
+   (A) $ O ( 1 ) $
+   (B) $ O ( log n ) $
+   (C) $ O ( n ) $
+   (D) $ O ( n log n ) $
+
+9. How long does it take to insert, delete, or find elements of an
+   unordered_map?
+   (A) $ O ( 1 ) $
+   (B) $ O ( log n ) $
+   (C) $ O ( n ) $
+   (D) $ O ( n log n ) $
+
+10. What is the correct (and preferred) way to link down a list?
+   (A) while (p != 0)
+   (B) while (p != NULL)
+   (C) while (p != null)
+   (D) while (p != nullptr)
+
+11. Given the expression p->f(what), inside the code for the function
+   f, what expression is used to refer to the value of p?
+   (A) self
+   (B) that
+   (C) this
+   (D) what
+
+12. When an object belonging to a class goes out of scope, what is
+   automatically called?
+   (A) the constructor
+   (B) the destructor
+   (C) the garbage collector
+   (D) the free function
++----------------------------------------+
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|jpgs/grade-inflation.phd012014s.ps      |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
++----------------------------------------+
+

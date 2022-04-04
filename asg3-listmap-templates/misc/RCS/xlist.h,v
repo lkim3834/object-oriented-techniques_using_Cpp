@@ -1,0 +1,137 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.3
+date	2019.04.25.00.08.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.02.01.02.17.51;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.06.28.21.47.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: xlist.h,v 1.2 2019-01-31 18:17:51-08 - - $
+
+#ifndef __XLIST_H__
+#define __XLIST_H__
+
+template <typename T>
+struct xlist {
+   struct node;
+   struct link {
+      node* next;
+      node* prev;
+      explicit link (node* next_ = nullptr, node* prev_ = nullptr):
+                     next(next_), prev(prev_) {}
+      node* operator&() { return static_cast<node*> (this); }
+   };
+   struct node: link {
+      T item;
+      explicit node (node* next_ = nullptr, node* prev_ = nullptr,
+                     const T& item_ = T()):
+            link(next_, prev_), item(item_) {}
+   };
+   link base;
+
+   xlist(): base (&base, &base) {}
+   xlist (const xlist&) = delete;
+   xlist& operator= (const xlist&) = delete;
+   ~xlist() { while (not empty()) pop_back(); }
+
+   bool empty() { return base.next == &base; }
+   void push_back (const T&);
+   void pop_back();
+   T& back() { return base.prev->item; }
+
+   class iterator;
+   iterator begin() { return iterator (base.next); }
+   iterator end() { return iterator (&base); }
+};
+
+
+template <typename T>
+struct xlist<T>::iterator {
+   node* curr;
+   explicit iterator (node* curr_ = nullptr): curr(curr_) {}
+   T& operator*() { return curr->item; }
+   iterator& operator++() { curr = curr->next; return *this; }
+   iterator& operator--() { curr = curr->prev; return *this; }
+   bool operator== (const iterator &that) { return curr == that.curr; }
+   bool operator!= (const iterator &that) { return curr != that.curr; }
+};
+
+template <typename T>
+void xlist<T>::push_back (const T& item) {
+   node* tmp = new node (&base, base.prev, item);
+   base.prev = tmp;
+   tmp->prev->next = tmp;
+}
+
+template <typename T>
+void xlist<T>::pop_back() {
+   node* tmp = base.prev;
+   base.prev = tmp->prev;
+   base.prev->next = &base;
+   delete tmp;
+}
+
+#endif
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: xlist.h,v 1.1 2016-06-28 14:47:36-07 - - $
+d20 1
+a20 1
+            link(next_, prev_), item(item)_ {}
+d43 1
+a43 1
+   explicit iterator (node* curr = nullptr): curr(curr) {}
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: xlist.h,v 1.1 2016-01-28 15:32:51-08 - - $
+d12 2
+a13 2
+      explicit link (node* next = nullptr, node* prev = nullptr):
+                     next(next), prev(prev) {}
+d18 3
+a20 3
+      explicit node (node* next = nullptr, node* prev = nullptr,
+                     const T& item = T()):
+            link(next, prev), item(item) {}
+@

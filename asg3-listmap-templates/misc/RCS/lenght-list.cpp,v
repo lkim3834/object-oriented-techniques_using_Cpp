@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2021.05.01.19.51.44;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id$
+
+#include <list>
+using namespace std;
+
+size_t length (const list<int>& lst) {
+   size_t len = 0;
+   for (const auto& i: lst) ++len;
+   return len;
+}
+@

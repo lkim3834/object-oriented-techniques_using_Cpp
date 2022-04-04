@@ -1,0 +1,641 @@
+Matching questions with at least 0.75 in common.
+
+Question 1 on Free Response on cmps109-2019q1-midterm.tt with accuracy 0.7692307692307693: 
+   Write a complete program, everything that needs to be typed into
+    the source file hello.cpp in order to print the following message
+    to the standard output.  [1pt]
+    -bash-36$ ./hello
+    Hello, world!
+
+
+
+Question 6 on Free Response on cmps109-2019q1-midterm.tt with accuracy 0.896551724137931: 
+   Write a copy function which takes forward iterators pointing into
+    an input container, and a forward iterator pointing at an output
+    container.  Copy the items from the input container to the output
+    container.  It is not possible to verify whether or not the output
+    container has enough space, so just assume that it has.  [2pt]
+
+    template <typename in_itor, typename out_itor>
+    void copy (in_itor in_begin, in_itor in_end, out_itor out_begin) {
+
+
+
+Question 9 on Free Response on cmps109-2019q1-midterm.tt with accuracy 0.8214285714285714: 
+   Complete the following operators, assuming operator== and opera-
+    tor< are defined.  [2pt]
+
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator!= (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator>  (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator<= (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator>= (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+
+
+
+Question 11 on Free Response on cmps109-2019q1-midterm.tt with accuracy 0.9069767441860465: 
+    Code find_if which takes two iterators and a predicate and returns
+    an iterator pointing at the first element for which the predicate
+    is true.  (A predicate is a function which returns a bool result.)
+    [2pt]
+
+    template <typename iterator, class predicate>
+    iterator find_if (iterator begin, iterator end, predicate pred) {
+
+
+
+Question 12 on Free Response on cmps109-2019q1-midterm.tt with accuracy 0.8947368421052632: 
+    Code find_min which returns an iterator pointing at the minimum
+    element in a range.  Its function argument less returns true if
+    the first argument is less than the second argument.  [2pt]
+
+    template <typename iterator, class less_fn>
+    iterator find_min (iterator begin, iterator end, less_fn less) {
+
+
+
+
+Question 1 on Multiple Choice part 1 on cmps109-2019q1-midterm.tt with accuracy 0.7647058823529411: 
+    For a container c which provides random access iterators, what
+   expression returns the same result as c.size()?
+   (A) c.begin() - c.end()
+   (B) c.end() - c.begin()
+   (C) c.end() - c.begin() + 1
+   (D) c.end() - c.begin() - 1
+
+
+
+Question 10 on Multiple Choice part 1 on cmps109-2019q1-midterm.tt with accuracy 0.8333333333333334: 
+    Which statement should appear in the following member function?
+   foo& foo::operator= (const foo& that) {
+   (A) if (&this == *that)
+   (B) if (*this == that)
+   (C) if (this == &that)
+   (D) if (this == that)
+
+
+
+Question 2 on Free Response on cmps109-2019q2-midterm.tt with accuracy 0.8: 
+   Assuming that bigint::bigint(long) is non-expicit, and assuming
+    operator+= above, write the code for the two versions of opera-
+    tor++, as their would appear outside of the class definition as
+    non-members.  (Show the code, not just the prototypes.)
+
+     (a) Prefix operator++ (i.e., ++x).  [2pt]
+
+     (b) Postfix operator++ (i.e., x++).  [2pt]
+
+
+
+Question 4 on Free Response on cmps109-2019q2-midterm.tt with accuracy 0.8035714285714286: 
+   Finish contains, which takes a pair of iterators indicating a
+    range, and an item, and returns true if and only if the item is in
+    the range.  The template parameters are the iterator type, type
+    item type, and a function object that checks for equality between
+    items.  [2pt]
+
+    template <typename itor_t, typename item_t, class equal=equal_to<item_t>>
+    bool contains (itor_t begin, itor_t end, const item_t& item) {
+
+
+
+Question 5 on Free Response on cmps109-2019q2-midterm.tt with accuracy 0.8666666666666667: 
+   Define the function find_if whose template arguments are an itera-
+    tor type and a predicate type and whose function arguments are a
+    pair if iterators indicating a range and a boolean function or
+    function object.  Return an iterator pointing at the first element
+    in the range for which the predicate returns true.  [2pt]
+
+    template <typename iterator, class predicate>
+    iterator find_if (iterator begin, iterator end, predicate pred) {
+
+
+
+Question 2 on Multiple Choice part 1 on cmps109-2019q2-midterm.tt with accuracy 0.9: 
+    What is the type of the constant "abc"?
+   (A) char*
+   (B) const char*
+   (C) const char[3]
+   (D) const char[4]
+
+
+
+Question 1 on Free Response on cmps109-2019q3-midterm.tt with accuracy 0.7567567567567568: 
+   Finish the implementation of the function minimum, which returns
+    an iterator pointing at the minimum element in the range.  Assume
+    that the items pointed at by the iterators have operator< avail-
+    able.  [2pt]
+
+    template <typename iterator>
+    iterator minimum (iterator begin, iterator end) {
+
+
+
+Question 9 on Free Response on cmps109-2019q3-midterm.tt with accuracy 0.8148148148148148: 
+   Write a copy function which takes forward iterators pointing into
+    an input container, and a forward iterator pointing at an output
+    container.  Copy the items from the input container to the output
+    container.  Assume the output iterator is such that the output
+    container does not overflow or cause memory errors.  [2pt]
+
+    template <typename in_itor, typename out_itor>
+    void copy (in_itor in_begin, in_itor in_end, out_itor out_begin) {
+
+
+
+Question 10 on Free Response on cmps109-2019q3-midterm.tt with accuracy 0.82: 
+    Define equal_range which takes two pairs of forward iterators and
+    returns true if all of the elements of the ranges are equal and
+    the ranges are of the same length.  There is no size() function,
+    and forward iterators can not be subtracted.  Assume the elements
+    of the range have operator==.  [3pt]
+
+    template <typename itor1, typename itor2>
+    bool equal_range (itor1 begin1, itor1 end1, itor2 begin2, itor2 end2) {
+
+
+
+Question 11 on Free Response on cmps109-2019q3-midterm.tt with accuracy 0.7692307692307693: 
+    Assuming string s;  and string t;  write an expression (not a com-
+    plete statement) equivalent to s == t, but use only operator< and
+    no other comparison operators.  Use some combination of the opera-
+    tors and (&&), or (||), and not (!).  Use parentheses as appropri-
+    ate.  [1pt]
+
+
+
+Question 14 on Free Response on cmps109-2019q3-midterm.tt with accuracy 0.7857142857142857: 
+    Define the function print.  It prints out all of the elements in a
+    range assuming that operator<< is defined for the elements in the
+    range.  A single space is printed out between successive elements
+    of the range, but no space is printed before the first or after
+    the last element.  [2pt]
+
+    template <typename iterator>
+    void print (iterator begin, iterator end) {
+
+
+
+Question 11 on Multiple Choice part 1 on cmps109-2019q3-midterm.tt with accuracy 0.782608695652174: 
+    Given the expression p->f(what), inside the code for the function
+   f, what expression is used to refer to the value of p?
+   (A) self
+   (B) that
+   (C) this
+   (D) what
+
+
+
+Question 4 on Free Response on cse111-2019q4-midterm.tt with accuracy 0.7758620689655172: 
+   Code the function equal_range, whose template arguments are two
+    types of forward iterators and a comparison function type, and
+    whose function argumetns are two begin and end ranges and an equal
+    comparison function object.  It returns true if all elements in
+    the ranges are equal and both ranges have the same number of ele-
+    ments.  [3pt]
+
+    template <typename itor1, typename itor2, typename equal_t>
+    bool equal_range (itor1 begin1, itor1 end1, itor2 begin2, itor2 end2,
+                      equal_t equal) {
+
+
+
+Question 11 on Free Response on cse111-2019q4-midterm.tt with accuracy 0.9047619047619048: 
+    Write a program that will copy the standard input to the standard
+    output.  Use getline for input.  [2pt]
+
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    int main() {
+
+
+
+
+Question 11 on Multiple Choice part 1 on cse111-2019q4-midterm.tt with accuracy 0.7647058823529411: 
+    Which of the following must be declared in every C++ program?
+   (A) int main (char**, int);
+   (B) int main (int, char**);
+   (C) int main (string&);
+   (D) int main (vector<string>&);
+
+
+
+Question 12 on Multiple Choice part 1 on cse111-2019q4-midterm.tt with accuracy 0.7777777777777778: 
+    What should be the first non-comment line in the file foo.h?
+   (A) #define __FOO_H__
+   (B) #ifdef __FOO_H__
+   (C) #ifndef __FOO_H__
+   (D) #include __FOO_H__
+
+
+
+
+Question 10 on Free Response on cse111-2020q1-midterm.tt with accuracy 0.8481012658227848: 
+    Write a function is_sorted which returns true if the range is
+    sorted into ascending order according to the comparison function.
+    The expression decltype(*iterator()) is the type of what the
+    iterator points at.  A call to less(a,b) will return true if a
+    should be considered less than b.  The sequences {3,9,11,21}, {4},
+    and {} would all be considered sorted for less<int>, but the
+    sequences {5,1,2,8} and {5,9,9,11,11} would not.  But
+    {5,9,9,11,11} is sorted if less_equal<int> is used.  Use less for
+    comparison, not operator<.  [3pt]
+
+    template <typename iterator,
+              typename less_t = less_equal<decltype(*iterator())>>
+    bool is_sorted (iterator begin, iterator end, less_t less = less_t()) {
+
+
+
+Question 13 on Free Response on cse111-2020q1-midterm.tt with accuracy 0.8082191780821918: 
+    Write the complete template function copy.  It has two template
+    parameters:  (1) an input iterator, (2) an output iterator.  It
+    has three function parameters:  (1) a begin input iterator, (2) an
+    end input iterator, and (3) a begin output iterator.  All elements
+    from the input range are copied into the output range.  It is
+    assumed that the output iterator is large enough to hold the input
+    range, and may be a back inserter.  [2pt]
+
+
+
+Question 14 on Free Response on cse111-2020q1-midterm.tt with accuracy 0.8367346938775511: 
+    Define the function copy_if which copies an input range to an
+    output range, but only copies those elements for which the
+    predicate is true.  Again, assume the output range is large
+    enough.  An example call might be:  [2pt] copy_if (vi.begin(), vi.
+    end(), back_inserter(out), [](int i){ return i > 0; });
+
+    template <typename in_itor, typename out_itor, typename predicate>
+    void copy_if (in_itor begin, in_itor end, out_itor out, predicate ok) {
+
+
+
+Question 7 on Multiple Choice part 1 on cse111-2020q1-midterm.tt with accuracy 0.7692307692307693: 
+    Inside a virtual member function of class foo, what is the type of
+   this?
+   (A) foo
+   (B) foo&
+   (C) foo&&
+   (D) foo*
+
+
+
+Question 8 on Free Response on cse111-2020q4-midterm.tt with accuracy 0.803921568627451: 
+   Code a template operator<< which takes any kind of a vector and
+    prints out the contents of the vector in the order v[0], v[1],
+    v[2], ..., to the end.  Assume operator<< is defined for the
+    elements of the vector.  Print exactly one space between vector
+    elements, but no space before the first or after the last element.
+    [4pt]
+
+
+
+Question 10 on Free Response on cse111-2020q4-midterm.tt with accuracy 0.88: 
+    Define the function find_if whose template
+    arguments are an iterator type and a predicate
+    type and whose function arguments are a pair of
+    iterators indicating a range and a boolean function
+    or function object.  Return an iterator pointing at
+    the first element in the range for which the predicate
+    returns true.  [4pt]
+
+SCORE-TOTAL=40
+
+
+
+
+Question 9 on Free Response on cse111-2020q1-final.tt with accuracy 0.8309859154929577: 
+   Define the template function merge, with a return type of void.
+    It has three template arguments:  InputItor1, InputItor2,
+    OutputItor.  It has five functional arguments:  begin and end
+    input itor1 arguments for the first input type, begin and end
+    input itor2 arguments for the second input type, and a begin
+    output itor.  Merge the two input ranges into the output range.
+    Use operator< to compare elements, and assume the input ranges are
+    already sorted into ascending order.  [4pt]
+
+
+
+Question 10 on Free Response on cse111-2020q1-final.tt with accuracy 0.7931034482758621: 
+    Define equal, which takes two pairs of iterators and returns true
+    if and only if the elements of the ranges given are equal, and the
+    lengths of the ranges are equal.  Assume only input iterators:
+    You may not use size() or subtract iterators.  Assume operator==
+    is defined on the elements of the ranges.  [2pt]
+
+    template <typename itor>
+    bool equal (itor begin1, itor end1, itor begin2, itor end2) {
+
+
+
+
+Question 2 on Free Response on cse111-2019q4-final.tt with accuracy 0.7666666666666667: 
+   Define template operator<< in the standard way so that cout<<cont
+    for any container will print out the contents of the container:
+    print an open brace ({) then each element of the container, then a
+    close brace (}).  If there is more than one element in the
+    container, print commas between elements, but no comma in before
+    the first element or after the last element.  [2pt]
+
+
+
+Question 12 on Free Response on cse111-2019q4-final.tt with accuracy 0.782608695652174: 
+    Define a template inline function max which takes two arbitrary
+    arguments and returns the larger one.  Assume operator< has been
+    defined for the arguments.  [2pt]
+
+
+
+Question 1 on Multiple Choice part 1 on cse111-2019q4-final.tt with accuracy 0.8571428571428571: 
+    What is the type of
+   map<string,double>::value_type?
+   (A) pair<const string, const double>
+   (B) pair<const string, double>
+   (C) pair<string, const double>
+   (D) pair<string, double>
+
+
+
+Question 9 on Multiple Choice part 1 on cse111-2019q4-final.tt with accuracy 0.8333333333333334: 
+    What is the expected prototype for operator<< that will print a
+   foo?
+   (A) foo& operator<< (ostream&, const foo&);
+   (B) ostream& operator<< (const ostream&, foo&);
+   (C) ostream& operator<< (ostream&, const foo&);
+   (D) ostream& operator<< (ostream&, foo);
+
+
+
+Question 3 on Multiple Choice part 2 on cse111-2019q4-final.tt with accuracy 0.875: 
+    The return type of function main is required to be:
+   (A) char**
+   (B) int
+   (C) void
+   (D) any of the above is OK.
+
+
+
+Question 11 on Multiple Choice part 2 on cse111-2019q4-final.tt with accuracy 0.9411764705882353: 
+    Assuming the usual semantics, what expression is equivalent to a
+   == b?
+   (A) (a < b) and (b < a)
+   (B) (a < b) or (b < a)
+   (C) not (a < b) and not (b < a)
+   (D) not (a < b) or not (b < a)
+
+
+
+Question 3 on Free Response on cmps109-2019q3-final.tt with accuracy 0.9207920792079208: 
+   Code a binary search, given a range specified by a pair of itera-
+    tors.  Assume the elements of the range are sorted into increasing
+    order as given by the less_t function argument.  Return an itera-
+    tor pointing at the element found.  Handle the not-found case in
+    the usual way.  Assume the iterators are random access iterators
+    -- their distance can be computed by subtraction and that they can
+    be compared by any of the standard comparison operators.  They can
+    also be subscripted in the same way as pointers can be used to
+    perform pointer arithmetic.  [4pt]
+
+    template <typename itor, typename item_t, class less_t>
+    itor binary_search (itor begin, itor original_end,
+                        const item_t& item, less_t less) {
+
+
+
+Question 7 on Free Response on cmps109-2019q3-final.tt with accuracy 0.7789473684210526: 
+   Define merge, which merges two input ranges into a single output
+    range, given a pair of iterators for each of the input ranges, an
+    iterator for the output range, and a less-than comparison func-
+    tion.  Assume both input ranges are sorted into ascending order as
+    specified by the Less argument.  Also assume that the output iter-
+    ator can be used with expressions similar to *result++ without
+    overflowing the output container.  Do not use operator< or make
+    any assumptions about the types of the elements being merged.
+    [4pt]
+    Example call:  merge (a.begin(), a.end(), b.begin(), b.end(),
+    back_inserter(v), less<int>());
+
+    template <typename Initor1, typename Initor2,
+              typename Outitor, typename Less>
+    void merge (Initor1 begin1, Initor1 end1, Initor2 begin2, Initor2 end2,
+                Outitor result, Less less) {
+
+
+
+Question 9 on Multiple Choice part 1 on cmps109-2019q3-final.tt with accuracy 0.875: 
+    In the main function, which expression has type char?
+   (A) argv
+   (B) *argv
+   (C) **argv
+   (D) ***argv
+
+
+
+Question 11 on Multiple Choice part 2 on cmps109-2019q3-final.tt with accuracy 0.8421052631578947: 
+    In the definition of operator=, what statement is used to return a
+   reference to the current object?
+   (A) return &this;
+   (B) return *this;
+   (C) return ++this;
+   (D) return this;
+
+
+
+Question 5 on Free Response on cmps109-2019q2-final.tt with accuracy 0.7735849056603774: 
+   Define the member function swap which exchanges the value in the
+    box with its argument and returns the old value.  Be sure there
+    are no race conditions when used by multiple concurrent threads.
+    Show the code as it would appear in the implementation file.
+    [2pt]
+
+    class lockbox {
+       private:
+          mutex lock;
+          size_t value {0};
+       public:
+          size_t swap (size_t argval);
+    }
+
+
+
+Question 7 on Free Response on cmps109-2019q2-final.tt with accuracy 0.8076923076923077: 
+   The function minimum takes a pair of iterators indicating a range
+    and a less than comparison function and returns an iterator point-
+    ing at the smallest element in the range.  If there is more than
+    one smallest element, the first one is chosen.  [2pt]
+
+    template <typename itor, typename less_t = less<decltype(*itor())>>
+    itor minimum (itor begin, itor end, less_t less = less_t()) {
+
+
+
+Question 13 on Free Response on cmps109-2019q2-final.tt with accuracy 0.7931034482758621: 
+    Define equal, which takes two pairs of iterators and returns true
+    if and only if the elements of the ranges given are equal, and the
+    lengths of the ranges are equal.  Assume only forward iterators:
+    You may not use size() or subtract iterators.  Assume operator==
+    is defined on the elements of the ranges.  [2pt]
+
+    template <typename itor>
+    bool equal (itor begin1, itor end1, itor begin2, itor end2) {
+
+
+
+
+Question 3 on Multiple Choice part 1 on cmps109-2019q2-final.tt with accuracy 0.7619047619047619: 
+    In the following declaration, which is not valid as a template
+   parameter to fill in the blank?
+   template <__ T> class foo {};
+   (A) class
+   (B) double
+   (C) size_t
+   (D) typename
+
+
+
+Question 12 on Multiple Choice part 2 on cmps109-2019q2-final.tt with accuracy 0.8333333333333334: 
+    How is vector::size declared?
+   (A) const size (size_t);
+   (B) const size_t size();
+   (C) size_t size (const);
+   (D) size_t size() const;
+
+                    +-----------------------------+
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |jpgs/pointers-suck-game.ps   |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    +-----------------------------+
+
+
+
+
+Question 1 on Free Response on cmps109-2019q1-final.tt with accuracy 0.7763157894736842: 
+   Define a template operator< which takes two pairs by constant ref-
+    erence and returns true if the first is lexicographically less
+    than the second.  Definition:  $ ( a , b ) < ( c , d ) $ if $ a <
+    c $ or if $ a = c $ and $ b < d $.  Do not use any comparison op-
+    erator other than operator<.  Assume that operator< is defined on
+    both the first and second parts of the pair.  The two pairs may be
+    of different types, requiring only that operator< is defined on
+    their respective elements.  [2pt]
+
+
+
+Question 4 on Free Response on cmps109-2019q1-final.tt with accuracy 0.7971014492753623: 
+   Define the template function copy_if.  It has three template para-
+    maters:  an input iterator, an output iterator, and a unary predi-
+    cate.  It has four function parameters:  begin and end input iter-
+    ators indicating a range, an output iterator, and a unary predi-
+    cate function or function object.  It copies all elements from the
+    input to the output for which the predicate returns true.  Assume
+    the output iterator accesses a container with sufficient space.
+    [2pt]
+
+
+
+Question 7 on Free Response on cmps109-2019q1-final.tt with accuracy 0.7692307692307693: 
+   Define operator++ in both the prefix and postfix formats as they
+    would appear as member functions in class foo as they would appear
+    in the header file, assuming that the implementations will appear
+    in some other file.  [1pt]
+
+    class foo {
+       public:
+
+
+
+Question 8 on Free Response on cmps109-2019q1-final.tt with accuracy 0.8709677419354839: 
+   Define merge, which merges two input ranges into a single output
+    range, given a pair of iterators for each of the input ranges, an
+    iterator for the output range, and a less-than comparison func-
+    tion.  Assume both input ranges are sorted into ascending order as
+    specified by the Less argument.  [3pt]
+    Example call:  merge (a.begin(), a.end(), b.begin(), b.end(),
+    back_inserter(v), less<int>());
+
+    template <typename Initor1, typename Initor2,
+              typename Outitor, typename Less>
+    void merge (Initor1 begin1, Initor1 end1, Initor2 begin2, Initor2 end2,
+                Outitor result, Less less) {
+
+
+
+Question 9 on Free Response on cmps109-2019q1-final.tt with accuracy 0.898876404494382: 
+   Define classes animal, cat, and dog.
+     (a) Class animal has a private constant string name field which
+         is initialized by the constructor which takes a string as an
+         argument.  It has a virtual constant function name, which re-
+         turns the name, and an abstract virtual constant function
+         noise, which returns a string.  [3pt]
+     (b) Derived classes cat and dog override the noise function:  For
+         dog, return the string "woof".  For cat return the string
+         "meow".  [3pt]
+    Following is an example program using these classes.
+
+    int main() {
+       vector<shared_ptr<animal>> va {
+          make_shared<dog> ("argos"),
+          make_shared<cat> ("bast"),
+       };
+       for (const auto& a: va) {
+          cout << a->name() << " "
+               << a->noise() << endl;
+       }
+       return 0;
+    }
+
+
+
+
+Question 5 on Multiple Choice part 1 on cmps109-2019q1-final.tt with accuracy 0.7647058823529411: 
+    If a virtual function in a derived class has the same signature as
+   a virtual function in its base class, then it should be declared
+   with what attribute in the derived class?
+   (A) abstract
+   (B) const
+   (C) override
+   (D) static
+
+
+
+Question 8 on Multiple Choice part 1 on cmps109-2019q1-final.tt with accuracy 0.8333333333333334: 
+    What is equivalent to c.back() for a container that provides a
+   direct (random) access iterator?
+   (A) *(c.end()-1)
+   (B) *c.end()
+   (C) *c.end()-1
+   (D) c.end()
+
+
+
+Question 9 on Multiple Choice part 2 on cmps109-2019q1-final.tt with accuracy 0.8: 
+    What should appear in the blank?
+   %.o: %.cpp
+           ${GPP} -c __
+   (A) $<
+   (B) $>
+   (C) $?
+   (D) $@
+
+
+

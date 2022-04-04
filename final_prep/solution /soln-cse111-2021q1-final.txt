@@ -1,0 +1,265 @@
+CSE-111 * Advanced Programming * Winter q2021 * Final Exam SOLUTION
+$Id: soln-cse111-2021q1-final.txt,v 1.1 2021-03-17 22:45:51-07 - - $
+
+Grade each question in increments of 0.5 points and
+assign a score between 0 and the max, inclusive.
+
+Negative deductions specified are not necessarily the
+ONLY reasons to deduct points, just specific things
+to check for.
+
+_______________________________________________________
+Question 1.   3 pts
+
+int main() {
+   string line;
+   for(;;) {
+      getline (cin, line);
+      if (cin.eof()) break;
+      cout << line << endl;
+   }
+   return 0;
+}
+
+0.5 each line shown here or equivalent.
+OK if int main (argc, char**)....
+OK if while(true)...
+OK if return EXIT_SUCCESS
+
+_______________________________________________________
+Question 2.   3 pts
+
+int main (int argc, char** argv) {  //// 0.5
+   for (int i = 1; i < argc; ++i) { //// 0.5
+      if (i > 1) cout << " ";       //// 0.5
+      cout << argv[i];              //// 0.5
+   }
+   cout << endl;                    //// 0.5
+   return 0;                        //// 0.5
+}
+
+OK if return EXIT_SUCCESS
+OK if different but correct logic conrolling space
+
+_______________________________________________________
+Question 3.   3 pts
+
+Either answer is OK.
+
+template <typename container>
+void print (const container& cont) {
+   for (iterator i = cont.begin(); i != cont.end(); ++i) {
+      cout << *i << endl;
+   }
+}
+
+Either answer is OK.
+
+template <typename container>
+void print (const container& cont) {
+   for (const auto& e: cont) {
+      cout << e << endl;
+   }
+}
+
+Either answer is OK
+{ } on for loop may be elided
+1 prototype is const & (reference) and correct tempelate
+1 loop is correct, either version
+1 cout is correct
+
+_______________________________________________________
+Question 4.   4 pts
+
+template <typename T, typename U>
+bool operator< (const pair<T,U> a, const pair<T,U>& b) {
+   if (a.first < b.first) return true;
+   if (b.first < a.first) return false;
+   return a.second < b.second;
+}
+
+template <typename T, typename U>
+bool operator< (const pair<T,U> a, const pair<T,U>& b) {
+   return a.first < b.first
+       or not (b.first < a.first)
+          and a.second < b.second;
+}
+
+1pt proper template and prototype
+1pt only used < in logic
+2pt rest of logic being corrrect
+deduct 0.5 if horrible unreadable format/indentation
+
+_______________________________________________________
+Question 5.   6 pts
+
+template <typename key_t, typename mapped_t, class less_t>
+typename treemap<key_t, mapped_t, less_t>::iterator
+treemap<key_t, mapped_t, less_t>::find (const key_t key) {
+   node* curr = root;
+   while (curr != nullptr) {
+      if (less (key, curr->key)) curr = curr->left;
+      if (less (curr->key, key)) curr = curr->right;
+      return iterator (curr);
+   }
+   return end();
+}
+
+0.5 curr = root
+0.5 while (curr......
+1.5 correct less(key...
+1.5 correct less(curr->key...
+1   return iterator (curr) or anything similar inside loop
+1   return end() or nullptr after loop
+
+_______________________________________________________
+Question 6.   5 pts
+
+template <typename itor>
+bool lessrange (itor b1, itor e1, itor b2, itor e2) {
+   for (; b1 != e1 and b2 != e2; ++b1, ++b2) {
+      if (*b1 < *b2) return true;
+      if (*b2 < *b1) return false;
+   }
+   return b1 == e1 and b2 != e2;
+}
+
+OK to not use , operator in for loop and use extra stmt
+
+1 pt prototype
+1 pt used only < to compare values
+1 pt condition on loop control
+1 pt incremented iterators
+1 pt correct return (OK to use if else instead)
+
+_______________________________________________________
+Question 7.   6 pts
+
+For each of circle and square:
+0.5 pt for the private field
+1 pt for the ctor
+1 pt for the area function
+
+(a) 1 pt
+
+class shape {
+    public:
+       virtual double area() = 0;
+       virtual ~shape() = default;
+};
+
+(b) 2.5 pt
+
+class circle: public shape {
+   private:
+      double radius {};
+   public:
+      circle (double r = 0): radius(r) {}
+      virtual double area() override { return M_PI * radius * radius; }
+};
+
+(c) 2.5 pt
+
+class square: public shape {
+   private:
+      double edge {};
+   public:
+      square (double r = 0): edge(r) {}
+      virtual double area() override { return edge * edge; }
+};
+
+_______________________________________________________
+Question 8.   6 pts
+
+OK to use lock_guard instead of unique_lock
+
+(a) 3pts
+
+counter& counter::operator++() {
+   unique_lock<mutex> unique (lock);
+   ++count;
+   return *this;
+}
+
+1 prototype EXACTLY correct
+1 lock is first
+1 ++ count and return *this
+
+(b) 3pts
+
+size_t counter::swap (size_t value) {
+   unique_lock<mutex> unique (lock);
+   size_t result = count;
+   count = value;
+   return result;
+}
+
+1 prototype EXACTLY correct
+1 lock is first
+1 local variable and copy and return all correct
+
+_______________________________________________________
+Question 9.   10 pts
+
+struct complex {
+   double real = 0.0;
+   double imag = 0.0;
+
+   complex (double re = 0.0, im = 0.0): real(re), imag(im) {
+   }
+
+1pt prototype with default params
+1pt proper init... OK if oper= instead of field init
+
+
+   complex& operator+= (const complex& c) {
+      real += c.real; imag += c.imag;
+      return *this;
+   }
+
+1 proper prototype and use of +=
+1 return *this
+
+   complex operator+ (const complex& a, const complex& b) {
+      complex r = a;
+      return r += b;
+   }
+
+1 proper proto with const args
+1 leverages oper+=
+
+   operator bool() { return real != 0 or imag != 0; }
+}
+
+2 correct or not
+
+ostream& operator<< (ostream& out, const complex& c){
+   return out << "(" << c.real << "," << c.imag << "i)";
+}
+
+1pt ostream& param and rest is non const ref
+1pt correct ruturn stat
+OK if two separate stmts inside function
+
+_______________________________________________________
+Question 10.  4 pts
+
+template <typename itor>
+double average (itor begin, itor end) {
+   double s = 0;
+   size_t n = 0;
+   for (; begin != end; ++begin) {
+      s += *begin;
+      ++n;
+   }
+   return s / n;
+}
+
+1 proper prototype includeing template
+2 for loop counts n and sums sum
+1 return with no special zerodivide check
+-1 if uses end-begin to determine count
+
+_______________________________________________________
+SCORE-TOTAL=50
+

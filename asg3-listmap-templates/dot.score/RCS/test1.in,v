@@ -1,0 +1,47 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2021.02.08.22.03.08;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.06.28.21.48.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@a=b
+key=value
+this=is a test
+this
+key
+a
+=
+# $Id: test1.in,v 1.1 2016-06-28 14:48:38-07 - - $
+@
+
+
+1.1
+log
+@-
+@
+text
+@d7 2
+a8 1
+# $Id: test1.in,v 1.1 2010-02-09 20:31:28-08 - - $
+@

@@ -1,0 +1,542 @@
+head	1.18;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.18
+date	2020.02.06.20.55.59;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2020.02.06.20.55.44;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2020.02.06.20.52.28;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2020.02.06.20.33.29;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2018.01.25.22.18.43;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2018.01.25.22.18.22;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2018.01.25.22.17.49;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2018.01.25.22.15.10;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2018.01.25.22.14.44;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2018.01.25.22.14.21;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2018.01.25.22.13.48;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2015.05.02.00.06.25;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2015.02.11.21.04.52;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2015.02.11.21.03.38;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2014.04.25.01.14.51;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2014.04.25.01.02.55;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.08.08.21.50.13;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.07.30.22.46.04;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.18
+log
+@-
+@
+text
+@// $Id: util.cpp,v 1.17 2020-02-06 12:55:44-08 - - $
+
+#include <cassert>
+#include <cerrno>
+#include <cstdlib>
+#include <cstring>
+#include <ctime>
+#include <stdexcept>
+#include <string>
+using namespace std;
+
+#include "debug.h"
+#include "util.h"
+
+int sys_info::exit_status_ = EXIT_SUCCESS;
+string sys_info::execname_; // Must be initialized from main().
+
+void sys_info::execname (const string& argv0) {
+   assert (execname_ == "");
+   int slashpos = argv0.find_last_of ('/') + 1;
+   execname_ = argv0.substr (slashpos);
+   cout << boolalpha;
+   cerr << boolalpha;
+   DEBUGF ('u', "execname_ = " << execname_);
+}
+
+const string& sys_info::execname () {
+   assert (execname_ != "");
+   return execname_;
+}
+
+void sys_info::exit_status (int status) {
+   assert (execname_ != "");
+   exit_status_ = status;
+}
+
+int sys_info::exit_status () {
+   assert (execname_ != "");
+   return exit_status_;
+}
+
+ostream& complain() {
+   sys_info::exit_status (EXIT_FAILURE);
+   cerr << sys_info::execname () << ": ";
+   return cerr;
+}
+
+void syscall_error (const string& object) {
+   complain() << object << ": " << strerror (errno) << endl;
+}
+
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.16 2020-02-06 12:52:28-08 - - $
+d3 1
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.15 2020-02-06 12:33:29-08 - - $
+a16 5
+void sys_info_error (const string& condition) {
+   throw logic_error ("main() has " + condition
+               + " called sys_info::execname()");
+}
+
+d18 1
+a18 1
+   if (execname_ != "") sys_info_error ("already");
+d27 1
+a27 1
+   if (execname_ == "") sys_info_error ("not yet");
+d32 1
+a32 1
+   if (execname_ == "") sys_info_error ("not yet");
+d37 1
+a37 1
+   if (execname_ == "") sys_info_error ("not yet");
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.14 2018-01-25 14:18:43-08 - - $
+a44 11
+
+const string datestring () {
+   time_t clock = time (nullptr);
+   struct tm *tm_ptr = localtime (&clock);
+   char timebuf[256];
+   strftime (timebuf, sizeof timebuf,
+             "%a %b %e %H:%M:%S %Z %Y", tm_ptr);
+   return timebuf;
+}
+
+
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.13 2018-01-25 14:18:22-08 - - $
+a55 14
+list<string> split (const string& line, const string& delimiters) {
+   list<string> words;
+   size_t end = 0;
+   // Loop over the string, splitting out words, and for each word
+   // thus found, append it to the output list<string>.
+   for (;;) {
+      size_t start = line.find_first_not_of (delimiters, end);
+      if (start == string::npos) break;
+      end = line.find_first_of (delimiters, start);
+      words.push_back (line.substr (start, end - start));
+   }
+   DEBUGF ('u', words);
+   return words;
+}
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.12 2018-01-25 14:17:49-08 - - $
+d33 1
+a33 1
+   return execname;
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.11 2018-01-25 14:15:10-08 - - $
+d28 1
+a28 1
+   DEBUG ('u', "execname_ = " << execname_);
+d67 1
+a67 1
+   DEBUG ('u', words);
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.10 2018-01-25 14:14:44-08 - - $
+d11 1
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.9 2018-01-25 14:14:21-08 - - $
+d27 1
+a27 1
+   TRACE ('u', "execname_ = " << execname_);
+d66 1
+a66 1
+   TRACE ('u', words);
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.8 2018-01-25 14:13:48-08 - - $
+d27 1
+a27 1
+   TRACE ('u', "execname_ = " << execname);
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.7 2015-05-01 17:06:25-07 - - $
+d37 1
+a37 1
+   exit_status = status;
+d42 1
+a42 1
+   return exit_status;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.6 2015-02-11 13:04:52-08 - - $
+d13 2
+a14 2
+int sys_info::exit_status = EXIT_SUCCESS;
+string sys_info::execname; // Must be initialized from main().
+d18 1
+a18 1
+               + " called sys_info::set_execname()");
+d21 2
+a22 2
+void sys_info::set_execname (const string& argv0) {
+   if (execname != "") sys_info_error ("already");
+d24 1
+a24 1
+   execname = argv0.substr (slashpos);
+d27 1
+a27 1
+   TRACE ('u', "execname = " << execname);
+d30 2
+a31 2
+const string& sys_info::get_execname () {
+   if (execname == "") sys_info_error ("not yet");
+d35 2
+a36 2
+void sys_info::set_exit_status (int status) {
+   if (execname == "") sys_info_error ("not yet");
+d40 2
+a41 2
+int sys_info::get_exit_status () {
+   if (execname == "") sys_info_error ("not yet");
+d71 2
+a72 2
+   sys_info::set_exit_status (EXIT_FAILURE);
+   cerr << sys_info::get_execname () << ": ";
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.5 2015-02-11 13:03:38-08 - - $
+d22 1
+a22 1
+   if (execname == "") sys_info_error ("already");
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.4 2014-04-24 18:14:51-07 - - $
+d31 2
+a32 2
+   if (execname == NULL) sys_info_error ("not yet");
+   return *execname;
+d36 1
+a36 1
+   if (execname == NULL) sys_info_error ("not yet");
+d41 1
+a41 1
+   if (execname == NULL) sys_info_error ("not yet");
+d46 1
+a46 1
+   time_t clock = time (NULL);
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.3 2014-04-24 18:02:55-07 - - $
+d14 1
+a14 1
+string *sys_info::execname = NULL; // Must be initialized from main().
+d22 1
+a22 1
+   if (execname != NULL) sys_info_error ("already");
+d24 1
+a24 1
+   execname = new string (argv0.substr (slashpos));
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.2 2013-08-08 14:50:13-07 - - $
+a6 1
+#include <sstream>
+a8 2
+#include <typeinfo>
+
+d16 1
+a16 1
+void sys_info_error (const string &condition) {
+d21 1
+a21 1
+void sys_info::set_execname (const string &argv0) {
+d30 1
+a30 1
+const string &sys_info::get_execname () {
+d55 1
+a55 1
+list<string> split (const string &line, const string &delimiters) {
+d70 1
+a70 1
+ostream &complain() {
+d76 1
+a76 1
+void syscall_error (const string &object) {
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.1 2013-07-30 15:46:04-07 - - $
+a82 38
+template <typename item_t>
+ostream &operator<< (ostream &out, const list<item_t> &vec) {
+   typename list<item_t>::const_iterator itor = vec.begin();
+   typename list<item_t>::const_iterator end = vec.end();
+   // If the list is empty, do nothing.
+   if (itor != end) {
+      // Print out the first element without a space.
+      out << *itor++;
+      // Print out the rest of the elements each preceded by a space.
+      while (itor != end) out << " " << *itor++;
+   }
+   return out;
+}
+
+template <typename type_t>
+string to_string (const type_t &that) {
+   ostringstream stream;
+   stream << that;
+   return stream.str ();
+}
+
+template <typename type_t>
+type_t from_string (const string &that) {
+   stringstream stream;
+   stream << that;
+   type_t result;
+   if (not (stream >> result   // Can we read type from string?
+         && stream >> std::ws  // Flush trailing white space.
+         && stream.eof ())     // Must now be at end of stream.
+   ) {
+      throw domain_error (string (typeid (type_t).name ())
+            + " from_string (" + that + ")");
+   }
+   return result;
+}
+
+#include "templates.tcc"
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.2 2013-02-12 15:05:06-08 - - $
+d109 3
+a111 3
+   if ( !(stream >> result   // Can we read type from string?
+       && stream >> std::ws  // Flush trailing white space.
+       && stream.eof ())     // Must now be at end of stream.
+@

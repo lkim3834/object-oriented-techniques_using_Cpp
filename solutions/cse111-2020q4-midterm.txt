@@ -1,0 +1,180 @@
+$Id: soln-cse111-2020q4-midterm.txt,v 1.16 2020-11-17 18:59:13-08 - - $
+Solution to CSE-111 2020q1-midterm, page 1
+
+Any logically correct variation on these answers is ok too.
+Assign fractional points in increments of 0.5 per question.
+
+Don't cut/paste code from student into a file to verify that
+it does compile, but if you detect syntax or semantic errors
+and know that it won't compile in a suitable environment,
+then deduct points.
+
+Do not deduct points for obvious typos.
+
+_________________________________________________________________
+Question 1. [4]
+
+void stack::push (int n) {
+   node* t = new node();
+   t->val = n;
+   t->link = top;
+   top = t;
+}
+
+_________________________________________________________________
+Question 2. [4]
+
+template <typename itor>
+double sum (itor begin, itor end) {
+   double s = 0;
+   for (; begin != end; ++begin) s += *begin;
+   return s;
+}
+
+_________________________________________________________________
+Question 3. [4]
+
+
+bool is_monotonic (itor begin, itor end) {
+   if (begin == end) return true;
+   itor prev = begin++;
+   for (; begin != end; prev = begin++) {
+      if (not (*prev < *begin)) return false;
+   }
+   return true;
+}
+
+Must work on empty container, for which result is true.
+
+_________________________________________________________________
+Question 4. [4]
+
+void reverse (vector<int>& v) { //// soln 1
+   for (ssize_t b = 0, e = v.size() - 1; b < e; ++b, --e) {
+      swap (v[b], v[e]);
+   }
+}
+
+vector<int> reverse (const vector<int>& v) { //// soln 2
+   size_t s = v.size();
+   vector<int> r (s));
+   for (size_t i = 0; i < v.size(); ++i) {
+      r[s - 1 - i] = r[i];
+   }
+   return r;
+}
+
+vector<int> reverse (const vector<int>& v) { //// soln 3
+   vector<int> r;
+   for (auto i = v.rbegin(); i != c.rend(); ++i) {
+      r.push_back (*i); // note i is a reverse_iterator.
+   }
+   return r;
+}
+
+Or three or four other alternatives.
+
+Deduct 1 point from soln 2 of vector r is not properly
+dimensioned.
+
+Deduct 1 point if argument is not non-const reference,
+but if their solution is to return a vector<int>,
+be sure the argument is a const.
+
+Deduct 1 point if used size_t in soln 1 because that would overflow
+if size() == 0.
+OK to use size_t if a special zero check is made before
+the loop.
+OK to use ssize_t or int or long for control variable.
+
+_________________________________________________________________
+Question 5. [4]
+
+list<int>::iterator largest (list<int>& lst) {
+   auto begin = lst.begin();
+   if (begin == lst.end()) return lst.end();
+   auto largest = begin++;
+   for (; begin != lst.end(); ++begin) {
+      if (*largest < *begin) largest = begin;
+   }
+   return largest;
+}
+
+_________________________________________________________________
+Question 7. [4]
+
+SOURCES = foo.cpp bar.cpp main.cpp
+OBJECTS = ${SOURCES:.cpp=.o}
+
+all: runfile
+
+runfile: ${OBJECTS}
+	g++ ${OBJECTS} -o runfile
+
+%.o: %.cpp
+	g++ -c $<
+
+In the runfile target, in the indented command line, may use:
+$@ instead of runfile
+$^ instead of ${OBJECTS}
+
+_________________________________________________________________
+Question 8. [4]
+
+vector         O(n)
+unordered_map  O(1)
+map            O(log n)
+list           O(n)
+
+map            balanced binary search tree, red-black tree, etc.
+unordered_map  hash table
+
+_________________________________________________________________
+Question 9. [4]
+
+template <typename T>
+ostream& operator<< (ostream& out, const vector<T>& vec) {
+   bool space = false;
+   for (const auto& item: vec) {
+      if (space) out << " ";
+      space = true;
+      out << item;
+   }
+   return out;
+}
+
+OK to use variations on how spaces are handled, as long
+as no spaces before or after.
+Deduct 1/2 point if vec is not const reference.
+
+_________________________________________________________________
+Question 10. [4]
+
+void ubigint::multiply_by_2() {
+   int carry = 0;
+   for (i = 0; i < ubigvalue.size(); ++i) {
+      int n = ubigvalue[i] * 2 + carry;
+      ubigvalue[i] = n % 10;
+      carry = n / 10;
+   }
+   if (carry != 0) ubigvalue.push_bach (carry);
+}
+
+OK to use unsigned char instead of int for carry, etc.
+
+_________________________________________________________________
+Question 11. [4]
+
+template <typename iterator, class predicate>
+iterator find_if (iterator begin, iterator end, predicate pred) {
+   for (; begin != end; ++begin) {
+      if (pred (*begin)) break;
+   }
+   return begin;
+}
+
+OK if iterators are passed as const, provided that a local
+copy is made of the begin iterator.
+OK if special check for begin == end.
+Deduct 1 point if the result for not found is other than end.
+

@@ -1,0 +1,74 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2019.12.13.03.22.40;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.12.13.02.19.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// $Id: util.cpp,v 1.1 2019-12-12 18:19:23-08 - - $
+
+#include <cstring>
+using namespace std;
+
+#include "util.h"
+
+string exec::execname_; // Must be initialized from main().
+int exec::status_ = EXIT_SUCCESS;
+
+void exec::execname (const string& argv0) {
+   execname_ = basename (argv0.c_str());
+   cout << boolalpha;
+   cerr << boolalpha;
+   DEBUGF ('Y', "execname = " << execname_);
+}
+
+void exec::status (int new_status) {
+   new_status &= 0xFF;
+   if (status_ < new_status) status_ = new_status;
+}
+
+ostream& note() {
+   return cerr << exec::execname() << ": ";
+}
+
+ostream& error() {
+   exec::status (EXIT_FAILURE);
+   return note();
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: util.cpp,v 1.1 2016-06-14 18:19:17-07 - - $
+a6 3
+
+ydc_exn::ydc_exn (const string& what): runtime_error (what) {
+}
+@

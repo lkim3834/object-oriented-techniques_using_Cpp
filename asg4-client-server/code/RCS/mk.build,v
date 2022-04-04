@@ -1,0 +1,69 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.3
+date	2019.11.06.22.09.51;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.08.05.19.15.29;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.07.25.19.33.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk.build,v 1.2 2019-08-05 12:15:29-07 - - $
+# Checksource and do the build.
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cse111-wm/bin/
+export PATH
+partnercheck 2>&1 | tee partnercheck.log
+checksource M* R* *.h* *.c* 2>&1 | tee checksource.log
+gmake 2>&1 | tee gmake.log
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk.build,v 1.1 2014-07-25 12:33:38-07 - - $
+d4 1
+a4 1
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps109-wm/bin/
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk.build,v 1.2 2014-05-20 13:21:31-07 - - $
+d4 1
+a4 1
+PATH=$PATH:/afs/cats.ucsc.edu/courses/cmps012b-wm/bin/
+@

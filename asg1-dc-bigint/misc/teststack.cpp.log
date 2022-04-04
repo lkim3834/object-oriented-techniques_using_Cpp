@@ -1,0 +1,10 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting teststack.cpp
+checksource teststack.cpp
+ident teststack.cpp
+teststack.cpp:
+     $Id: teststack.cpp,v 1.13 2016-06-13 13:44:55-07 - - $
+cpplint.py.perl teststack.cpp
+Done processing teststack.cpp
+g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++2a -Wold-style-cast -g -O0 teststack.cpp -o teststack -lm
+rm -f teststack.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished teststack.cpp

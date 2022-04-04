@@ -1,0 +1,29 @@
+#!/bin/bash
+# $Id: mk.tests,v 1.2 2020-10-19 19:51:34-07 - - $
+#
+# This program just runs ydc from input to output.
+# It, like dc, does not bother with exit status or stdout/stderr.
+#
+# Note: all files *.out.diffs should be empty of your program works.
+#
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cse110a-wm/bin
+ulimit -f 32
+ulimit -t 120
+
+PROG=./ydc
+GRIND="valgrind --leak-check=full --show-reachable=yes"
+
+for test in test[0-9]-*.ydc
+do
+   echo Testing $test ...
+   $PROG <$test 1>$test.ydc.out 2>$test.ydc.err
+   echo status = $? >$test.status
+   diff $test.ydc.out $test.dc.out >$test.out.diffs
+done
+
+echo If any of the "*.out.diffs" have data,
+echo then ydc did not produce correct output.
+ls -la *.out.diffs
+
+$GRIND $PROG <testx-leaks.ydc 1>leaks-test.out 2>leaks-test.err
+

@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2020.10.06.23.12.34;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@
+Great Pyramid of Giza
+https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza
+
+weighs about six million tons
+consists of 2.3 million blocks of stones,
+some stones weight 80 tons.
+
+workers: two gangs of 100,000 men
+built over a 10- to 20-year period
+
+How much bread and beer was needed?
+
+Egyptian Arithmetic
+
+http://www.math.wichita.edu/history/Topics/arithmetic.html
+
+http://www.math.buffalo.edu/mad/Ancient-Africa/mad_ancient_egypt_arith.html
+
+$Id$
+@

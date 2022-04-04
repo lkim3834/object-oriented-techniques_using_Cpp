@@ -1,0 +1,195 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2021.02.09.07.24.25;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.12.06.00.31.19;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.12.06.00.28.43;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: proctime.cpp,v 1.1 2021-02-08 23:22:35-08 - - $
+
+//
+// NAME
+//    proctime - print time used by process
+//
+// SYNOPSIS
+//    proctime prog [args...]
+//
+// DESCRIPTION
+//    Runs the program as a child process and when finished
+//    prints the real_time, sys_time, and user_time used.
+//
+
+#include <cstdlib>
+#include <cstring>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+#include <sys/resource.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+struct {
+   string execname;
+   bool out_cerr = false;
+   char** prog_argv = nullptr;
+   void getopt (int argc, char** argv) {
+      execname = basename (argv[0]);
+      for(;;) {
+         int opt = ::getopt (argc, argv, "e");
+         if (opt == EOF) break;
+         switch (opt) {
+            case 'e': out_cerr = true; break;
+         }
+      }
+      prog_argv = &argv[optind];
+   }
+} opts;
+
+void sysfail (const string& object) {
+   cerr << opts.execname << ": " << object << ": " << strerror (errno)
+        << endl;
+   exit (errno | 0x80);
+}
+
+void usage() {
+   cerr << "Usage: " << opts.execname << " prog [args...]" << endl;
+   exit (1);
+}
+
+double seconds (const struct timeval& time) {
+   return double (time.tv_sec) + double (time.tv_usec) / 1.0e6;
+}
+
+void printstatus (const char* prog, int status) {
+  ostream& out = opts.out_cerr ? cerr : cout;
+   out << opts.execname << ": " << prog << ": ";
+   if (status & 0xFF) {
+      out << strsignal (status & 0x7F);
+      if (status & 0x8F) out << " (core dumped)";
+   }else {
+      out << "exit " << ((status >> 8) & 0xFF);
+   }
+   out << endl;
+}
+
+void runprog (char** argv) {
+   if (argv[0] == nullptr) usage();
+   int pid = fork();
+   if (pid < 0) sysfail ("fork()");
+   if (pid == 0) {
+      int exec = execvp (argv[0], argv);
+      if (exec < 0) sysfail (string ("execvp(") + argv[0] + ")");
+   }
+   int status;
+   waitpid (pid, &status, 0);
+   printstatus (argv[0], status);
+}
+
+void printusage (double real_time, double sys_time, double user_time) {
+  ostream& out = opts.out_cerr ? cerr : cout;
+  out << opts.execname << ": " << std::fixed
+      << setprecision(6) << real_time << " real, "
+      << setprecision(6) << sys_time << " sys, "
+      << setprecision(6) << user_time << " user." << endl;
+}
+
+int main (int argc, char** argv) {
+   opts.getopt (argc, argv);
+   struct timeval start, finish;
+   struct rusage usage;
+   gettimeofday (&start, nullptr);
+   runprog (opts.prog_argv);
+   getrusage (RUSAGE_CHILDREN, &usage);
+   gettimeofday (&finish, nullptr);
+   printusage (seconds (finish) - seconds (start),
+               seconds (usage.ru_stime),
+               seconds (usage.ru_utime));
+}
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d12 1
+a12 1
+//    prints the elapsed, kernel, and user times used.
+d15 3
+d27 28
+d59 12
+d72 1
+d74 5
+a78 1
+   if (pid == 0) execvp (argv[0], argv);
+d81 1
+a81 1
+   cout << argv[0] << " exited with " << status << endl;
+d84 6
+a89 4
+void printusage (double elapsed, double kernel, double user) {
+  cout << "Time: " << elapsed << " elapsed, "
+       << kernel << " kernel, "
+       << user << " user." << endl;
+d92 2
+a93 1
+int main (int, char** argv) {
+d97 1
+a97 1
+   runprog (&argv[1]);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d18 1
+d20 3
+a22 1
+#include <sys/resource.h>
+d42 1
+a42 1
+int main (int argc, char** argv) {
+d45 1
+a45 1
+   gettimeofday (&start);
+d47 2
+a48 2
+   getrusage (RUSAGE_CHILDREN, usage);
+   gettimeofday (&finish);
+@

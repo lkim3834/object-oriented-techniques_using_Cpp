@@ -1,0 +1,87 @@
+CSE-111 · Advanced Programming · Fall 2020 · Midterm Exam       1 of 1
+$Id: cse111-2020q4-midterm.tt,v 1.4 2020-11-17 18:26:23-08 - - $
+.PS
+examboxes(4)
+.PE
+
+.EQ
+delim $$
+.EN
+
+Assume, do not show, #include directives.  Neatness counts.  Use
+proper indentation.
+
+ 1. Given the following contents of stack.h, show the implementation
+    of push in stack.cpp [4pt]
+       class stack {
+          private:
+             struct node {
+                int val;
+                node* link;
+              };
+              node* top;
+          public:
+             void push (int n);
+       };
+
+ 2. Write a function called sum.  It has a single template argument of
+    iterator type.  It has two function arguments of that iterator
+    type indicating the begin and the end of a range.  Sum returns a
+    double which is the sum of all elements in the range.  Assume the
+    iterators point at elements of type double, or whatever can be
+    implicitly converted too type double.  Code your solution as a
+    loop using the two-semicolon version of the for loop.  [4pt]
+
+ 3. Write a template function is_monotonic.  The template type
+    argument is an iterator type.  It has two function arguments,
+    begin and end, of that iterator type.  It returns a bool value
+    which is true if and only if the sequence is sorted in
+    monotonically increasing order.  Assume the elements pointed at by
+    the iterators have operator< defined for them as the comparison
+    operator.  E.g., {1,2,6,99} and {3,6,8,42} are monotonic, but
+    neither {3,5,5,7} nor {5,2,8,7} are.  Monotonic means every number
+    is larger than the preceding one.  [4pt]
+
+ 4. Write a function reverse whose argument is a vector<int>.  E.g.,
+    the reverse of {1,3,5,7,9} is {9,7,5,3,1}.  It must work for an
+    empty vector, and also for an even or odd number of elements in
+    the vector.  [4pt]
+
+ 5. Write a function largest which takes a list<int> as its argument.
+    It returns a list<int>::iterator to indicate the position of the
+    largest int in the list.  Return the end iterator for an empty
+    list.  Your function must work on any list of zero, one, or more
+    ints.  [4pt]
+
+ 7. Assume you have files foo.cpp, bar.cpp, and main.cpp.  Write a
+    Makefile which will build the executable binary named "runfile".
+    Use wildcards as appropriate.  The first target should be all.
+    Don't bother thinking about any header files.  Just use g++ to
+    compile.  [4pt]
+
+ 8. Indicate, using big-O notation, the amount of time it takes to
+    find an arbitrary element in each of:  vector, unordered_map, map,
+    list.  For each of map and unordered_map, what is the underlying
+    data structure?  [4pt]
+
+ 9. Code a template operator<< which takes any kind of a vector and
+    prints out the contents of the vector in the order v[0], v[1],
+    v[2], ..., to the end.  Assume operator<< is defined for the
+    elements of the vector.  Print exactly one space between vector
+    elements, but no space before the first or after the last element.
+    [4pt]
+
+10. Given that ubigint has a field called vector<unsigned char>
+    ubigvalue, code the non-const function ubigint::multiply_by_2,
+    which modifies ubigvalue.  [4pt]
+
+11. Define the function find_if whose template
+    arguments are an iterator type and a predicate
+    type and whose function arguments are a pair of
+    iterators indicating a range and a boolean function
+    or function object.  Return an iterator pointing at
+    the first element in the range for which the predicate
+    returns true.  [4pt]
+
+SCORE-TOTAL=40
+

@@ -1,0 +1,643 @@
+head	1.20;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.20
+date	2021.01.11.23.52.17;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2020.10.21.01.23.13;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2019.10.08.20.55.31;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2018.01.25.22.02.55;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2016.01.15.00.10.40;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2016.01.14.23.13.33;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2016.01.14.22.45.21;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2016.01.14.00.21.53;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2016.01.13.21.49.20;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2014.06.11.20.49.31;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2014.04.10.00.04.58;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2014.03.27.02.55.18;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2014.03.27.01.39.40;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2014.03.27.00.15.54;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2013.06.19.01.26.51;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2013.06.19.01.02.12;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2013.06.19.01.00.53;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2013.06.19.01.00.24;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.06.19.00.59.10;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.06.19.00.31.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.20
+log
+@-
+@
+text
+@// $Id: commands.cpp,v 1.19 2020-10-20 18:23:13-07 - - $
+
+#include "commands.h"
+#include "debug.h"
+
+command_hash cmd_hash {
+   {"cat"   , fn_cat   },
+   {"cd"    , fn_cd    },
+   {"echo"  , fn_echo  },
+   {"exit"  , fn_exit  },
+   {"ls"    , fn_ls    },
+   {"lsr"   , fn_lsr   },
+   {"make"  , fn_make  },
+   {"mkdir" , fn_mkdir },
+   {"prompt", fn_prompt},
+   {"pwd"   , fn_pwd   },
+   {"rm"    , fn_rm    },
+   {"rmr"   , fn_rmr   },
+};
+
+command_fn find_command_fn (const string& cmd) {
+   // Note: value_type is pair<const key_type, mapped_type>
+   // So: iterator->first is key_type (string)
+   // So: iterator->second is mapped_type (command_fn)
+   DEBUGF ('c', "[" << cmd << "]");
+   const auto result = cmd_hash.find (cmd);
+   if (result == cmd_hash.end()) {
+      throw command_error (cmd + ": no such function");
+   }
+   return result->second;
+}
+
+command_error::command_error (const string& what):
+            runtime_error (what) {
+}
+
+int exit_status_message() {
+   int status = exec::status();
+   cout << exec::execname() << ": exit(" << status << ")" << endl;
+   return status;
+}
+
+void fn_cat (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_cd (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_echo (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+   cout << word_range (words.cbegin() + 1, words.cend()) << endl;
+}
+
+
+void fn_exit (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+   throw ysh_exit();
+}
+
+void fn_ls (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_lsr (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_make (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_mkdir (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_prompt (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_pwd (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_rm (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+void fn_rmr (inode_state& state, const wordvec& words) {
+   DEBUGF ('c', state);
+   DEBUGF ('c', words);
+}
+
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.18 2019-10-08 13:55:31-07 - - $
+d43 1
+a43 1
+void fn_cat (inode_state& state, const wordvec& words){
+d48 1
+a48 1
+void fn_cd (inode_state& state, const wordvec& words){
+d53 1
+a53 1
+void fn_echo (inode_state& state, const wordvec& words){
+d60 1
+a60 1
+void fn_exit (inode_state& state, const wordvec& words){
+d66 1
+a66 1
+void fn_ls (inode_state& state, const wordvec& words){
+d71 1
+a71 1
+void fn_lsr (inode_state& state, const wordvec& words){
+d76 1
+a76 1
+void fn_make (inode_state& state, const wordvec& words){
+d81 1
+a81 1
+void fn_mkdir (inode_state& state, const wordvec& words){
+d86 1
+a86 1
+void fn_prompt (inode_state& state, const wordvec& words){
+d91 1
+a91 1
+void fn_pwd (inode_state& state, const wordvec& words){
+d96 1
+a96 1
+void fn_rm (inode_state& state, const wordvec& words){
+d101 1
+a101 1
+void fn_rmr (inode_state& state, const wordvec& words){
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.17 2018-01-25 14:02:55-08 - - $
+d18 1
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.16 2016-01-14 16:10:40-08 - - $
+d37 3
+a39 3
+   int exit_status = exit_status::get();
+   cout << execname() << ": exit(" << exit_status << ")" << endl;
+   return exit_status;
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.15 2016-01-14 15:13:33-08 - - $
+d24 1
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.14 2016-01-14 14:45:21-08 - - $
+d54 1
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.13 2016-01-13 16:21:53-08 - - $
+d35 6
+a40 1
+
+d56 1
+a72 1
+
+a100 6
+}
+
+int exit_status_message() {
+   int exit_status = exit_status::get();
+   cout << execname() << ": exit(" << exit_status << ")" << endl;
+   return exit_status;
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.12 2016-01-13 13:49:20-08 - - $
+d6 1
+a6 1
+commands::commands(): hash ({
+d18 1
+a18 1
+}){}
+d20 1
+a20 1
+command_fn commands::at (const string& cmd) {
+d24 2
+a25 2
+   const auto result = hash.find (cmd);
+   if (result == hash.end()) {
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.11 2014-06-11 13:49:31-07 - - $
+d26 1
+a26 1
+      throw yshell_exn (cmd + ": no such function");
+d31 4
+d54 1
+a54 1
+   throw ysh_exit_exn();
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.10 2014-04-09 17:04:58-07 - - $
+d6 1
+a6 1
+commands::commands(): map ({
+d24 2
+a25 2
+   command_map::const_iterator result = map.find (cmd);
+   if (result == map.end()) {
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.9 2014-03-26 19:55:18-07 - - $
+d20 1
+a20 1
+function commands::at (const string& cmd) {
+d23 2
+a24 2
+   // So: iterator->second is mapped_type (function)
+   commandmap::const_iterator result = map.find (cmd);
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.8 2014-03-26 18:39:40-07 - - $
+d50 1
+a50 1
+   throw ysh_exit_exn ();
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.7 2014-03-26 17:15:54-07 - - $
+d31 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.6 2013-06-18 18:26:51-07 - - $
+d4 1
+a4 1
+#include "trace.h"
+d6 13
+a18 13
+commands::commands(): map (commandmap()) {
+   map["cat"    ] = fn_cat    ;
+   map["cd"     ] = fn_cd     ;
+   map["echo"   ] = fn_echo   ;
+   map["exit"   ] = fn_exit   ;
+   map["ls"     ] = fn_ls     ;
+   map["lsr"    ] = fn_lsr    ;
+   map["make"   ] = fn_make   ;
+   map["mkdir"  ] = fn_mkdir  ;
+   map["prompt" ] = fn_prompt ;
+   map["pwd"    ] = fn_pwd    ;
+   map["rm"     ] = fn_rm     ;
+}
+d32 2
+a33 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d37 2
+a38 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d42 2
+a43 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d47 2
+a48 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d53 2
+a54 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d58 2
+a59 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d64 2
+a65 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d69 2
+a70 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d74 2
+a75 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d79 2
+a80 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d84 2
+a85 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+d89 2
+a90 2
+   TRACE ('c', state);
+   TRACE ('c', words);
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.5 2013-06-18 18:02:12-07 - - $
+d31 1
+a31 1
+void fn_cat (inode_state &state, const wordvec &words){
+d36 1
+a36 1
+void fn_cd (inode_state &state, const wordvec &words){
+d41 1
+a41 1
+void fn_echo (inode_state &state, const wordvec &words){
+d46 1
+a46 1
+void fn_exit (inode_state &state, const wordvec &words){
+d52 1
+a52 1
+void fn_ls (inode_state &state, const wordvec &words){
+d57 1
+a57 1
+void fn_lsr (inode_state &state, const wordvec &words){
+d63 1
+a63 1
+void fn_make (inode_state &state, const wordvec &words){
+d68 1
+a68 1
+void fn_mkdir (inode_state &state, const wordvec &words){
+d73 1
+a73 1
+void fn_prompt (inode_state &state, const wordvec &words){
+d78 1
+a78 1
+void fn_pwd (inode_state &state, const wordvec &words){
+d83 1
+a83 1
+void fn_rm (inode_state &state, const wordvec &words){
+d88 1
+a88 1
+void fn_rmr (inode_state &state, const wordvec &words){
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.4 2013-06-18 18:00:53-07 - - $
+d21 3
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.3 2013-06-18 18:00:24-07 - - $
+d25 1
+a25 1
+   return *result;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.2 2013-06-18 17:59:10-07 - - $
+d23 1
+a23 1
+      throw yshell_exn (words[0] + ": no such function");
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.1 2013-06-18 17:31:28-07 - - $
+d22 1
+a22 1
+   if (result == map.end) {
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: commands.cpp,v 1.2 2012-03-29 17:31:42-07 - - $
+d20 6
+a25 2
+function commands::operator[] (const string& cmd) {
+   return map[cmd];
+@

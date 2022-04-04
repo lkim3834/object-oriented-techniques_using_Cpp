@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2020.11.18.23.32.16;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@-bash-16$ uname -srmpi
+SunOS 5.10 sun4v sparc SUNW,SPARC-Enterprise-T2000
+-bash-17$ ./endian
+Original: 0x12345678 = 12 34 56 78
+Network : 0x12345678 = 12 34 56 78
+Host    : 0x12345678 = 12 34 56 78
+Original: 0x1234 = 12 34
+Network : 0x1234 = 12 34
+Host    : 0x1234 = 12 34
+
+@

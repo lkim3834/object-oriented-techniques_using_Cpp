@@ -1,0 +1,1 @@
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -o ydc ubigint.o bigint.o libfns.o scanner.o debug.o util.o main.o

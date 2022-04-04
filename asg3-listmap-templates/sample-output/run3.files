@@ -1,0 +1,20 @@
+-: 1: stdin=value
+stdin = value
+test1.in: 1: a=b
+a = b
+test1.in: 2: key=value
+key = value
+test1.in: 3: this=is a test
+this = is a test
+test1.in: 4: this
+this = is a test
+test1.in: 5: key
+key = value
+test1.in: 6: a
+a = b
+test1.in: 7: =
+a = b
+key = value
+stdin = value
+this = is a test
+test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $

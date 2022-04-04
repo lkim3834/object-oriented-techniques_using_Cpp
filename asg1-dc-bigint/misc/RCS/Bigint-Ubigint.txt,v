@@ -1,0 +1,78 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2020.10.07.00.02.40;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.10.06.23.57.51;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@
+How to implement bigint using ubigint
+
+a s+ b:
+   if both signs same
+      then
+         call a u+ b
+      else
+         compare the values
+         if a bigger than b
+            then a u- b
+            else b u- a
+         sign of result is sign of bigger value
+
+a s- b:
+   if signs are different
+      then
+         call a u+ b
+      else
+         if a bigger than b
+            then a u- b
+            else b u- a
+         sign is same as bigger number
+
+"bigger" means larger ubigint value
+u+ and u- refer to ubigint operators
+s+ and s- are bigint operators
+
+$Id: Bigint-Ubigint.txt,v 1.1 2020-10-06 16:57:51-07 - - $
+@
+
+
+1.1
+log
+@-
+@
+text
+@d4 1
+a4 1
+a + b:
+d15 1
+a15 1
+a - b:
+d18 1
+a18 1
+         call a ubigint+ b
+d27 1
+d29 1
+a29 1
+$Id$
+@

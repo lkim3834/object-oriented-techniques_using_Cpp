@@ -1,0 +1,781 @@
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.965517:
+ 9. Define classes animal, cat, and dog.
+     (a) Class animal has a private constant string name field which
+         is initialized by the constructor which takes a string as an
+         argument.  It has a virtual constant function name, which re-
+         turns the name, and an abstract virtual constant function
+         noise, which returns a string.  [3pt]
+     (b) Derived classes cat and dog override the noise function:  For
+         dog, return the string "woof".  For cat return the string
+         "meow".  [3pt]
+    Following is an example program using these classes.
+
+    int main() {
+       vector<shared_ptr<animal>> va {
+          make_shared<dog> ("argos"),
+          make_shared<cat> ("bast"),
+       };
+       for (const auto& a: va) {
+          cout << a->name() << " "
+               << a->noise() << endl;
+       }
+       return 0;
+    }
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.962264:
+ 8. Define merge, which merges two input ranges into a single output
+    range, given a pair of iterators for each of the input ranges, an
+    iterator for the output range, and a less-than comparison func-
+    tion.  Assume both input ranges are sorted into ascending order as
+    specified by the Less argument.  [3pt]
+    Example call:  merge (a.begin(), a.end(), b.begin(), b.end(),
+    back_inserter(v), less<int>());
+
+    template <typename Initor1, typename Initor2,
+              typename Outitor, typename Less>
+    void merge (Initor1 begin1, Initor1 end1, Initor2 begin2, Initor2 end2,
+                Outitor result, Less less) {
+
+From Exam Old-Exams/cse111-2019q4-midterm.tt w/ match 0.956522:
+11. Write a program that will copy the standard input to the standard
+    output.  Use getline for input.  [2pt]
+
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    int main() {
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.952381:
+1. For a container c which provides random access iterators, what
+   expression returns the same result as c.size()?
+   (A) c.begin() - c.end()
+   (B) c.end() - c.begin()
+   (C) c.end() - c.begin() + 1
+   (D) c.end() - c.begin() - 1
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.95:
+6. Assuming the container v allows random access iterators, which of
+   the following is true?
+   (A) v.size() == v.begin() - v.end()
+   (B) v.size() == v.begin() - v.end() + 1
+   (C) v.size() == v.end() - v.begin()
+   (D) v.size() == v.end() - v.begin() + 1
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.945946:
+ 3. Code a binary search, given a range specified by a pair of itera-
+    tors.  Assume the elements of the range are sorted into increasing
+    order as given by the less_t function argument.  Return an itera-
+    tor pointing at the element found.  Handle the not-found case in
+    the usual way.  Assume the iterators are random access iterators
+    -- their distance can be computed by subtraction and that they can
+    be compared by any of the standard comparison operators.  They can
+    also be subscripted in the same way as pointers can be used to
+    perform pointer arithmetic.  [4pt]
+
+    template <typename itor, typename item_t, class less_t>
+    itor binary_search (itor begin, itor original_end,
+                        const item_t& item, less_t less) {
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.944444:
+8. What is equivalent to c.back() for a container that provides a
+   direct (random) access iterator?
+   (A) *(c.end()-1)
+   (B) *c.end()
+   (C) *c.end()-1
+   (D) c.end()
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.941176:
+4. It is expected that v.size() should return a value equivalent to:
+   (A) v.begin() - v.end()
+   (B) v.begin() - v.end() + 1
+   (C) v.end() - v.begin()
+   (D) v.end() - v.begin() + 1
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.9375:
+11. Assuming the usual semantics, what expression is equivalent to a
+   == b?
+   (A) (a < b) and (b < a)
+   (B) (a < b) or (b < a)
+   (C) not (a < b) and not (b < a)
+   (D) not (a < b) or not (b < a)
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.933333:
+8. For a vector, if v.size()==5, then v.end() points at which element?
+   (A) v[0]
+   (B) v[1]
+   (C) v[4]
+   (D) v[5]
+
+From Exam Old-Exams/cmps109-2019q2-midterm.tt w/ match 0.928571:
+8. What element of a vector does v.end() point at?
+   (A) v[1-v.size()]
+   (B) v[v.size()+1]
+   (C) v[v.size()-1]
+   (D) v[v.size()]
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.928571:
+9. In the main function, which expression has type char?
+   (A) argv
+   (B) *argv
+   (C) **argv
+   (D) ***argv
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.921053:
+13. Write the complete template function copy.  It has two template
+    parameters:  (1) an input iterator, (2) an output iterator.  It
+    has three function parameters:  (1) a begin input iterator, (2) an
+    end input iterator, and (3) a begin output iterator.  All elements
+    from the input range are copied into the output range.  It is
+    assumed that the output iterator is large enough to hold the input
+    range, and may be a back inserter.  [2pt]
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.916667:
+6. Which is a copy constructor of class foo?
+   (A) foo (const foo &&);
+   (B) foo (const foo &);
+   (C) foo (foo &&);
+   (D) foo (foo &);
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.909091:
+ 6. Write a copy function which takes forward iterators pointing into
+    an input container, and a forward iterator pointing at an output
+    container.  Copy the items from the input container to the output
+    container.  It is not possible to verify whether or not the output
+    container has enough space, so just assume that it has.  [2pt]
+
+    template <typename in_itor, typename out_itor>
+    void copy (in_itor in_begin, in_itor in_end, out_itor out_begin) {
+
+From Exam Old-Exams/cmps109-2019q2-final.tt w/ match 0.909091:
+12. How is vector::size declared?
+   (A) const size (size_t);
+   (B) const size_t size();
+   (C) size_t size (const);
+   (D) size_t size() const;
+
+                    +-----------------------------+
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |jpgs/pointers-suck-game.ps   |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    +-----------------------------+
+
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.903226:
+11. Code find_if which takes two iterators and a predicate and returns
+    an iterator pointing at the first element for which the predicate
+    is true.  (A predicate is a function which returns a bool result.)
+    [2pt]
+
+    template <typename iterator, class predicate>
+    iterator find_if (iterator begin, iterator end, predicate pred) {
+
+From Exam Old-Exams/cmps109-2019q2-midterm.tt w/ match 0.9:
+3. Which is a copy constructor?
+   (A) foo (const foo&&);
+   (B) foo (const foo&);
+   (C) foo (foo&&);
+   (D) foo (foo&);
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.894737:
+5. Given foo x;  what is the definition of the operator that is called
+   by the expression x++?
+   (A) foo operator++ (const foo&, int);
+   (B) foo operator++ (foo&, int);
+   (C) foo operator++ (foo, int);
+   (D) foo& operator++ (foo&, int);
+
+From Exam Old-Exams/cse111-2020q4-midterm.tt w/ match 0.888889:
+11. Define the function find_if whose template
+    arguments are an iterator type and a predicate
+    type and whose function arguments are a pair of
+    iterators indicating a range and a boolean function
+    or function object.  Return an iterator pointing at
+    the first element in the range for which the predicate
+    returns true.  [4pt]
+
+SCORE-TOTAL=40
+
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.886792:
+10. Write a function is_sorted which returns true if the range is
+    sorted into ascending order according to the comparison function.
+    The expression decltype(*iterator()) is the type of what the
+    iterator points at.  A call to less(a,b) will return true if a
+    should be considered less than b.  The sequences {3,9,11,21}, {4},
+    and {} would all be considered sorted for less<int>, but the
+    sequences {5,1,2,8} and {5,9,9,11,11} would not.  But
+    {5,9,9,11,11} is sorted if less_equal<int> is used.  Use less for
+    comparison, not operator<.  [3pt]
+
+    template <typename iterator,
+              typename less_t = less_equal<decltype(*iterator())>>
+    bool is_sorted (iterator begin, iterator end, less_t less = less_t()) {
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.886364:
+14. Define the function copy_if which copies an input range to an
+    output range, but only copies those elements for which the
+    predicate is true.  Again, assume the output range is large
+    enough.  An example call might be:  [2pt] copy_if (vi.begin(), vi.
+    end(), back_inserter(out), [](int i){ return i > 0; });
+
+    template <typename in_itor, typename out_itor, typename predicate>
+    void copy_if (in_itor begin, in_itor end, out_itor out, predicate ok) {
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.882353:
+4. How many siginficant bits are there in the status variable updated
+   by waitpid(2)?
+   (A)  8
+   (B) 16
+   (C) 24
+   (D) 32
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.875:
+ 8. Define the inline template operator> which uses operator<.  [1pt]
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.875:
+9. What is expected to be true for an empty container?
+   (A) c.begin()!=c.end()
+   (B) c.begin()<=c.end()
+   (C) c.begin()<c.end()
+   (D) c.begin()==c.end()
+
+From Exam Old-Exams/cmps109-2019q2-final.tt w/ match 0.871795:
+13. Define equal, which takes two pairs of iterators and returns true
+    if and only if the elements of the ranges given are equal, and the
+    lengths of the ranges are equal.  Assume only forward iterators:
+    You may not use size() or subtract iterators.  Assume operator==
+    is defined on the elements of the ranges.  [2pt]
+
+    template <typename itor>
+    bool equal (itor begin1, itor end1, itor begin2, itor end2) {
+
+From Exam Old-Exams/cse111-2020q1-final.tt w/ match 0.871795:
+10. Define equal, which takes two pairs of iterators and returns true
+    if and only if the elements of the ranges given are equal, and the
+    lengths of the ranges are equal.  Assume only input iterators:
+    You may not use size() or subtract iterators.  Assume operator==
+    is defined on the elements of the ranges.  [2pt]
+
+    template <typename itor>
+    bool equal (itor begin1, itor end1, itor begin2, itor end2) {
+
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.869565:
+12. Define a template inline function max which takes two arbitrary
+    arguments and returns the larger one.  Assume operator< has been
+    defined for the arguments.  [2pt]
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.866667:
+1. What is the type of
+   map<string,double>::value_type?
+   (A) pair<const string, const double>
+   (B) pair<const string, double>
+   (C) pair<string, const double>
+   (D) pair<string, double>
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.857143:
+10. At which element of a vector does v.rbegin() point?
+   (A) v[-1]
+   (B) v[0]
+   (C) v[v.size()-1]
+   (D) v[v.size()]
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.857143:
+10. Which is the proper declaration of foo::operator->?
+   (A) foo& operator->();
+   (B) foo& operator->(__field_name);
+   (C) foo* operator->();
+   (D) foo* operator->(__field_name);
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.85:
+10. Define equal_range which takes two pairs of forward iterators and
+    returns true if all of the elements of the ranges are equal and
+    the ranges are of the same length.  There is no size() function,
+    and forward iterators can not be subtracted.  Assume the elements
+    of the range have operator==.  [3pt]
+
+    template <typename itor1, typename itor2>
+    bool equal_range (itor1 begin1, itor1 end1, itor2 begin2, itor2 end2) {
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.85:
+3. The return type of function main is required to be:
+   (A) char**
+   (B) int
+   (C) void
+   (D) any of the above is OK.
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.846154:
+12. How many bits are there in an IPv6 address?
+   (A)  16
+   (B)  32
+   (C)  64
+   (D) 128
+
+                    +-----------------------------+
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |jpgs/chessboard.ps           |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    |                             |
+                    +-----------------------------+
+
+
+From Exam Old-Exams/cmps109-2019q2-midterm.tt w/ match 0.846154:
+2. What is the type of the constant "abc"?
+   (A) char*
+   (B) const char*
+   (C) const char[3]
+   (D) const char[4]
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.84375:
+12. Code find_min which returns an iterator pointing at the minimum
+    element in a range.  Its function argument less returns true if
+    the first argument is less than the second argument.  [2pt]
+
+    template <typename iterator, class less_fn>
+    iterator find_min (iterator begin, iterator end, less_fn less) {
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.842105:
+7. Which of the following iterators allows --i and i--, but not i = i
+   - 1?
+   (A) input
+   (B) forward
+   (C) bidirectional
+   (D) random access
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.842105:
+11. In the definition of operator=, what statement is used to return a
+   reference to the current object?
+   (A) return &this;
+   (B) return *this;
+   (C) return ++this;
+   (D) return this;
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.842105:
+10. Which statement should appear in the following member function?
+   foo& foo::operator= (const foo& that) {
+   (A) if (&this == *that)
+   (B) if (*this == that)
+   (C) if (this == &that)
+   (D) if (this == that)
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.833333:
+ 9. Complete the following operators, assuming operator== and opera-
+    tor< are defined.  [2pt]
+
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator!= (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator>  (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator<= (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+    |template <class T>                                            |
+    |inline bool operator>= (const T& x, const T& y) {             |
+    +--------------------------------------------------------------+
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.825:
+ 7. Define merge, which merges two input ranges into a single output
+    range, given a pair of iterators for each of the input ranges, an
+    iterator for the output range, and a less-than comparison func-
+    tion.  Assume both input ranges are sorted into ascending order as
+    specified by the Less argument.  Also assume that the output iter-
+    ator can be used with expressions similar to *result++ without
+    overflowing the output container.  Do not use operator< or make
+    any assumptions about the types of the elements being merged.
+    [4pt]
+    Example call:  merge (a.begin(), a.end(), b.begin(), b.end(),
+    back_inserter(v), less<int>());
+
+    template <typename Initor1, typename Initor2,
+              typename Outitor, typename Less>
+    void merge (Initor1 begin1, Initor1 end1, Initor2 begin2, Initor2 end2,
+                Outitor result, Less less) {
+
+From Exam Old-Exams/cmps109-2019q2-midterm.tt w/ match 0.825:
+ 5. Define the function find_if whose template arguments are an itera-
+    tor type and a predicate type and whose function arguments are a
+    pair if iterators indicating a range and a boolean function or
+    function object.  Return an iterator pointing at the first element
+    in the range for which the predicate returns true.  [2pt]
+
+    template <typename iterator, class predicate>
+    iterator find_if (iterator begin, iterator end, predicate pred) {
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.823529:
+9. What is the expected prototype for operator<< that will print a
+   foo?
+   (A) foo& operator<< (ostream&, const foo&);
+   (B) ostream& operator<< (const ostream&, foo&);
+   (C) ostream& operator<< (ostream&, const foo&);
+   (D) ostream& operator<< (ostream&, foo);
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.820513:
+14. Define the function print.  It prints out all of the elements in a
+    range assuming that operator<< is defined for the elements in the
+    range.  A single space is printed out between successive elements
+    of the range, but no space is printed before the first or after
+    the last element.  [2pt]
+
+    template <typename iterator>
+    void print (iterator begin, iterator end) {
+
+From Exam Old-Exams/cse111-2020q4-midterm.tt w/ match 0.820513:
+ 9. Code a template operator<< which takes any kind of a vector and
+    prints out the contents of the vector in the order v[0], v[1],
+    v[2], ..., to the end.  Assume operator<< is defined for the
+    elements of the vector.  Print exactly one space between vector
+    elements, but no space before the first or after the last element.
+    [4pt]
+
+From Exam Old-Exams/cse111-2020q1-final.tt w/ match 0.818182:
+ 9. Define the template function merge, with a return type of void.
+    It has three template arguments:  InputItor1, InputItor2,
+    OutputItor.  It has five functional arguments:  begin and end
+    input itor1 arguments for the first input type, begin and end
+    input itor2 arguments for the second input type, and a begin
+    output itor.  Merge the two input ranges into the output range.
+    Use operator< to compare elements, and assume the input ranges are
+    already sorted into ascending order.  [4pt]
+
+From Exam Old-Exams/cmps109-2019q2-final.tt w/ match 0.815789:
+ 7. The function minimum takes a pair of iterators indicating a range
+    and a less than comparison function and returns an iterator point-
+    ing at the smallest element in the range.  If there is more than
+    one smallest element, the first one is chosen.  [2pt]
+
+    template <typename itor, typename less_t = less<decltype(*itor())>>
+    itor minimum (itor begin, itor end, less_t less = less_t()) {
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.8125:
+11. Assuming string s;  and string t;  write an expression (not a com-
+    plete statement) equivalent to s == t, but use only operator< and
+    no other comparison operators.  Use some combination of the opera-
+    tors and (&&), or (||), and not (!).  Use parentheses as appropri-
+    ate.  [1pt]
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.809524:
+2. How should the function f be declared so that it accepts a string
+   by constant reference?
+   (A) void f (const string&);
+   (B) void f (const string);
+   (C) void f (const string*);
+   (D) void f (const string->);
+
+From Exam Old-Exams/cmps109-2019q2-final.tt w/ match 0.808511:
+ 5. Define the member function swap which exchanges the value in the
+    box with its argument and returns the old value.  Be sure there
+    are no race conditions when used by multiple concurrent threads.
+    Show the code as it would appear in the implementation file.
+    [2pt]
+
+    class lockbox {
+       private:
+          mutex lock;
+          size_t value {0};
+       public:
+          size_t swap (size_t argval);
+    }
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.804878:
+ 9. Write a copy function which takes forward iterators pointing into
+    an input container, and a forward iterator pointing at an output
+    container.  Copy the items from the input container to the output
+    container.  Assume the output iterator is such that the output
+    container does not overflow or cause memory errors.  [2pt]
+
+    template <typename in_itor, typename out_itor>
+    void copy (in_itor in_begin, in_itor in_end, out_itor out_begin) {
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.8:
+6. What keyword will allow access only to members of the class, but
+   also to any class derived from it?
+   (A) friend
+   (B) private
+   (C) protected
+   (D) public
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.8:
+ 4. Write a function has.  Its first argument is a vector<int> and its
+    second argument is an int.  It returns true only if the int occurs
+    somewhere in the vector, and false otherwise.  [2pt]
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.8:
+12. which is a move constructor?
+   (A) foo (const foo&&);
+   (B) foo (const foo&);
+   (C) foo (foo&&);
+   (D) foo (foo&);
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.793103:
+2. What should a search function do to indicate failure to find?
+   (A) Print an error message and exit the program.
+   (B) Return false.
+   (C) Return the end iterator.
+   (D) Throw a not found exception.
+
+From Exam Old-Exams/cse111-2019q4-midterm.tt w/ match 0.789474:
+11. Which of the following must be declared in every C++ program?
+   (A) int main (char**, int);
+   (B) int main (int, char**);
+   (C) int main (string&);
+   (D) int main (vector<string>&);
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.785714:
+2. Which is the destructor for class foo as declared outside the
+   class?
+   (A) ~foo::~foo
+   (B) ~foo::foo
+   (C) foo::~foo
+   (D) foo::foo
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.785714:
+11. What is the proper way to catch an exception?
+   (A) catch (exception exn)
+   (B) catch (exception& exn)
+   (C) catch (exception* exn)
+   (D) catch (exception-> exn)
+
+From Exam Old-Exams/cse111-2019q4-midterm.tt w/ match 0.785714:
+ 4. Code the function equal_range, whose template arguments are two
+    types of forward iterators and a comparison function type, and
+    whose function argumetns are two begin and end ranges and an equal
+    comparison function object.  It returns true if all elements in
+    the ranges are equal and both ranges have the same number of ele-
+    ments.  [3pt]
+
+    template <typename itor1, typename itor2, typename equal_t>
+    bool equal_range (itor1 begin1, itor1 end1, itor2 begin2, itor2 end2,
+                      equal_t equal) {
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.782609:
+ 8. Assume that foo& foo::operator+= (const foo&) has been defined as
+    a class member.  Write the body of the non-member operator+ that
+    adds two values of class foo and returns a foo.  [2pt]
+
+From Exam Old-Exams/cmps109-2019q1-midterm.tt w/ match 0.78125:
+10. Code a linear search find which takes two iterators and a compari-
+    son function which returns true if its two arguments are equal.
+    Make the usual assumptions.  [2pt]
+
+    template <typename iterator, class comparator>
+    iterator find (iterator begin, iterator end, comparator equal) {
+
+From Exam Old-Exams/cmps109-2019q2-midterm.tt w/ match 0.779661:
+11. Write a template function lessrange which returns true of one
+    range is less than another range.  It has one template parameter:
+    an iterator.  It has four iterator arguments:  begin and end for
+    the first range;  and begin and end for the second range.  It
+    scans both ranges in parallel and returns true as soon a it finds
+    a pair which is operator< than the other, and false otherwise.  If
+    one range is a subrange of the other, the shorter one is less than
+    the other.  Use only operator< to perform comparisons and assume
+    that it exists for the elements in the range.
+    vector<int> v1 {1, 3, 5, 9, 11, 13, 15, 22};
+    vector<int> v2 {3, 4, 7, 10, 16};
+    vector<int> v3 {3, 4, 7, 10, 16, 19, 20};
+    For example:  v1<v2 is true, v1<v1 is false, v2<v3 is true.  [3pt]
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.777778:
+ 1. Define a template operator< which takes two pairs by constant ref-
+    erence and returns true if the first is lexicographically less
+    than the second.  Definition:  $ ( a , b ) < ( c , d ) $ if $ a <
+    c $ or if $ a = c $ and $ b < d $.  Do not use any comparison op-
+    erator other than operator<.  Assume that operator< is defined on
+    both the first and second parts of the pair.  The two pairs may be
+    of different types, requiring only that operator< is defined on
+    their respective elements.  [2pt]
+
+From Exam Old-Exams/cmps109-2019q2-midterm.tt w/ match 0.772727:
+ 4. Finish contains, which takes a pair of iterators indicating a
+    range, and an item, and returns true if and only if the item is in
+    the range.  The template parameters are the iterator type, type
+    item type, and a function object that checks for equality between
+    items.  [2pt]
+
+    template <typename itor_t, typename item_t, class equal=equal_to<item_t>>
+    bool contains (itor_t begin, itor_t end, const item_t& item) {
+
+From Exam Old-Exams/cmps109-2019q2-final.tt w/ match 0.769231:
+3. What is the type of the literal "abc"?
+   (A) char*
+   (B) char[3]
+   (C) char[4]
+   (D) string
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.769231:
+ 5. The function find returns the position of the first occurrence of
+    n in vec.  Make the standard assumption for what to do in the case
+    of not found.  [2pt]
+    vector<int>::const_iterator find (const vector<int>& vec, int n) {
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.766667:
+ 1. Finish the implementation of the function minimum, which returns
+    an iterator pointing at the minimum element in the range.  Assume
+    that the items pointed at by the iterators have operator< avail-
+    able.  [2pt]
+
+    template <typename iterator>
+    iterator minimum (iterator begin, iterator end) {
+
+From Exam Old-Exams/cmps109-2019q3-midterm.tt w/ match 0.766667:
+ 4. Write a template function called tsum, whose template argument is
+    an arbitrary type of iterator, and whose function arguments are a
+    pair of iterators indicating a range.  Its result is a double.
+    Assume the iterators point at doubles.  [2pt]
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.765957:
+ 4. Define the template function copy_if.  It has three template para-
+    maters:  an input iterator, an output iterator, and a unary predi-
+    cate.  It has four function parameters:  begin and end input iter-
+    ators indicating a range, an output iterator, and a unary predi-
+    cate function or function object.  It copies all elements from the
+    input to the output for which the predicate returns true.  Assume
+    the output iterator accesses a container with sufficient space.
+    [2pt]
+
+From Exam Old-Exams/cmps109-2019q2-final.tt w/ match 0.764706:
+12. Show the code for thing::iterator as it would appear in a header
+    file, but outside the class thing.  All of the iterator's opera-
+    tors should be defined inline.  Show only those members that are
+    needed for the following statements to compile.  thing t; for (au-
+    to& i: t) cout << i << endl;  Class thing is shown here.  [2pt]
+
+    class thing {
+       vector<int> v;
+    public:
+       class iterator;
+       iterator begin();
+       iterator end();
+    };
+
+From Exam Old-Exams/cmps109-2019q3-final.tt w/ match 0.764706:
+4. What should be placed in the blank in the following prototype?
+   ostream& operator<< (__, const foo&);
+   (A) const ostream&
+   (B) ostream&
+   (C) ostream&&
+   (D) ostream*
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.763158:
+ 2. Write a function distance which counts the number of elements in a
+    range.  Do not assume the iterator supports operator-.  It is at
+    most a forward iterator.  The function will use a loop and run in
+    $ O ( n ) $ time.  [2pt]
+    template <typename iterator>
+    size_t distance (iterator begin, iterator end) {
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.761905:
+11. Assume that bigint::operator+= has been defined already.  Define a
+    non-member operator+ which takes two bigint arguments and returns
+    the sum.  [1pt]
+
+From Exam Old-Exams/cse111-2020q4-midterm.tt w/ match 0.76:
+ 2. Write a function called sum.  It has a single template argument of
+    iterator type.  It has two function arguments of that iterator
+    type indicating the begin and the end of a range.  Sum returns a
+    double which is the sum of all elements in the range.  Assume the
+    iterators point at elements of type double, or whatever can be
+    implicitly converted too type double.  Code your solution as a
+    loop using the two-semicolon version of the for loop.  [4pt]
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.76:
+6. To find if an element is in a collection of elements, which
+   container will provided the fastest search?
+   (A) list
+   (B) set
+   (C) unordered_set
+   (D) vector
+
+From Exam Old-Exams/cse111-2019q4-midterm.tt w/ match 0.758621:
+1. What term is used to describe a virtual function in a derived class
+   that has the same signature as a function of the same name in its
+   base class?
+   (A) delete
+   (B) inherit
+   (C) overload
+   (D) override
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.758621:
+5. If a virtual function in a derived class has the same signature as
+   a virtual function in its base class, then it should be declared
+   with what attribute in the derived class?
+   (A) abstract
+   (B) const
+   (C) override
+   (D) static
+
+From Exam Old-Exams/cse111-2019q4-final.tt w/ match 0.755556:
+ 2. Define template operator<< in the standard way so that cout<<cont
+    for any container will print out the contents of the container:
+    print an open brace ({) then each element of the container, then a
+    close brace (}).  If there is more than one element in the
+    container, print commas between elements, but no comma in before
+    the first element or after the last element.  [2pt]
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.75:
+ 3. Write a function average which returns the average of a sequence
+    of numbers.  Assume the iterators point at things which are
+    doubles or which can be implicitly converted to doubles.  Assume
+    only a forward iterator.  [2pt]
+    template <typename iterator>
+    double average (iterator begin, iterator end) {
+
+From Exam Old-Exams/cse111-2020q1-final.tt w/ match 0.75:
+ 5. Define the template operator<< whose second argument is a pair
+    representing a range.  It prints out the elements of the range
+    with an open brace ({) at the beginning and a close brace at the
+    end (}) and with a comma and space between each element.  The
+    iterators may point at anything for which operator<< is defined.
+    [3pt] For example:
+    vector<int> v {1,2,3,4,5};
+    cout << pair (v.begin(), v.end()) << endl;
+    will print:
+    {1, 2, 3, 4, 5}
+
+From Exam Old-Exams/cse111-2020q1-midterm.tt w/ match 0.75:
+7. Inside a virtual member function of class foo, what is the type of
+   this?
+   (A) foo
+   (B) foo&
+   (C) foo&&
+   (D) foo*
+
+From Exam Old-Exams/cmps109-2019q2-final.tt w/ match 0.75:
+3. In the following declaration, which is not valid as a template
+   parameter to fill in the blank?
+   template <__ T> class foo {};
+   (A) class
+   (B) double
+   (C) size_t
+   (D) typename
+
+From Exam Old-Exams/cmps109-2019q1-final.tt w/ match 0.75:
+1. What is the most appropriate way to define MAX so that its value is
+   guaranteed to be determined at compile time?
+   (A) #define MAX 10;
+   (B) const size_t MAX = 10;
+   (C) constexpr size_t MAX = 10;
+   (D) final size_t MAX = 10;
+

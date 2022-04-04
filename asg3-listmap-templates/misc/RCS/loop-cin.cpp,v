@@ -1,0 +1,85 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2019.07.25.18.45.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.07.25.18.43.12;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.07.25.18.42.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: loop-cin.cpp,v 1.2 2019-07-25 11:43:12-07 - - $
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main (int argc, char**) {
+   for (int i = 1; i < argc; ++i) {
+      string line;
+      getline (cin, line);
+      if (cin.eof()) {
+         cout << "cin.eof() " << i << endl;
+      }else {
+         cout << "cin(" << i << "): " << line << endl;
+      }
+   }
+}
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: loop-cin.cpp,v 1.1 2019-07-25 11:42:36-07 - - $
+d7 2
+a8 2
+int main() {
+   for(;;) {
+d12 1
+a12 1
+         cout << "cin.eof()" << endl;
+d14 1
+a14 1
+         cout << "cin: " << line << endl;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d10 1
+a10 1
+      getline (line, cin);
+@

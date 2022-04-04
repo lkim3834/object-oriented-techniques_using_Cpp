@@ -1,0 +1,73 @@
+.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.TITLE CSE-111 "Program 3" "Listmap Diagram"
+.RCS "$Id: listmap-diagram.mm,v 1.54 2021-04-28 11:50:16-07 - - $"
+.PWD
+.URL
+.DS CB
+.PS 5.75i
+boxht=1
+boxwid=1.3
+arrowwid=.1
+arrowht=.2
+linethick=1
+boxdelta=boxwid/2
+boxsep=boxwid+boxdelta
+Anchor: box
+Node1: box at Anchor+(boxsep,0)
+Node2: box at Node1+(boxsep,0)
+Node3: box at Node2+(boxsep,0)
+Node4: box at Node3+(boxsep,0)
+"\f[CB]::anchor\f[P]" rjust at Anchor.ne+(0,.15)
+"\f[CB]listmap\f[P]" rjust at Anchor.ne+(0,.45)
+"node1" rjust at Node1.ne+(0,.15)
+"node2" rjust at Node2.ne+(0,.15)
+"node3" rjust at Node3.ne+(0,.15)
+"node4" rjust at Node4.ne+(0,.15)
+"(last)" rjust at Node4.ne+(0,.45)
+"\f[CB]::end()\f[P]" ljust at Anchor.nw+(0,boxht+0.1)
+"\f[CB]listmap\f[P]" ljust at Anchor.nw+(0,boxht+.40)
+"\f[CB]::begin()\f[P]" ljust at Node1.nw+(0,boxht+0.1)
+"\f[CB]listmap\f[P]" ljust at Node1.nw+(0,boxht+.40)
+arrow from Node1.nw+(.05,boxht) to Node1.nw+(.05,0)
+arrow from Anchor.nw+(.05,boxht) to Anchor.nw+(.05,0)
+Data1: box ht 2 at Node1.s-(0,1)
+Data2: box ht 2 at Node2.s-(0,1)
+Data3: box ht 2 at Node3.s-(0,1)
+Data4: box ht 2 at Node4.s-(0,1)
+arrow from Anchor.w+(-boxdelta,.2) to Anchor.w+(0,.2)
+arrow from Anchor+(0,.2) to Node1.w+(0,.2)
+arrow from Node1+(0,.2) to Node2.w+(0,.2)
+arrow from Node2+(0,.2) to Node3.w+(0,.2)
+arrow from Node3+(0,.2) to Node4.w+(0,.2)
+arrow from Node4+(0,.2) to Node4.e+(boxdelta,.2)
+arrow from Anchor-(0,.2) to Anchor.w-(boxdelta,.2)
+arrow from Node1-(0,.2) to Anchor.e-(0,.2)
+arrow from Node2-(0,.2) to Node1.e-(0,.2)
+arrow from Node3-(0,.2) to Node2.e-(0,.2)
+arrow from Node4-(0,.2) to Node3.e-(0,.2)
+arrow from Node4.e-(-boxdelta,.2) to Node4.e-(0,.2)
+circle fill 1 diam arrowwid at Anchor+(0,.2)
+circle fill 1 diam arrowwid at Anchor-(0,.2)
+circle fill 1 diam arrowwid at Node1+(0,.2)
+circle fill 1 diam arrowwid at Node1-(0,.2)
+circle fill 1 diam arrowwid at Node2+(0,.2)
+circle fill 1 diam arrowwid at Node2-(0,.2)
+circle fill 1 diam arrowwid at Node3+(0,.2)
+circle fill 1 diam arrowwid at Node3-(0,.2)
+circle fill 1 diam arrowwid at Node4+(0,.2)
+circle fill 1 diam arrowwid at Node4-(0,.2)
+box invis at Anchor.w-(boxdelta,0)
+"(last)" rjust at Anchor.w-(boxdelta-arrowht,0)
+"(anchor)" ljust at Node4.e+(boxdelta-arrowht,0)
+"key1" at Data1+(0,.3)
+"mapped1" at Data1-(0,.3)
+"key2" at Data2+(0,.3)
+"mapped2" at Data2-(0,.3)
+"key3" at Data3+(0,.3)
+"mapped3" at Data3-(0,.3)
+"key4" at Data4+(0,.3)
+"mapped4" at Data4-(0,.3)
+.PE
+.DE

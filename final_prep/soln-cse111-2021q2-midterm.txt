@@ -1,0 +1,195 @@
+CSE-111 * Advanced Programming * Winter 2021 * Midterm Exam     1 of 1
+$Id: soln-cse111-2021q2-midterm.txt,v 1.1 2021-05-15 18:26:45-07 - - $
+
+__________________________________________________
+Question 1.  [[1 pt]]
+
+vector<string> args (&argv[1], &argv[argc]);
+-- or --
+vector<string> args (argv + 1, argv + argc);
+
+__________________________________________________
+Question 2.  [[2 pt]]
+
+template <typename value>
+inline bool operator<= (const value& left, const value& right) {
+   return not (right < left);
+}
+
+... 1 pt if template decl corrrect
+... 1 pt if logic correct
+... deduct 0.5 point if no const
+... deduct 0.5 point if not ref (&)
+
+__________________________________________________
+Question 3.  [[3 pt]]
+
+foo operator+ (const foo& x, const foo& y) {
+   foo result = x;
+   return result += y;
+}
+
+1 pt signature
+1 pt copy x to result (may use =, (), {}, any)
+0.5 proper use of +=
+0.5 return (may be a separate stmt)
+
+__________________________________________________
+Question 4.  [[1 pt]]
+
+CHAR_BIT * sizeof (T)
+-- or --
+8 * sizeof(T)
+
+all or nothing
+
+__________________________________________________
+Question 5.  [[4 pt]]
+
+iterator begin() { return iterator (head); }
+iterator end() { return iterator (nullptr); }
+bool empty() const { return head == nullptr; }
+~fwdlist() { while (not empty()) pop_front(); }
+
+For each function:
+0.5 for correct signature
+0.5 fo reach correct body {...}
+... if ~fwdlist has lots of code deduct 0.5 for verbosity
+... consider body not correct
+
+__________________________________________________
+Question 6.  [[3 pt]]
+
+template <typename type>
+void fwdlist<type>::push_front (const type& item) {
+   node* p = new node();
+   p->item = item;
+   p->link = head;
+   head = p;
+}
+
+0.5 point correct template
+1.0 correct signature
+1.5 point correct logic
+... -0.5 if arg is not const&
+
+__________________________________________________
+Question 7.  [[3 pt]]
+
+template <typename type>
+void fwdlist<type>::pop_front() {
+   node* p = head;
+   head = head->link;
+   delete p;
+}
+
+0.5 point correct template
+1.0 correct signature
+1.5 point correct logic
+deduct 1 point if no delete stmt
+
+__________________________________________________
+Question 8.  [[5 pt]]
+
+template <typename type>
+class fwdlist<type>::iterator {      //// 0.5
+   friend class fwdlist<type>;       //// 0.5
+   private:
+      node* ptr;                     //// 0.5
+      iterator (node* p): ptr(p) {}  //// 0.5
+   public:
+      type& operator*() { return ptr->item; }                   //// 1.0
+      iterator& operator++() { ptr = ptr->link; return *this; } //// 1.0
+      bool operator!= (iterator i) { return ptr != i.ptr; }     //// 1.0
+};
+
+... for the public fns, 0.5 for the signature
+... and 0.5 for the body of the fn.
+
+__________________________________________________
+Question 9.  [[4 pt]]
+
+ (a) std::vector
+     contiguous block of storage (raw array)
+     O(1)
+
+ (b) std::list
+     doubly linked circular list
+     O(n)
+
+ (c) std::map
+     balanced binary search tree
+     O(log n)
+
+ (d) std::unordered_map
+     hash table
+     O(1)
+
+... 0.5 pt for each underlying implementation
+... 0.5 pt for each big-O
+
+__________________________________________________
+Question 10.  [[4 pt]]
+
+explicit foo (const string&);
+operator bool() const;
+foo (const foo&) = delete;
+foo& operator= (const foo&) = delete;
+
+-0.5 if foo ctor not explicit
+otherwise 1 pt for each of the answers.
+.... 0.5 pt deduct for simple errors.
+.... OK to use operator int() instead of bool(), etc.
+
+__________________________________________________
+Question 11.  [[3 pt]]
+
+template <typename T1, typename T2>
+ostream& operator<< (ostream& out, const pair<T1,T2>& pair_) {
+   out << "(" << pair_.first << "," << pair_.second << ")";
+   return out;
+}
+
+0.5 for template spec
+1.0 for correct signature
+....... -0.5 if pair not const &
+...... -0.5 if ostream is const
+1.5 pt for correct printing
+0.5 for correct return
+..... may combine return into one line.
+
+__________________________________________________
+Question 12.  [[3 pt]]
+
+auto find (const vector<int>& v, int n) {
+   for (auto i = v.begin(); i != v.end(); ++i)
+       if (n == *i) return i;
+   return v.end();
+}
+
+... ok if return type is vector<int>::iterator
+1 pt for correct signature
+1 pt for correct loop
+..... ok if redundant {} around if
+0.5 pt for if stmt
+0.5 for final return end()
+
+__________________________________________________
+Question 13.  [[4 pt]]
+
+vector<int> collatz (int n) {        //// 0.5
+   vector<int> v;                    //// 0.5
+   v.push_back (n);                  //// 0.5
+   while (n != 1) {                  //// 0.5
+      if (n % 2 == 1) n = 3 * n + 1; //// 0.5
+                 else n = n / 2;     //// 0.5
+      v.push_back (n);               //// 0.5
+   }
+   return v;                         //// 0.5
+}   
+
+..... comments indicate equal alloc of points
+
+__________________________________________________
+SCORE-TOTAL=40
+

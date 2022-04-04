@@ -1,0 +1,211 @@
+$Id: soln-cmps109-2019q2-final.txt,v 1.12 2019-06-07 15:31:06-07 - - $
+Solution to CMPS-109 2019q2-final, page 1
+
+_________________________________________________________________
+Question 1. [2]
+
+
+|void f(int);          Ad-hoc    |class baz: private qux { Universal
+|void f(string);       Overload  |};                       Inclusion
+
+|template <typename T> Universal  |void f(double);          Ad-hoc
+|T sum (T*);           Parametric |int x; f(x);             Conversion
+
+_________________________________________________________________
+Question 2. [2]
+
+class foo {
+   foo();
+   foo (const foo&);
+   foo (foo&&);
+   foo& operator= (const foo&);
+   foo& operator= (foo&&);
+   ~foo();
+
+_________________________________________________________________
+Question 3. [2]
+
+| black  {0x00, 0x00, 0x00}; | blue    {0x00, 0x00, 0xFF};
+| green  {0x00, 0xFF, 0x00}; | cyan    {0x00, 0xFF, 0xFF};
+| red    {0xFF, 0x00, 0x00}; | magenta {0xFF, 0x00, 0xFF};
+| yellow {0xFF, 0xFF, 0x00}; | white   {0xFF, 0xFF, 0xFF};
+
+_________________________________________________________________
+Question 4. [2]
+
+    | class foo { // as members | // Not as members of class foo.
+++x | foo& operator++();        | foo& operator++ (foo&);
+x++ | foo operator++ (int);     | foo operator++ (foo&, int);
+
+_________________________________________________________________
+Question 5. [2]
+
+size_t lockbox::swap (size_t argval) {
+   unique_lock<mutex> unique (lock);
+   size_t result = value;
+   value = argval;
+   return result;
+}
+
+
+Solution to CMPS-109 2019q2-final, page 2
+
+_________________________________________________________________
+Question 6. [1]
+void ubigint::trim() {
+   while (value.size() > 0 and value.back() == 0) value.pop_back();
+}
+
+_________________________________________________________________
+Question 7. [2]
+template <typename itor, typename less_t = less<decltype(*itor())>>
+itor minimum (itor begin, itor end, less_t less = less_t()) {
+   if (begin == end) return end;
+   auto small = begin++;
+   for (; begin != end; ++begin) {
+      if (less (*begin, *small)) small = begin;
+   }
+   return small;
+}
+
+_________________________________________________________________
+Question 8(a). [2]
+lass number: public expr {
+   private:
+      double value {};
+   public:
+      number (double v = 0): value(v) {}
+      virtual double eval() const override { return value; }
+      virtual void print (ostream& out) const override { out << value; }
+};
+
+_________________________________________________________________
+Question 8(b). [4]
+class adder: public expr {
+   private:
+      expr_ptr left;
+      expr_ptr right;
+   public:
+      adder (expr_ptr left, expr_ptr right): left(left), right(right) {}
+      virtual double eval() const override {
+         return left->eval() + right->eval();
+      }
+      virtual void print (ostream& out) const override {
+         out << "(" << left << "+" << right << ")";
+      }
+};
+
+_________________________________________________________________
+Question 8(c). [1]
+ostream& operator<< (ostream& out, const expr_ptr& ptr) {
+   ptr->print (out);
+   return out;
+}
+
+
+Solution to CMPS-109 2019q2-final, page 3
+_________________________________________________________________
+Question 9. [2]
+template <typename itor>
+double inner_product (itor begin1, itor end1, itor begin2, itor end2) { 
+   double result = 0;
+   while (begin1 != end1 and begin2 != end2) {
+      result += *begin1++ * *begin2++;
+   }
+   if (begin1 != end1 or begin2 != end2) throw domain_error ("ip");
+   return result;
+}
+_________________________________________________________________
+Question 10. [2]
+void draw_purple_square (GLfloat xpos, GLfloat ypos, GLfloat length) {
+   glBegin (GL_POLYGON);
+   static GLubyte purple[] {160, 32, 240};
+   glColor3ubv (purple);
+   xpos -= length / 2;
+   ypos -= length / 2;
+   glVertex2f (xpos, ypos);
+   glVertex2f (xpos + length, ypos);
+   glVertex2f (xpos + length, ypos + length);
+   glVertex2f (xpos, ypos + length);
+   glEnd();
+}
+_________________________________________________________________
+Question 11. [2]
+   for (GLfloat theta = 0; theta < 2.0 * M_PI; theta += delta) {
+      GLfloat xpos = xcenter + radius * cos (angle);
+      GLfloat ypos = ycenter + radius * sin (angle);
+      glVertex2f (xpos, ypos);
+   }
+_________________________________________________________________
+Question 12. [2]
+class thing::iterator {
+ private:
+    int* curr; // OK if this field now shown in answer paper.
+ public:
+    bool operator!= (const iterator& that) { return curr != that.curr; }
+    int& operator* () { return *curr; }
+    iterator& operator++() { ++curr; return *this; }
+}
+_________________________________________________________________
+Question 13. [2]
+template <typename itor>
+bool equal (iter b1, itor e1, itor b2, itor e2) {
+   while (b1 != e1 and b2 != e2){
+      if (*b1++ != *b2++) return false;
+   }
+   return b1 == e1 and b2 == e2;
+}
+
+Solution to CMPS-109 2019q2-final, page 4
+
+ 1.   (D) vector
+
+ 2.   (C) delete[] p
+
+ 3.   (B) double
+
+ 4.   (D) vector
+
+ 5.   (D) popen(3)
+
+ 6.   (C) fork(2)
+
+ 7.   (C) g++ -c
+
+ 8.   (B) explicit
+
+ 9.   (D) 78
+
+10.   (A) cos
+
+11.   (C) n = reinterpret_cast<uintptr_t>(p);
+
+12.   (D) parametric
+
+
+Solution to CMPS-109 2019q2-final, page 5
+
+ 1.   (C) ostream
+
+ 2.   (C) 2>foo
+
+ 3.   (C) char[4]
+
+ 4.   (C) cyclic graph
+
+ 5.   (A) {  0,  0,  0}
+
+ 6.   (C) operator bool() const;
+
+ 7.   (D) delete[] p
+
+ 8.   (A)  8
+
+ 9.   (B) .*?
+
+10.   (D) $@
+
+11.   (D) #ifndef __FOO_H__
+
+12.   (D) size_t size() const;
+

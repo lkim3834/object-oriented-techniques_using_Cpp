@@ -1,0 +1,188 @@
+$Id: soln-cmps109-2019q2-midterm.txt,v 1.7 2019-05-13 16:25:54-07 - - $
+Solution to CMPS-109 2019q2-midterm, page 1
+
+_________________________________________________________________
+Question 1. [2]
+
+bigint operator+ (const bigint& one, const bigint& two) {
+   bigint result = one;
+   result += two;
+   return result;
+}
+
+_________________________________________________________________
+Question 2(a). [2]
+
+bigint& operator++ (bigint& one) { // prefix
+   return one += 1;
+}
+
+_________________________________________________________________
+Question 2(b). [2]
+
+bigint operator++ (bigint& one, int) { // postfix
+   bigint result = one;
+   one += 1; //////// also could be ++one, but not one++
+   return result;
+}
+
+_________________________________________________________________
+Question 3. [2]
+
+bool bigint::operator< (const bigint& that) const {
+   if (is_negative) {
+      if (not that.is_negative) return true;
+      else return that.uvalue < uvalue;
+   }else {
+      if (that.is_negative) return false;
+      else return uvalue < that.uvalue;
+   }
+}
+
+_________________________________________________________________
+Question 4. [2]
+
+template <typename itor_t, typename item_t,
+          class equal = equal_to<item_t>>
+bool contains (itor_t begin, itor_t end, const item_t& item) {
+   equal is_equal;
+   for (; begin != end; ++begin) {
+      if (is_equal (*begin, item)) return true;
+   }
+   return false;
+}
+
+
+Solution to CMPS-109 2019q2-midterm, page 2
+
+_________________________________________________________________
+Question 5. [2]
+
+template <typename iterator, class predicate>
+iterator find_if (iterator begin, iterator end, predicate pred) {
+   for (; begin != end; ++begin) {
+      if (pred (*begin)) break;
+   }
+   return begin;
+}
+
+_________________________________________________________________
+Question 6(a). [4]
+
+using location = pair<double,double>;
+class shape {
+    private:
+       location loc;
+    public:
+       shape (const location& xy = {0,0}): loc(xy) {}
+       virtual double area() const = 0;
+       virtual double border() const = 0;
+       virtual const location& where() { return loc; }
+       ~shape() {}
+};
+
+_________________________________________________________________
+Question 6(b). [2]
+
+class circle: public shape {
+   double radius {};
+   public:
+      circle (const location& xy = {}, double r = 0):
+                  shape(xy), radius(r) {}
+      double area() const override { return M_PI * radius * radius; }
+      double border() const override { return 2 * M_PI * radius; }
+};
+
+_________________________________________________________________
+Question 6(c). [2]
+
+class square: public shape {
+   double edge {};
+   public:
+      square (const location& xy = {}, double e = 0):
+                  shape(xy), edge(e) {}
+      double area() const override { return edge * edge; }
+      double border() const override { return edge * 4; }
+};
+
+
+Solution to CMPS-109 2019q2-midterm, page 3
+
+_________________________________________________________________
+Question 7. [1]
+template <typename T>
+inline bool operator> (const T& one, const T& two) {
+   return two < one;
+}
+
+_________________________________________________________________
+Question 8. [2]
+template <typename T1, typename T2>
+ostream& operator<< (ostream& out, const pair<T1,T2>& pair_) {
+   out << "(" << pair_.first << "," << pair_.second << ")";
+   return out;
+}
+
+_________________________________________________________________
+Question 9. [2]
+#include <iostream>
+using namespace std;
+int main (int argc, char** argv) {
+   for (int i = 1; i < argc; ++i) {
+      if (i > 1) cout << " ";
+      cout << argv[i];
+   }
+   cout << endl;
+   return 0;
+}
+
+_________________________________________________________________
+Question 10. [2]
+SOURCES = foo.cpp bar.cpp
+OBJECTS = ${SOURCES:.cpp=.o}
+EXECBIN = foo
+all : ${EXECBIN}
+${EXECBIN} : ${OBJECTS}
+        g++ -o $@ ${OBJECTS}
+%.o : %.cpp
+        g++ -c $<
+
+_________________________________________________________________
+Question 11. [3]
+template <typename itor>
+bool lessrange (itor b1, itor e1, itor b2, itor e2) {
+   for (; b1 != e1 and b2 != e2; ++b1, ++b2) {
+      if (*b1 < *b2) return true;
+      if (*b2 < *b1) return false;
+   }
+   return b1 == e1 and b2 != e2;
+}
+
+
+Solution to CMPS-109 2019q2-midterm, page 4
+
+ 1.   (D) (&argv[1], &argv[argc])
+
+ 2.   (D) const char[4]
+
+ 3.   (B) foo (const foo&);
+
+ 4.   (C) shared_ptr<foo>
+
+ 5.   (B) T T::operator++(int);
+
+ 6.   (D) foo.o: foo.cpp foo.h
+
+ 7.   (D) vector
+
+ 8.   (D) v[v.size()]
+
+ 9.   (A) ++i
+
+10.   (B) member function
+
+11.   (C) $ O ( n ) $
+
+12.   (D) Prevents constructors from behaving as automatic type
+          conversion functions.
+

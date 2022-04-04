@@ -1,0 +1,185 @@
+$Id: soln-cse111-2020q1-midterm.txt,v 1.5 2020-02-07 14:12:01-08 - - $
+Solution to CSE-111 2020q1-midterm, page 1
+
+Any logically correct variation on these answers is ok too.
+Assign fractional points in increments of 1/2 per question.
+
+_________________________________________________________________
+Question 1. [2]
+
+foo();
+foo (const foo&);
+foo (foo&&);
+foo& operator= (const foo&);
+foo& operator= (foo&&);
+~foo();
+
+_________________________________________________________________
+Question 2. [2]
+
+template <typename iterator>
+size_t distance (iterator begin, iterator end) {
+   size_t dist = 0;
+   while (begin != end) { ++begin; ++dist; }
+   return dist;
+}
+
+_________________________________________________________________
+Question 3. [2]
+
+template <typename iterator>
+double average (iterator begin, iterator end) {
+   size_t count = 0; double sum = 0.0;
+   while (begin != end) { sum += *begin++; ++count; }
+   return sum / count;
+}
+//// empty range:  0.0/0 == 0.0/double(0) == nan
+//// ok if throw domain_error or something else for empty range
+
+_________________________________________________________________
+Question 4. [2]
+
+bool has (const vector<int>& vec, int n) {
+   for (auto i: vec) if (i == n) return true;
+   return false;
+}
+
+_________________________________________________________________
+Question 5. [2]
+
+vector<int>::const_iterator find (const vector<int>& vec, int n) {
+   auto itor = vec.cbegin();
+   for (auto i = vec.cbegin(); i != vec.cend(); ++i) {
+      if (*i == n) return i;
+   }
+   return vec.cend();
+}
+
+
+Solution to CSE-111 2020q1-midterm, page 2
+_________________________________________________________________
+Question 6. [2]
+
+|prefix class member           |prefix non-member
+foo& operator++();             foo& operator++ (foo&);
+|postfix class member          |postfix non-member
+foo operator++ (int);          foo operator++ (foo&, int);
+
+
+_________________________________________________________________
+Question 7. [1]
+
+bigint bigint::operator- () const {
+   return {uvalue, not is_negative};
+}
+
+_________________________________________________________________
+Question 8. [2]
+
+foo operator+ (const foo& left, const foo& right) {
+   foo result = left;
+   return result += right;
+}
+
+_________________________________________________________________
+Question 9. [2]
+
+foo opeator++ (foo& x, int) {
+   foo res = x;
+   ++x;
+   return res;
+}
+
+_________________________________________________________________
+Question 10. [3]
+
+template <typename iterator,
+          typename less_t = less_equal<decltype(*iterator())>>
+bool is_sorted (iterator begin, iterator end, less_t less = less_t()) {
+   if (begin == end) return true;
+   for (;;) {
+      auto curr = begin++;
+      if (begin == end) break;
+      if (not less (*curr, *begin)) return false;
+   }
+   return true;
+}
+
+
+Solution to CSE-111 2020q1-midterm, page 3
+_________________________________________________________________
+Question 11. [1]
+
+complex (double re = 0.0, double im = 0.0): real(re), imag(im) {}
+
+_________________________________________________________________
+Question 12. [2]
+
+template <typename T>         template <typename T>
+class container {             class container<T>::iterator {
+   class iterator;               bool operator!= (iterator);
+   iterator begin();             iterator& operator++();
+   iterator end();               T& operator*();
+};                            };
+
+_________________________________________________________________
+Question 13. [2]
+
+template <typename in_itor, typename out_itor>
+void copy (in_itor begin, in_itor end, out_itor obegin) {
+   while (begin != end) *obegin++ = *begin++;
+}
+
+_________________________________________________________________
+Question 14. [2]
+
+template <typename in_itor, typename out_itor, typename predicate>
+void copy_if (in_itor begin, in_itor end, out_itor out, predicate ok) {
+   for (; begin != end; ++begin) {
+      if (ok (*begin)) *out++ = *begin;
+   }
+}
+
+_________________________________________________________________
+Question 15. [3]
+
+template <typename T>
+class queue {
+   private:
+      deque<T> data;
+   public:
+      void push_back (const T& x) { data.push_back (x); }
+      void pop_font() { data.pop_front(); }
+      T& front() { return data.front(); }
+      const T& front() const { return data.front(); }
+      size_t size() { return data.size(); }
+      bool empty() { return empty(); }
+};
+
+
+Solution to CSE-111 2020q1-midterm, page 4
+
+ 1.   (D) vector<int> x;
+
+ 2.   (C) Return the end iterator.
+
+ 3.   (B) the destructor
+
+ 4.   (D) ++i
+
+ 5.   (D) virtual
+
+ 6.   (A) friend
+
+ 7.   (D) foo*
+
+ 8.   (A) void f (string&&);
+
+ 9.   (B) hash table
+
+10.   (C) v[v.size()-1]
+
+11.   (C) reinterpret_cast
+
+12.   (B) $ O ( log n ) $
+

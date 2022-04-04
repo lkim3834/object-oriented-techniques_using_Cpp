@@ -1,0 +1,10 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting addrinfo.cpp
+$Id: addrinfo.cpp,v 1.16 2021-02-24 17:52:45-08 - - $
+checksource addrinfo.cpp
+checksource: TOTAL COMPLAINTS: 0
+addrinfo.cpp: $Id: addrinfo.cpp,v 1.16 2021-02-24 17:52:45-08 - - $
+cpplint.py.perl addrinfo.cpp
+Done processing addrinfo.cpp
+g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++2a -Wold-style-cast -pthread -g -O0 addrinfo.cpp -o addrinfo -lm
+rm -f addrinfo.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished addrinfo.cpp

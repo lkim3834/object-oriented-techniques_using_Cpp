@@ -1,0 +1,1053 @@
+head	1.37;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.37
+date	2021.04.29.04.40.41;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2021.04.29.04.31.32;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2021.04.29.03.58.33;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2021.04.29.03.57.35;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2021.04.29.03.56.34;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2021.04.29.03.27.10;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2021.04.29.03.25.22;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2021.04.29.02.53.48;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2021.04.29.02.53.35;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2021.04.29.02.51.26;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2021.04.29.02.50.22;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2021.04.29.02.49.07;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2021.04.29.02.48.54;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2021.04.29.02.48.14;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2021.04.29.02.43.54;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2021.04.29.02.43.25;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2021.04.29.02.42.55;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2021.04.29.02.33.33;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2021.04.29.02.32.23;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2021.04.29.02.32.02;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2021.04.29.02.27.48;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2021.04.29.02.27.15;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2021.04.29.02.26.17;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2021.04.29.02.22.11;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2021.04.29.02.21.56;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2021.04.29.02.16.53;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2021.04.29.02.15.58;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2021.04.29.02.11.40;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2021.04.29.02.08.03;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2021.04.29.01.53.29;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2021.04.29.01.52.27;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.04.29.01.51.56;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.04.29.01.50.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.29.01.50.22;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.29.01.34.43;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.29.01.33.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.29.01.28.19;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.37
+log
+@-
+@
+text
+@// $Id: circle-list.cpp,v 1.36 2021-04-28 21:31:32-07 - - $
+
+#include <cxxabi.h>
+#include <iostream>
+#include <memory>
+#include <string>
+#include <typeinfo>
+#include <vector>
+using namespace std;
+
+//////////////// begin demangle ////////////////
+
+#include <cxxabi.h>
+template <typename type>
+string demangle() {
+   const char* name = typeid (type).name();
+   int status = 0;
+   using deleter = void (*) (void*);
+   unique_ptr<char,deleter> result {
+      abi::__cxa_demangle (name, nullptr, nullptr, &status),
+      std::free,
+   };
+   return status == 0 ? result.get() : name;
+}
+
+//////////////// end demangle ////////////////
+
+//////////////// end xlist.h ////////////////
+
+#ifndef __XLIST_H__
+#define __XLIST_H__
+
+template <typename value_type>
+struct xlist {
+   struct node;
+   struct link {
+      node* next;
+      node* prev;
+      link (node* next_, node* prev_): next(next_), prev(prev_) {}
+   };
+   struct node: link {
+      value_type item;
+      explicit node (node* next_ = nullptr, node* prev_ = nullptr,
+                     const value_type& item_ = value_type()):
+            link(next_, prev_), item(item_) {}
+   };
+   node* anchor() { return static_cast<node*> (&anchor_); }
+   link anchor_;
+
+   xlist(): anchor_ (anchor(), anchor()) {}
+   xlist (const xlist&) = delete;
+   xlist& operator= (const xlist&) = delete;
+   ~xlist() { while (not empty()) pop_back(); }
+
+   bool empty() { return anchor_.next == anchor(); }
+   void push_back (const value_type&);
+   void pop_back();
+   value_type& back() { return anchor_.prev->item; }
+
+   class iterator;
+   iterator begin() { return iterator (anchor_.next); }
+   iterator end() { return iterator (anchor()); }
+};
+
+
+template <typename value_type>
+struct xlist<value_type>::iterator {
+   node* curr;
+   explicit iterator (node* curr_ = nullptr): curr(curr_) {}
+   value_type& operator*() { return curr->item; }
+   iterator& operator++() { curr = curr->next; return *this; }
+   iterator& operator--() { curr = curr->prev; return *this; }
+   bool operator== (const iterator &that) { return curr == that.curr; }
+   bool operator!= (const iterator &that) { return curr != that.curr; }
+};
+
+template <typename value_type>
+void xlist<value_type>::push_back (const value_type& item) {
+   node* tmp = new node (anchor(), anchor_.prev, item);
+   anchor_.prev = tmp;
+   tmp->prev->next = tmp;
+}
+
+template <typename value_type>
+void xlist<value_type>::pop_back() {
+   node* tmp = anchor_.prev;
+   anchor_.prev = tmp->prev;
+   anchor_.prev->next = anchor();
+   delete tmp;
+}
+
+#endif
+
+//////////////// end xlist.h ////////////////
+
+//////////////// begin main test file ////////////////
+
+template <typename type, typename show_t>
+ostream& show_node (typename xlist<type>::node* ptr,
+                    show_t show) {
+   cout << ptr << "->{next=" << ptr->next << ", prev=" << ptr->prev;
+   show();
+   cout << "}" << endl;
+   return cout;
+}
+
+template <typename type>
+void show_xlist (const string &str, xlist<type>& thelist) {
+   cout << str << ":" << endl;
+   show_node<type> (thelist.anchor(), [](){});
+   for (typename xlist<type>::iterator itor = thelist.begin();
+        itor != thelist.end(); ++itor) {
+      struct {
+         decltype(itor) item;
+         void operator()() { cout << ", item=(" << *item << ")"; }
+      } show;
+      show.item = itor;
+      show_node<type> (itor.curr, show);
+   }
+}
+
+template <typename type>
+void print_size() {
+   cout << "sizeof (" << demangle<type>() << ") = "
+        << sizeof (type) << endl;
+}
+
+template <typename type>
+void test_xlist (const vector<type>& data) {
+   cout << string (72, '-') << endl;
+   cout << "Testing:" << endl << __PRETTY_FUNCTION__ << endl;
+   print_size<type>();
+   print_size<xlist<type>>();
+   print_size<typename xlist<type>::link>();
+   print_size<typename xlist<type>::node>();
+   xlist<type> list;
+   show_xlist ("After declaration", list);
+   for (const auto& item: data) list.push_back (item);
+   show_xlist ("After vector.push_back", list);
+   for (size_t num = 0; num < data.size() / 2; ++num) list.pop_back();
+   show_xlist ("After vector.pop", list);
+}
+
+template <typename T1, typename T2>
+ostream& operator<< (ostream& out, const pair<T1,T2>& a_pair) {
+   return out << "{" << a_pair.first << "," << a_pair.second << "}";
+}
+
+int main() {
+   static vector<int> v_int {2, 3, 5, 7, 11};
+   static vector<string> v_str {"hello", "world", "foo", "bar", "baz"};
+   static vector<pair<int,char>> v_pair {
+      {'A','A'}, {'B','B'}, {'C','C'}, {'D','D'}, {'E','E'},
+   };
+   test_xlist (v_int);
+   test_xlist (v_str);
+   test_xlist (v_pair);
+   cout << endl;
+   return 0;
+}
+
+//////////////// end main test file ////////////////
+
+//TEST// testxlist >testxlist.out 2>&1
+//TEST// mkpspdf testxlist.ps xlist.h testxlist.cpp testxlist.out
+
+@
+
+
+1.36
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: 2circle.cpp,v 1.3 2021-04-28 21:27:27-07 - - $
+d115 1
+a115 1
+         void operator()() { cout << ", item=" << *item; }
+@
+
+
+1.35
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.34 2021-04-28 20:57:35-07 - - $
+a70 1
+   value_type* operator->() { return &curr->item; }
+d98 3
+a100 2
+template <typename type>
+ostream& show_node (typename xlist<type>::node* ptr) {
+d102 2
+d110 1
+a110 1
+   show_node<type> (thelist.anchor()) << "}" << endl;
+d113 6
+a118 1
+      show_node<type> (itor.curr) << ", item=" << *itor << "}" << endl;
+@
+
+
+1.34
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.33 2021-04-28 20:56:34-07 - - $
+d111 1
+a111 1
+      show_node<type> (itor->curr) << ", item=" << *itor << "}" << endl;
+@
+
+
+1.33
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.32 2021-04-28 20:27:10-07 - - $
+d71 1
+@
+
+
+1.32
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.30 2021-04-28 19:53:48-07 - - $
+d110 1
+a110 1
+      show_node<type> (itor.curr) << ", item=" << *itor << "}" << endl;
+@
+
+
+1.31
+log
+@-
+@
+text
+@a105 2
+   auto null = [](){};
+   auto node = [](auto p){ cout << ", item=" << p; };
+@
+
+
+1.30
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.29 2021-04-28 19:53:35-07 - - $
+d106 2
+@
+
+
+1.29
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.27 2021-04-28 19:50:22-07 - - $
+d138 1
+a138 1
+   return cout << "{" << a_pair.first << "," << a_pair.second << "}";
+@
+
+
+1.28
+log
+@-
+@
+text
+@d136 2
+a137 2
+template <typename pair>
+ostream& operator<< (ostream& out, const pair& a_pair) {
+@
+
+
+1.27
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.26 2021-04-28 19:49:07-07 - - $
+d137 2
+a138 2
+ostream& operator<< (ostream& out, const pair& pair) {
+   return cout << "{" << pair.first << "," << pair.second << "}";
+@
+
+
+1.26
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.25 2021-04-28 19:48:54-07 - - $
+d134 5
+@
+
+
+1.25
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.24 2021-04-28 19:48:14-07 - - $
+d144 1
+a144 1
+   test_clist (v_pair);
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.23 2021-04-28 19:43:54-07 - - $
+d137 1
+a137 1
+   static vector<int> v_int {3, 4, 5, 6};
+d141 1
+a141 1
+   }
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.22 2021-04-28 19:43:25-07 - - $
+d137 8
+a144 4
+   static vector<int> vec_int {3, 4, 5, 6};
+   static vector<string> vec_str {"hello", "world", "foo", "bar"};
+   test_xlist (vec_int);
+   test_xlist (vec_str);
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.21 2021-04-28 19:42:55-07 - - $
+d141 1
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.20 2021-04-28 19:33:33-07 - - $
+d122 1
+a133 1
+   cout << string (64, '_') << endl;
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.19 2021-04-28 19:32:23-07 - - $
+d98 2
+a99 2
+template <typename T>
+ostream& show_node (typename xlist<T>::node* ptr) {
+d104 2
+a105 2
+template <typename T>
+void show_xlist (const string &str, xlist<T>& thelist) {
+d107 2
+a108 2
+   show_node<T> (thelist.anchor()) << "}" << endl;
+   for (typename xlist<T>::iterator itor = thelist.begin();
+d110 1
+a110 1
+      show_node<T> (itor.curr) << ", item=" << *itor << "}" << endl;
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.17 2021-04-28 19:27:48-07 - - $
+d108 3
+a110 3
+   for (typename xlist<T>::iterator it = thelist.begin();
+        it != thelist.end(); ++it) {
+      show_node<T> (it.curr) << ", item=" << *it << "}" << endl;
+@
+
+
+1.18
+log
+@-
+@
+text
+@d99 3
+a101 3
+ostream& operator<< (ostream& out, typename xlist<T>::node* ptr) {
+   out << ptr << "->{next=" << ptr->next << ", prev=" << ptr->prev;
+   return out;
+d107 4
+a110 4
+   cout << thelist.anchor() << "}" << endl;
+   for (typename xlist<T>::iterator itor = thelist.begin();
+        itor != thelist.end(); ++itor) {
+      cout << itor.curr << ", item=" << *it << "}" << endl;
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.16 2021-04-28 19:27:15-07 - - $
+d99 3
+a101 3
+ostream& show_node (typename xlist<T>::node* ptr) {
+   cout << ptr << "->{next=" << ptr->next << ", prev=" << ptr->prev;
+   return cout;
+d107 4
+a110 4
+   show_node<T> (thelist.anchor()) << "}" << endl;
+   for (typename xlist<T>::iterator it = thelist.begin();
+        it != thelist.end(); ++it) {
+      show_node<T> (it.curr) << ", item=" << *it << "}" << endl;
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.15 2021-04-28 19:26:17-07 - - $
+d116 1
+a116 1
+   cout << "sizeof (" << demangle<type> << ") = "
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.14 2021-04-28 19:22:11-07 - - $
+d125 2
+a126 2
+   print_size<xlist<type>::link>();
+   print_size<xlist<type>::node>();
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.13 2021-04-28 19:21:56-07 - - $
+d115 6
+d123 4
+a127 3
+   string type_str = demangle<type>();
+   cout << "sizeof (xlist) = " << sizeof list << endl;
+   cout << "sizeof (" << type_str << ") = " << sizeof (type) << endl;
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.12 2021-04-28 19:16:53-07 - - $
+d116 1
+a116 1
+   cout "Testing:" << endl << __PRETTY_FUNCTION__ << endl;
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.11 2021-04-28 19:15:58-07 - - $
+d116 2
+a118 2
+   cout << endl << __PRETTY_FUNCTION__ << endl;
+   xlist<type> list;
+d124 1
+a124 4
+   for (size_t count = 0; count < data.size() / 2; ++count) {
+      cout << "back: " << list.back() << endl;
+      list.pop_back();
+   }
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.10 2021-04-28 19:11:40-07 - - $
+d118 1
+a120 1
+   xlist<type> list;
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.9 2021-04-28 19:08:03-07 - - $
+a115 1
+   xlist<type> list;
+d117 1
+d120 2
+a121 1
+   show_xlist ("After decl", list);
+d123 1
+a123 1
+   show_xlist ("After push_back", list);
+d128 2
+a129 1
+   show_xlist ("Finish "s + __PRETTY_FUNCTION__, list);
+a134 2
+   string line = "--------------------------------------------------";
+   cout << endl << line << endl;
+a135 1
+   cout << endl << line << endl;
+a136 1
+   cout << endl << line << endl;
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.7 2021-04-28 18:52:27-07 - - $
+d127 1
+a127 1
+   show_xlist ("At end of test_int", list);
+@
+
+
+1.8
+log
+@-
+@
+text
+@d39 1
+a39 3
+      explicit link (node* next_ = nullptr, node* prev_ = nullptr):
+                     next(next_), prev(prev_) {}
+      node* operator&() { return static_cast<node*> (this); }
+d47 2
+a48 1
+   link base;
+d50 1
+a50 1
+   xlist(): base (&base, &base) {}
+d55 1
+a55 1
+   bool empty() { return base.next == &base; }
+d58 1
+a58 1
+   value_type& back() { return base.prev->item; }
+d61 2
+a62 2
+   iterator begin() { return iterator (base.next); }
+   iterator end() { return iterator (&base); }
+d79 2
+a80 2
+   node* tmp = new node (&base, base.prev, item);
+   base.prev = tmp;
+d86 3
+a88 3
+   node* tmp = base.prev;
+   base.prev = tmp->prev;
+   base.prev->next = &base;
+d107 1
+a107 1
+   show_node<T> (&thelist.base) << "}" << endl;
+a127 35
+}
+
+void test_int() {
+   xlist<int> xli;
+   cout << "sizeof (xlist) = " << sizeof (xli) << endl;
+   cout << "sizeof (int) = " << sizeof (int) << endl;
+   show_xlist ("After decl", xli);
+   xli.push_back(3);
+   xli.push_back(4);
+   xli.push_back(5);
+   xli.push_back(6);
+   show_xlist ("After push_back", xli);
+   cout << xli.back() << endl;
+   xli.pop_back();
+   cout << xli.back() << endl;
+   xli.pop_back();
+   show_xlist ("At end of test_int", xli);
+}
+
+
+void test_string() {
+   xlist<string> xli;
+   cout << "sizeof (xlist) = " << sizeof (xli) << endl;
+   cout << "sizeof (string) = " << sizeof (string) << endl;
+   show_xlist ("After decl", xli);
+   xli.push_back("Hello");
+   xli.push_back("World");
+   xli.push_back("foo");
+   xli.push_back("bar");
+   show_xlist ("After push_back", xli);
+   cout << xli.back() << endl;
+   xli.pop_back();
+   cout << xli.back() << endl;
+   xli.pop_back();
+   show_xlist ("At end of test_string", xli);
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.3 2021-04-28 18:34:43-07 - - $
+d23 1
+a23 1
+   return status = 0 ? result.get() : name;
+@
+
+
+1.6
+log
+@-
+@
+text
+@d168 1
+a168 1
+   static vector<string vec_str {"hello", "world", "foo", "bar"};
+@
+
+
+1.5
+log
+@-
+@
+text
+@d118 1
+a118 1
+   string type_str = demangle (type);
+@
+
+
+1.4
+log
+@-
+@
+text
+@d18 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.2 2021-04-28 18:33:39-07 - - $
+d5 1
+d8 1
+d11 16
+d99 2
+a100 2
+ostream& show_node (typename xlist<T>::node* np) {
+   cout << np << "->{next=" << np->next << ", prev=" << np->prev;
+d105 1
+a105 1
+void show_list (const string &str, xlist<T>& thelist) {
+d114 16
+d134 1
+a134 1
+   show_list ("After decl", xli);
+d139 1
+a139 1
+   show_list ("After push_back", xli);
+d144 1
+a144 1
+   show_list ("At end of test_int", xli);
+d152 1
+a152 1
+   show_list ("After decl", xli);
+d157 1
+a157 1
+   show_list ("After push_back", xli);
+d162 1
+a162 1
+   show_list ("At end of test_string", xli);
+d166 2
+d170 1
+a170 1
+   test_int();
+d172 1
+a172 1
+   test_string();
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: circle-list.cpp,v 1.1 2021-04-28 18:28:19-07 - - $
+d135 1
+a135 1
+   cout << line << endl;
+d137 1
+a137 1
+   cout << line << endl;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: testxlist.cpp,v 1.1 2016-06-28 14:47:09-07 - - $
+d14 1
+a14 1
+template <typename T>
+d25 1
+a25 1
+      T item;
+d27 1
+a27 1
+                     const T& item_ = T()):
+d38 1
+a38 1
+   void push_back (const T&);
+d40 1
+a40 1
+   T& back() { return base.prev->item; }
+d48 2
+a49 2
+template <typename T>
+struct xlist<T>::iterator {
+d52 1
+a52 1
+   T& operator*() { return curr->item; }
+d59 2
+a60 2
+template <typename T>
+void xlist<T>::push_back (const T& item) {
+d66 2
+a67 2
+template <typename T>
+void xlist<T>::pop_back() {
+d91 1
+a91 2
+        it != thelist.end();
+        ++it) {
+d133 1
+a133 1
+   cout << line << endl;
+@

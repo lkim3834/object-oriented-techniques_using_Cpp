@@ -1,0 +1,294 @@
+head	1.8;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.8
+date	2020.10.28.00.24.10;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2018.07.11.20.45.06;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2016.04.09.02.51.13;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2016.04.09.02.49.35;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2016.04.09.02.49.15;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2016.04.09.02.48.53;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2016.04.09.02.47.14;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.04.09.02.46.39;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.8
+log
+@-
+@
+text
+@// $Id: inherit.cpp,v 1.7 2018-07-11 13:45:06-07 - - $
+
+// Simple example using inheritance.
+
+#include <cmath>
+#include <iostream>
+#include <memory>
+#include <sstream>
+#include <vector>
+using namespace std;
+
+/////////////////////////////////////////////////////////////////
+// class shape
+/////////////////////////////////////////////////////////////////
+
+class shape {
+   private:
+      static size_t next_id;
+      size_t id {++next_id};
+   public:
+      virtual ~shape() = default;
+      virtual double area() const = 0;
+      virtual double circum() const = 0;
+      virtual ostream& show (ostream&) const;
+      friend ostream& operator<< (ostream&, const shape&);
+};
+
+size_t shape::next_id {0};
+
+ostream& shape::show (ostream& out) const {
+   return out << "shape(" << id << ")";
+}
+
+ostream& operator<< (ostream& out, const shape& sh) {
+   return sh.show (out);
+}
+
+/////////////////////////////////////////////////////////////////
+// class nothing
+/////////////////////////////////////////////////////////////////
+
+class nothing: public shape {
+   public:
+      double area() const override { return 0; }
+      double circum() const override { return 0; }
+      ostream& show (ostream&) const override;
+};
+
+ostream& nothing::show (ostream& out) const {
+   return shape::show (out) << ": nothing ";
+}
+
+
+/////////////////////////////////////////////////////////////////
+// class circle
+/////////////////////////////////////////////////////////////////
+
+class circle: public shape {
+   private:
+      double radius {};
+   public:
+      circle (double r = 0): radius(r) {}
+      double area() const override { return M_PI * pow (radius, 2); }
+      double circum() const override { return 2 * M_PI * radius; }
+      ostream& show (ostream&) const override;
+};
+
+ostream& circle::show (ostream& out) const {
+   return shape::show (out) << ": circle radius " << radius;
+}
+
+/////////////////////////////////////////////////////////////////
+// class square
+/////////////////////////////////////////////////////////////////
+
+class square: public shape {
+   private:
+      double side {};
+   public:
+      square (double s): side(s) {}
+      double area() const override { return pow (side, 2); }
+      double circum() const override { return 4 * side; }
+      ostream& show (ostream&) const override;
+};
+
+
+ostream& square::show (ostream& out) const {
+   return shape::show (out) << ": square side " << side;
+}
+
+
+
+/////////////////////////////////////////////////////////////////
+// main function
+/////////////////////////////////////////////////////////////////
+
+using shape_ptr = shared_ptr<shape>;
+int main (int argc, char** argv) {
+   vector<string> args (&argv[1], &argv[argc]);
+   vector<shape_ptr> vsp;
+   for (const auto& arg: args) {
+      cout << arg << ":" << endl;
+      istringstream argstream (arg);
+      char type {}; double num {};
+      argstream >> type >> num;
+      shape_ptr obj = nullptr;
+      switch (arg[0]) {
+         case 'c': obj = make_shared<circle> (num); break;
+         case 's': obj = make_shared<square> (num); break;
+         default:  obj = make_shared<nothing>(); break;
+      }
+      vsp.push_back (obj);
+   }
+   for (const auto& item: vsp) {
+      cout << *item << ", area " << item->area() << ", circum "
+           << item->circum() << endl;
+   }
+   return 0;
+}
+
+//TEST// alias grind='valgrind --leak-check=full --show-reachable=yes'
+//TEST// grind inherit c c10 s s15 x >inherit.out 2>&1
+//TEST// mkpspdf inherit.ps inherit.cpp* inherit.out
+
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inherit.cpp,v 1.6 2016-04-08 19:51:13-07 - - $
+d21 1
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inherit.cpp,v 1.5 2016-04-08 19:49:35-07 - - $
+d43 3
+a45 3
+      virtual double area() const override { return 0; }
+      virtual double circum() const override { return 0; }
+      virtual ostream& show (ostream&) const override;
+d62 3
+a64 7
+      virtual double area() const override {
+         return M_PI * pow (radius, 2);
+      }
+      virtual double circum() const override {
+         return 2 * M_PI * radius;
+      }
+      virtual ostream& show (ostream&) const override;
+d80 3
+a82 3
+      virtual double area() const override { return pow (side, 2); }
+      virtual double circum() const override { return 4 * side; }
+      virtual ostream& show (ostream&) const override;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inherit.cpp,v 1.4 2016-04-08 19:49:15-07 - - $
+d12 4
+d37 4
+d53 4
+d75 4
+d95 5
+d105 1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inherit.cpp,v 1.3 2016-04-08 19:48:53-07 - - $
+d44 1
+d78 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inherit.cpp,v 1.2 2016-04-08 19:47:14-07 - - $
+d41 1
+a41 1
+   return shape::show (out) << ": nothing " << radius;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inherit.cpp,v 1.1 2016-04-08 19:46:39-07 - - $
+d34 1
+d37 1
+d39 4
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: inheritance.cpp,v 1.18 2016-04-08 19:45:19-07 - - $
+d96 2
+@

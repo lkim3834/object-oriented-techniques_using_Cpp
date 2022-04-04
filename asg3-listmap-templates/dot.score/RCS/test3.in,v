@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2016.06.28.21.48.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@# Comments should be ignored
+
+
+also ignore blank lines
+this file contains nonexistent keys
+all output should be error messages
+# $Id: test3.in,v 1.1 2010-02-09 20:31:28-08 - - $
+@

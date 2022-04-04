@@ -1,0 +1,50 @@
+==24923== Memcheck, a memory error detector
+==24923== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==24923== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==24923== Command: treefree -0
+==24923== 
+Command: treefree -0
+[0]0x5c41110->tree::tree(tree_ptr): parent=nullptr
+[1]0x5c41220->tree::tree(tree_ptr): parent=[0]0x5c41110
+[2]0x5c41410->tree::tree(tree_ptr): parent=[0]0x5c41110
+[3]0x5c41660->tree::tree(tree_ptr): parent=[2]0x5c41410
+[4]0x5c418b0->tree::tree(tree_ptr): parent=[2]0x5c41410
+[5]0x5c41b00->tree::tree(tree_ptr): parent=[2]0x5c41410
+[6]0x5c41cf0->tree::tree(tree_ptr): parent=[1]0x5c41220
+[7]0x5c41f40->tree::tree(tree_ptr): parent=[1]0x5c41220
+[8]0x5c42190->tree::tree(tree_ptr): parent=[1]0x5c41220
+[seq]address: key -> value (use count)
+void tree::print(size_t): [0]0x5c41110: ".." -> [0]0x5c41110 (5)
+void tree::print(size_t): [0]0x5c41110: "bar" -> [2]0x5c41410 (5)
+void tree::print(size_t):    [2]0x5c41410: ".." -> [0]0x5c41110 (5)
+void tree::print(size_t):    [2]0x5c41410: "quuux" -> [5]0x5c41b00 (2)
+void tree::print(size_t):       [5]0x5c41b00: ".." -> [2]0x5c41410 (6)
+void tree::print(size_t):    [2]0x5c41410: "quux" -> [4]0x5c418b0 (2)
+void tree::print(size_t):       [4]0x5c418b0: ".." -> [2]0x5c41410 (6)
+void tree::print(size_t):    [2]0x5c41410: "qux" -> [3]0x5c41660 (2)
+void tree::print(size_t):       [3]0x5c41660: ".." -> [2]0x5c41410 (6)
+void tree::print(size_t): [0]0x5c41110: "foo" -> [1]0x5c41220 (5)
+void tree::print(size_t):    [1]0x5c41220: ".." -> [0]0x5c41110 (5)
+void tree::print(size_t):    [1]0x5c41220: "quuux" -> [8]0x5c42190 (2)
+void tree::print(size_t):       [8]0x5c42190: ".." -> [1]0x5c41220 (6)
+void tree::print(size_t):    [1]0x5c41220: "quux" -> [7]0x5c41f40 (2)
+void tree::print(size_t):       [7]0x5c41f40: ".." -> [1]0x5c41220 (6)
+void tree::print(size_t):    [1]0x5c41220: "qux" -> [6]0x5c41cf0 (2)
+void tree::print(size_t):       [6]0x5c41cf0: ".." -> [1]0x5c41220 (6)
+==24923== 
+==24923== HEAP SUMMARY:
+==24923==     in use at exit: 1,863 bytes in 35 blocks
+==24923==   total heap usage: 40 allocs, 5 frees, 2,002 bytes allocated
+==24923== 
+==24923== LEAK SUMMARY:
+==24923==    definitely lost: 72 bytes in 1 blocks
+==24923==    indirectly lost: 1,764 bytes in 33 blocks
+==24923==      possibly lost: 0 bytes in 0 blocks
+==24923==    still reachable: 27 bytes in 1 blocks
+==24923==                       of which reachable via heuristic:
+==24923==                         stdstring          : 27 bytes in 1 blocks
+==24923==         suppressed: 0 bytes in 0 blocks
+==24923== Rerun with --leak-check=full to see details of leaked memory
+==24923== 
+==24923== For counts of detected and suppressed errors, rerun with: -v
+==24923== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

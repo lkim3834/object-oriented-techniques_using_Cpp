@@ -1,0 +1,173 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.6
+date	2020.07.28.07.43.01;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.07.25.03.27.05;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.07.24.23.23.11;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.07.24.22.39.57;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.07.23.22.59.57;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.07.23.22.52.49;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@-
+@
+text
+@
+<P>
+<KBD>phd042216s.is-this-on-the-test.gif</KBD>
+<P>
+<A HREF=
+https://www2.ucsc.edu/courses/cse110a-wm/:/etc/www.phdcomics.com/>
+<IMG style="width: 75%;"
+SRC="phd042216s.is-this-on-the-test.gif"
+ALT="phd042216s.is-this-on-the-test.gif"
+>
+</A>
+
+<P>
+<KBD>phd041816s.study-for-life.gif</KBD>
+<P>
+<A HREF=
+https://www2.ucsc.edu/courses/cse110a-wm/:/etc/www.phdcomics.com/>
+<IMG style="width: 75%;"
+SRC="phd041816s.study-for-life.gif"
+ALT="phd041816s.study-for-life.gif"
+>
+</A>
+
+<P>
+<KBD>$Id: README.html,v 1.5 2020-07-24 20:27:05-07 - - $</KBD>
+
+@
+
+
+1.5
+log
+@-
+@
+text
+@a1 1
+<!--
+d3 1
+a3 1
+<KBD>phd041816s.study-for-life.gif</KBD>
+d5 2
+a6 1
+<A HREF=phd041816s.study-for-life.gif>
+d8 2
+a9 2
+SRC="phd041816s.study-for-life.gif"
+ALT="phd041816s.study-for-life.gif"
+a11 1
+-->
+d14 1
+a14 1
+<KBD>phd042216s.is-this-on-the-test.gif</KBD>
+d19 2
+a20 2
+SRC="phd042216s.is-this-on-the-test.gif"
+ALT="phd042216s.is-this-on-the-test.gif"
+d25 1
+a25 1
+<KBD>$Id: README.html,v 1.4 2020-07-24 16:23:11-07 - - $</KBD>
+@
+
+
+1.4
+log
+@-
+@
+text
+@d4 1
+a4 1
+<KBD>phd041816s.study-for-life.gif<KBDTT>
+d15 1
+a15 1
+<KBD>phd042216s.is-this-on-the-test.gif<KBDTT>
+d26 1
+a26 1
+<KBD>$Id: README.html,v 1.3 2020-07-24 15:39:57-07 - - $</KBD>
+@
+
+
+1.3
+log
+@-
+@
+text
+@d17 2
+a18 1
+<A HREF=phd042216s.is-this-on-the-test.gif>
+d26 1
+a26 1
+<KBD>$Id: README.html,v 1.2 2020-07-23 15:59:57-07 - - $</KBD>
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+d12 1
+d25 1
+a25 1
+<KBD>$Id: README.html,v 1.1 2020-07-23 15:52:49-07 - - $</KBD>
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+d3 1
+a3 1
+<KBD> is-this-on-the-test.phd042216s.gif<KBDTT>
+d5 1
+a5 1
+<A HREF= is-this-on-the-test.phd042216s.gif>
+d7 2
+a8 2
+SRC=" is-this-on-the-test.phd042216s.gif"
+ALT=" is-this-on-the-test.phd042216s.gif"
+d11 1
+d13 12
+a24 1
+<TT>$Id: README.html,v 1.5 2020-07-23 15:52:04-07 - - $</TT>
+@

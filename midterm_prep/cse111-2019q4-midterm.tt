@@ -1,0 +1,272 @@
+CSE-111 · Advanced Programming · Fall 2019 · Midterm Exam       1 of 1
+$Id: cse111-2019q4-midterm.mm,v 1.132 2019-11-01 15:39:56-07 - -
+$
+.PS
+examboxes(4)
+.PE
+
+No books;  No calculator;  No computer;  No email;  No internet;  No
+notes;  No phone.  Neatness counts!  Points will be deducted for messy
+or unreadable answers.  Do your scratch work elsewhere and enter ONLY
+your final answer into the spaces provided, and ONLY in the spaces
+provided.
+
+.EQ
+delim $$
+.EN
+
+ 1. Write a complete C++ program:  everything that needs to be in the
+    file echo.cpp, which implements the echo(1) command.  It prints
+    out each of its command line arguments with exactly one space in
+    between arguments, but no space before the first argument or after
+    the last argument.  [4pt]
+
+    +------------------------------+
+    |-bash-1$ echo hello world     |
+    |hello world                   |
+    |-bash-2$ echo                 |
+    |                              |
+    |-bash-3$ echo foo bar baz qux |
+    |foo bar baz qux               |
+    +------------------------------+
+
+ 2. Complete the function trim which will ensure a ubigint is in
+    canonical form.
+    Assume a field declared as vector<udigit_t> ubigvalue;  [1pt]
+    void ubigint::trim() {
+
+ 3. Code a template function print which prints to cout all of the el-
+    ements of a container, one element per line.  Assume operator<< is
+    defined for the elements.  The function should work on any con-
+    tainer, such as list, vector, etc.  It has a single argument,
+    which is a container.
+
+     (a) Code print using the colon version of a for-loop.  Make only
+         implicit, not explicit, use of an iterator.  [2pt]
+
+     (b) Code print using the three-part version of a for-loop using
+         the container's cbegin and cend functions.  Assume the con-
+         tainer has only forward iterators (not bidirectioinal, not
+         random access).  [3pt]
+
+ 4. Code the function equal_range, whose template arguments are two
+    types of forward iterators and a comparison function type, and
+    whose function argumetns are two begin and end ranges and an equal
+    comparison function object.  It returns true if all elements in
+    the ranges are equal and both ranges have the same number of ele-
+    ments.  [3pt]
+
+    template <typename itor1, typename itor2, typename equal_t>
+    bool equal_range (itor1 begin1, itor1 end1, itor2 begin2, itor2 end2,
+                      equal_t equal) {
+
+ 5. Given the outline of bigint shown here, implement bigint::opera-
+    tor< as it appears outside of the class definition.  Use ubig-
+    int::operator< for the necessary comparison, but no other ubigint
+    operator or function.  [2pt]
+
+    class bigint {
+       private:
+          bool is_negative;
+          ubigint uvalue;
+       public:
+          bool operator< (const bigint& that) const;
+    };
+
+ 6. Write the function ubigint::divide_by_2 which divides by 2 the
+    value of a ubigint as per the project specifications.  Update the
+    value in place and do not call any other members of ubigint.
+    [2pt]
+                                       |
+    class ubigint {                    | void ubigint::divide_by_2() {
+       private:                        |
+          vector<unsigned char> value; |
+       public:                         |
+          void divide_by_2() {         |
+    };                                 |
+
+ 7. Write a function dup_adjacent which searches a range and returns
+    true if any two adjacent (next to each other) elements are equiva-
+    lent, based on the comparison parameter.  For example, the se-
+    quence {1,2,3,3,4,5} returns true, while {8,3,7,5,9,3} returns
+    false, because the two 3s are not adjacent.  The function must run
+    in $ O ( n ) $ time.  [3pt]
+
+    template <typename itor_t, typename equal_t>
+    bool dup_adjacent (itor_t begin, itor_t end, equal_t equal) {
+
+ 8. Write a function minimum_itor whose argument is a constant refer-
+    ence to a vector<double> and which returns a vector<double>::iter-
+    ator pointing at the minimum element in the vector.  If there are
+    more than one element equal to the minimum, point the iterator at
+    the element closest to the beginning of the range.  Make an appro-
+    priate assumption if the vector is empty.  [2pt]
+
+ 9. There are six automatically generated class members.  The default
+    constructor and the destructor are given here for class foo.  List
+    the prototypes (signatures) of the others as they would appear in
+    a class header file.
+
+    +--------------+-----------------------------------------------------+
+    |class foo {   | (a) The copiers.  [1pt]                             |
+    |   public:    |                                                     |
+    |              |                                                     |
+    |              |                                                     |
+    |              +-----------------------------------------------------+
+    |      foo();  | (b) The movers.  [1pt]                              |
+    |      ~foo(); |                                                     |
+    |              |                                                     |
+    |              |                                                     |
+    +--------------+-----------------------------------------------------+
+
+10. Given the definition of tstack as shown at the left, show the im-
+    plementation of the class as it would appear in outside of the
+    class definition itself.  (Remember your data structures course?)
+                                  |
+    template <typename item_t>    | template <typename item_t>
+    class tstack {                | const item_t& tstack<item_t>::top()
+    private:                      | const { // (a) [1pt]
+       struct node;               |
+       using node_ptr =           |
+             shared_ptr<node>;    |
+       struct node {              | }
+          item_t value;           | template <typename item_t>
+          node_ptr link;          | void tstack<item_t>::pop() { // (b)
+       };                         | [1pt]
+       node_ptr top_ptr;          |
+    public:                       |
+       bool empty() const {       |
+       return top_ptr == nullptr; | }
+       }                          | template <typename item_t>
+       const item_t& top() const; | void tstack<item_t>::push (const item_t&
+       void pop();                | n) { // (c) [2pt]
+       void push (const item_t&); |
+    };                            |
+                                  |
+                                  |
+                                  |
+                                  |
+                                  |
+                                  | }
+
+11. Write a program that will copy the standard input to the standard
+    output.  Use getline for input.  [2pt]
+
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    int main() {
+
+Multiple choice.  To the left of each question, write the letter that
+indicates your answer.  Write Z if you don't want to risk a wrong an-
+swer.  Wrong answers are worth negative points.  [12pt]
+
++--------------------------+-----+-------+------------+
+|number of                 |     |× 1 =  |      $= a$ |
+|correct answers           |     |       |            |
++--------------------------+-----+-------+------------+
+|number of                 |     |× ½ =  |      $= b$ |
+|wrong answers             |     |       |            |
++--------------------------+-----+-------+------------+
+|number of                 |     |× 0 =  |  0         |
+|missing answers           |     |       |            |
++--------------------------+-----+-------+------------+
+|column total              |  12 |       |      $= c$ |
+|$ c = max ( a - b , 0 ) $ |     |       |            |
++--------------------------+-----+-------+------------+
+
+1. What term is used to describe a virtual function in a derived class
+   that has the same signature as a function of the same name in its
+   base class?
+   (A) delete
+   (B) inherit
+   (C) overload
+   (D) override
+
+2. What is the best parameter description for a function that sums a
+   vector, but does not change any of its elements?  (Fill in the
+   blank.)
+   double sum (___);
+   (A) const vector<double>
+   (B) const vector<double>&
+   (C) vector<double>
+   (D) vector<double>&
+
+3. Which data structure will require special handling if managed by
+   shared_ptrs, in order to avoid memory leak?
+   (A) arbitrary $n$-way tree
+   (B) balanced binary search tree
+   (C) cyclic graph
+   (D) linear linked list
+
+4. Which data structure should be used to maintain a table whose
+   operations are insert, remove, and find by key, without any need to
+   iterate in any particular order, in order to minimize $ O ( f ( n )
+   ) $ time for these operations?
+   (A) list<pair<string,string>>
+   (B) map<string,string>
+   (C) unordered_map<string,string>
+   (D) vector<pair<string,string>>
+
+5. What usually follows #include <iostream> so that it is possible to
+   use the name cout instead of always using std::cout?
+   (A) #include <std::packages>
+   (B) import namespace std;
+   (C) typedef std::namespace;
+   (D) using namespace std;
+
+6. When it is necessary to print an object of a particular class via
+   operator<<, what keyword is generally used in the declaration of
+   operator<<?
+   (A) friend
+   (B) private
+   (C) protected
+   (D) public
+
+7. Given classes circle and square, both of which inherit from
+   abstract class shape, how should area be defined in the class
+   definition of shape, knowing that it requires a concrete object in
+   order to compute the area?
+   (A) virtual double area() = 0;
+   (B) virtual double area() = default;
+   (C) virtual double area() = delete;
+   (D) virtual double area() {return nullptr;}
+
+8. What is the link step in a Makefile?
+   (A) ${EXEC} : ${OBJS}
+               ${GPP} -o ${EXEC} ${OBJS}
+   (B) %.o : %.cpp
+               ${GPP} -c $<
+   (C) ${OBJS} : ${CPPSRC}
+               ${GPP} -o ${OBJS} ${CPPSRC}
+   (D) ${EXEC} : ${CPPSRC}
+               ${GPP} -c $@
+
+9. Given that i is an object of some iterator class, what is assumed
+   to be the most efficient way to increment it in the third part of a
+   for-loop?
+   (A) ++i
+   (B) i++
+   (C) i+=1
+   (D) i=i+1
+
+10. Given the declaration foo x;, and assuming that foo has a non-
+   static field called n, in the expression x.f(), how would the
+   function f refer to the field n?
+   (A) foo::n
+   (B) this->n
+   (C) this.n
+   (D) this::n
+
+11. Which of the following must be declared in every C++ program?
+   (A) int main (char**, int);
+   (B) int main (int, char**);
+   (C) int main (string&);
+   (D) int main (vector<string>&);
+
+12. What should be the first non-comment line in the file foo.h?
+   (A) #define __FOO_H__
+   (B) #ifdef __FOO_H__
+   (C) #ifndef __FOO_H__
+   (D) #include __FOO_H__
+

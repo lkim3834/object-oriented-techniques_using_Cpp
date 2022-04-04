@@ -1,0 +1,60 @@
+==24930== Memcheck, a memory error detector
+==24930== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==24930== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==24930== Command: treefree -d
+==24930== 
+Command: treefree -d
+[0]0x5c41110->tree::tree(tree_ptr): parent=nullptr
+[1]0x5c41220->tree::tree(tree_ptr): parent=[0]0x5c41110
+[2]0x5c41410->tree::tree(tree_ptr): parent=[0]0x5c41110
+[3]0x5c41660->tree::tree(tree_ptr): parent=[2]0x5c41410
+[4]0x5c418b0->tree::tree(tree_ptr): parent=[2]0x5c41410
+[5]0x5c41b00->tree::tree(tree_ptr): parent=[2]0x5c41410
+[6]0x5c41cf0->tree::tree(tree_ptr): parent=[1]0x5c41220
+[7]0x5c41f40->tree::tree(tree_ptr): parent=[1]0x5c41220
+[8]0x5c42190->tree::tree(tree_ptr): parent=[1]0x5c41220
+[seq]address: key -> value (use count)
+void tree::print(size_t): [0]0x5c41110: ".." -> [0]0x5c41110 (5)
+void tree::print(size_t): [0]0x5c41110: "bar" -> [2]0x5c41410 (5)
+void tree::print(size_t):    [2]0x5c41410: ".." -> [0]0x5c41110 (5)
+void tree::print(size_t):    [2]0x5c41410: "quuux" -> [5]0x5c41b00 (2)
+void tree::print(size_t):       [5]0x5c41b00: ".." -> [2]0x5c41410 (6)
+void tree::print(size_t):    [2]0x5c41410: "quux" -> [4]0x5c418b0 (2)
+void tree::print(size_t):       [4]0x5c418b0: ".." -> [2]0x5c41410 (6)
+void tree::print(size_t):    [2]0x5c41410: "qux" -> [3]0x5c41660 (2)
+void tree::print(size_t):       [3]0x5c41660: ".." -> [2]0x5c41410 (6)
+void tree::print(size_t): [0]0x5c41110: "foo" -> [1]0x5c41220 (5)
+void tree::print(size_t):    [1]0x5c41220: ".." -> [0]0x5c41110 (5)
+void tree::print(size_t):    [1]0x5c41220: "quuux" -> [8]0x5c42190 (2)
+void tree::print(size_t):       [8]0x5c42190: ".." -> [1]0x5c41220 (6)
+void tree::print(size_t):    [1]0x5c41220: "quux" -> [7]0x5c41f40 (2)
+void tree::print(size_t):       [7]0x5c41f40: ".." -> [1]0x5c41220 (6)
+void tree::print(size_t):    [1]0x5c41220: "qux" -> [6]0x5c41cf0 (2)
+void tree::print(size_t):       [6]0x5c41cf0: ".." -> [1]0x5c41220 (6)
+void tree::disown(size_t): [0]0x5c41110
+void tree::disown(size_t):    [2]0x5c41410
+void tree::disown(size_t):       [5]0x5c41b00
+void tree::disown(size_t):       [4]0x5c418b0
+void tree::disown(size_t):       [3]0x5c41660
+void tree::disown(size_t):    [1]0x5c41220
+void tree::disown(size_t):       [8]0x5c42190
+void tree::disown(size_t):       [7]0x5c41f40
+void tree::disown(size_t):       [6]0x5c41cf0
+[0]0x5c41110->tree::~tree(): bar foo
+[1]0x5c41220->tree::~tree(): quuux quux qux
+[6]0x5c41cf0->tree::~tree():
+[7]0x5c41f40->tree::~tree():
+[8]0x5c42190->tree::~tree():
+[2]0x5c41410->tree::~tree(): quuux quux qux
+[3]0x5c41660->tree::~tree():
+[4]0x5c418b0->tree::~tree():
+[5]0x5c41b00->tree::~tree():
+==24930== 
+==24930== HEAP SUMMARY:
+==24930==     in use at exit: 0 bytes in 0 blocks
+==24930==   total heap usage: 40 allocs, 40 frees, 2,002 bytes allocated
+==24930== 
+==24930== All heap blocks were freed -- no leaks are possible
+==24930== 
+==24930== For counts of detected and suppressed errors, rerun with: -v
+==24930== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

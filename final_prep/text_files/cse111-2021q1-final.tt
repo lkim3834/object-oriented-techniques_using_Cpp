@@ -1,0 +1,345 @@
+CSE-111 * Advanced Programming * Winter 2021 * Final Exam       1 of 1
+$Id: cse111-2021q1-final.tt,v 1.1 2021-03-17 21:20:12-07 - - $
+
+Answer each question using valid compilable code.
+Do not use pseudo-code.  Your answers should
+compile and run if copied verbatim into an
+appropriate source file.
+
+Use proper indentation.  Points will be deducted
+for messy or unreadable answers.
+
+Assume appropriate #include directives.
+Assume using namespace std.
+
+Do not use any functions from <algorithm>.  Write
+the required code yourself.  Any question whose
+answer is a trivial forwarding one-liner to an
+<algorithm> will score zero.
+
+All answers must be in good C++ style.
+
+__________________________________________________
+
+<PRE>
+Question 1.  [[3 pt]]
+
+Write a program that reads the standard input and
+writes it to the standard output.  The program has
+only a main function, where everything happens.
+The shell statement:
+
+bash$ show <data
+
+will print every line from the file data on the
+output terminal.  Use the function getline as
+appropriate.
+
+__________________________________________________
+
+<PRE>
+Question 2.  [[3 pt]]
+
+Code the Unix program echo(1).  It prints all of
+its command line arguments (but not its name) with
+one space between each argument.  It does not
+print a space before the first argument.  It
+prints a newline after the last argument.
+
+Example of a bash interaction:
+
+-bash 129$ echo foo bar baz
+foo bar baz
+
+__________________________________________________
+
+<PRE>
+Question 3.  [[3 pt]]
+
+Write the template function print.  It has a
+single template typename argument which may be any
+container.  It has a single function argument
+which is a container of that type.  Print all of
+the elements of that container, one per line.
+Assume that the container supports forward
+iterators, but neither bidirectional nor random
+access iterators.
+
+The single argument may be of any container type,
+such as list<int>, vector<string>, foobar<qux>,
+etc.  Assume operator<< is defined for the
+elements of that container.  Assume foobar has all
+of the standard iterator-associated properties.
+
+__________________________________________________
+
+<PRE>
+Question 4.  [[4 pt]]
+
+Define a template operator< which takes two
+std::pairs by constant reference and returns true
+if the first is lexicographically less than the
+second.
+
+The function has two template typename arguments
+and to function arguments, one of each of those
+types.  Since the arguments are of class pair,
+they have fields .first and .second.
+
+Definition:  (a,b) < (c,d):
+if a < c;
+or if a = c and b < d.
+
+Do not use any comparison operator other than
+operator<.  Assume that operator< is defined on
+both parts of the pair.  The two pairs may be of
+different types, requiring only that operator< is
+defined on their respective elements.
+
+Given that not (a < c), you need to figure out how
+to know if a = c, by using only operator<.  Hint:
+There are three uses of operator< in the answer to
+this question.
+
+template <typename T, typename U>
+bool operator< (const std::pair<T,U>& x,
+                const std::pair<T,U>& y) {
+
+__________________________________________________
+
+<PRE>
+Question 5.  [[6 pt]]
+
+Following is an outline for a definition of a
+treemap class, which implements a balanced binary
+search tree sorted in order from left to right by
+the less_t parameter.  Note that you do not have
+to know how to balance a tree.  This is not a
+question about how to balance a tree.  Just assume
+that it is balanced.
+
+The root field points at the root of the tree, and
+the function find returns an iterator pointing at
+the result node.  As this is just an outline,
+end() and the iterator ctor are no specified in
+detail.
+
+Also, assume that iterator returned by find
+somehow behaves in the same way as a std::pair, or
+something equivalent.  Implementation of the
+iterator is not part of this question.
+
+Finish the function treemap::find which takes a
+key as an argument and returns an iterator
+containing a pair<const key_t, mapped_t> as a
+result.  Note that this is not a complete
+declaration.  Only enough information is provided
+that makes possible proper implementation of find.
+
+Return the usual suspect (end) to indicate not
+found.
+
+The following would appear in treemap.h:
+
+template <typename key_t, typename mapped_t,
+          class less_t=less<key_t>>
+class treemap {
+   private:
+      struct node {
+         key_t key;
+         mapped_t mapped;
+         node* left;
+         node* right;
+      };
+      node* root {nullptr};
+      less_t less;
+   public:
+      class iterator;
+      iterator end();
+      iterator find (const key_t& key);
+};
+
+The following would appear in treemap.cpp:
+
+template <typename key_t, typename mapped_t,
+          class less_t>
+typename treemap<key_t, mapped_t,
+                 less_t>::iterator
+treemap<key_t, mapped_t, less_t>::find
+            (const key_t key) {
+
+Your answer should contain everything that would
+follow here at this point in treemap.cpp up to the
+end of the function definition of treemap::find.
+The only comparison function you may use is the
+less function object.
+
+__________________________________________________
+
+<PRE>
+Question 6.  [[5 pt]]
+
+Write a template function lessrange which returns
+true of one range is less than another range.
+
+It has one template parameter: an iterator.
+
+It has four function arguments:
+begin and end iterators for the first range;
+followed by  begin and end iterators for the
+second range.
+
+It scans both ranges in parallel and returns true
+as soon as it finds a pair which is operator< than
+the other, and false otherwise.  If one range is a
+subrange of the other, the shorter one is less
+than the other.
+
+Use only operator< to perform comparisons and
+assume that it exists for the elements in the
+range.
+
+The iterators themselves may be compared with
+operator== or operator!=, as appropriate.  Also
+assume the iterators have operator* and prefix
+operator++ available.
+
+For example, given:
+vector<int> v1 {1, 3, 5, 9, 11, 13, 15, 22};
+vector<int> v2 {1, 4, 7, 10, 16};
+vector<int> v3 {1, 4, 7, 10, 16, 19, 20};
+
+Then:
+v1 < v2 is true
+v1 < v1 is false
+v2 < v3 is true
+
+__________________________________________________
+
+<PRE>
+Question 7.  [[6 pt]]
+
+Define class shape with subclasses (derived
+classes) circle and square.
+
+ (a) [1 pt] Class shape has a virtual abstract
+     function called area() which returns a
+     double.
+
+ (b) [2.5 pt] Class circle is derived from shape,
+     and:
+        * has a private double field radius.
+        * has a ctor which takes a double argument
+          and initializes the radius.  The ctor
+          has a default argument which initializes
+          the radius to 0.
+        * overrides area().
+          The area of a circle is
+          M_PI * pow (radius, 2).
+
+ (c) [2.5 pt] Class square is derived from shape,
+     and:
+        * has a private double field edge, which
+          stores the length of one edge.
+        * has a ctor which takes a double argument
+          and initializes the edge.  The ctor
+          has a default argument which initializes
+          the edge to 0.
+        * overrides area().  The area of a square
+          it iis the square of the length of one edge.
+
+__________________________________________________
+
+<PRE>
+Question 8.  [[6 pt]]
+
+Consider the class counter.
+
+class counter {
+   private:
+      size_t count {0};
+      mutex lock;
+   public:
+      counter& operator++();
+      size_t swap (size_t value);
+};
+
+Define the following members as they would appear
+in counter.cpp as implementations.  Your answer
+should assume multiple concurrent threads, and
+avoid any race or deadlock conditions.
+
+ (a) [3 pt] operator++
+     increments the count field.
+
+ (b) [3 pt] swap
+     replaces the count with the value argument,
+     and returns the old value of count.
+
+__________________________________________________
+
+<PRE>
+Question 9.  [[10 pt]]
+
+Define struct complex to partially implement
+complex numbers.  Use struct, not class, so that
+everything is public.  Only implement that which
+is explicitly described here.  The ctor and all
+member operators should be inline inside the
+struct so that no implementation file is needed.
+
+Hint:  Mathematically,
+(a+bi) + (c+di) == (a+c) + (b+d)i,
+where i == sqrt(-1).
+
+ (a) [1 pt] Two fields, real and imag, of type
+     double.
+
+ (b) [2 pt] A single constructor with two optional
+     arguments.
+        * If no argument is given, both fields
+          default to 0.0.
+        * If one argument is given, it is real,
+          and imag defaults to 0.0.
+        * If two arguments are given, the first is
+          real, and the second is imag.
+
+ (c) [2 pt] Define operator+= with the expected
+     signature and semantics.
+
+ (d) [2 pt] Define operator+, which uses
+     operator+= to perform the computation.
+
+ (e) [2 pt] Define operator bool() to convert a
+     complex number to a bool.  It returns false
+     if both fields are 0 and true otherwise.
+
+ (f) [2 pt] Define the non-member operator<< which
+     prints a complex number in the following
+     format:
+     '(', real, '+', imag, 'i)'
+
+     Example:  (3.14+2.78i).  Do not make any
+     special effort to format the numbers.  Just
+     use the default formatting.
+
+__________________________________________________
+
+<PRE>
+Question 10.  [[4 pt]]
+
+Define the template function average.  It takes
+begin and end iterators of any type, and assumes
+that what they point at can be implicitly
+converted to double.  The iterators are only input
+forward iterators, so can not be subtracted from
+each other.
+
+The average is the sum of all the numbers divided
+by their count.  No zerodivide check is needed,
+because floating point division is being used, and
+0.0/0.0 is nan.
+
+__________________________________________________
+SCORE-TOTAL=50
+

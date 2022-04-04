@@ -1,0 +1,113 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.5
+date	2021.05.01.20.51.17;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.05.01.20.50.34;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.05.01.20.49.45;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.05.01.20.49.29;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.05.01.20.49.09;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@// $Id: mainpos.cpp,v 1.4 2021-05-01 13:50:34-07 - - $
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int a;
+   cout << &a << endl;
+}
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: mainpos.cpp,v 1.3 2021-05-01 13:49:45-07 - - $
+a5 3
+void foo() {
+}
+
+d7 2
+a8 1
+   cout << reinterpret_cast<void*> (foo) << endl;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: mainpos.cpp,v 1.2 2021-05-01 13:49:29-07 - - $
+d5 4
+d10 1
+a10 1
+   cout << reinterpret_cast<void*> (main) << endl;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: mainpos.cpp,v 1.1 2021-05-01 13:49:09-07 - - $
+a5 1
+   cout << main << endl;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d6 2
+a7 1
+   cout << static_cast<void*> (main) << endl;
+@

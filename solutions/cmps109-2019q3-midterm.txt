@@ -1,0 +1,174 @@
+$Id: soln-cmps109-2019q3-midterm.txt,v 1.10 2019-07-16 13:53:17-07 - - $
+Solution to CMPS-109 2019q3-midterm, page 1
+
+Any logically correct variation on these answers is ok too.
+Assign fractional points in increments of 1/2 per question.
+
+_________________________________________________________________
+Question 1. [2]
+template <typename iterator>
+iterator minimum (iterator begin, iterator end) {
+   if (begin == end) return end;
+   auto smallptr = *begin++;
+   for (; begin != end; ++begin) {
+      if (*begin < *smallptr) smallptr = begin;
+   }
+   return smallptr;
+}
+
+_________________________________________________________________
+Question 2. [2]
+template <typename iterator, typename item_t>
+bool find (iterator begin, iterator end, item_t item) {
+   for (; begin != end; ++begin) if (*begin == item) return true;
+   return false;
+}
+
+_________________________________________________________________
+Question 3. [2]
+double sum (const vector<double>& vec) {
+   double s = 0;
+   for (double d: vec) s += d; //// OK to use 3-part for loop
+   return s;
+}
+
+_________________________________________________________________
+Question 4. [2]
+template <typename iterator>
+double tsum (iterator begin, iterator end) {
+   double s = 0;
+   for(; begin != end; ++begin) s += *begin;
+   return s;
+}
+
+_________________________________________________________________
+Question 5. [2]
+void ubigint::trim() {
+   while (ubig_value.size() > 0 and ubig_value.back() == 0)
+         ubig_value.pop_back();
+}
+
+Solution to CMPS-109 2019q3-midterm, page 2
+
+_________________________________________________________________
+Question 6. [1]
+bool operator> (const bigint& a, const bigint& b) {
+   return b < a;
+}
+
+_________________________________________________________________
+Question 7. [2]
+foo operator (foo& that, int) {
+   foo result = that;
+   ++that;
+   return result;
+}
+
+_________________________________________________________________
+Question 8(a). [1]
+pair<double,double> circle (double radius) {
+   return {M_PI * radius * radius, 2 * M_PI * radius};
+}
+//// ok: return pair<double,double> (..., ...)
+//// ok: return pair (..., ...)
+//// ok: use temp variable.
+
+_________________________________________________________________
+Question 8(b). [1]
+cout << "area = " << x.first << ", circumference = "
+     << x.second << endl;
+
+_________________________________________________________________
+Question 9. [2]
+template <typename in_itor, typename out_itor>
+void copy (in_itor in_begin, in_itor in_end, out_itor out_begin) {
+   for (; in_begin != in_end; ++begin) *out_begin++ = *in_begin;
+//// ok: while (in_begin != in_end) *out_begin++ = *in_begin++;
+}
+
+_________________________________________________________________
+Question 10. [3]
+template <typename itor1, typename itor2, typename equal_t>
+bool equal_range (itor1 begin1, itor1 end1, itor2 begin2, itor2 end2) {
+   while (begin1 != end1 and begin2 != end2) {
+      if (*begin1 != *begin2) return false;
+      ++begin1;
+      ++begin2;
+   }
+   return begin1 == end1 and begin2 == end2;
+}
+
+Solution to CMPS-109 2019q3-midterm, page 3
+
+_________________________________________________________________
+Question 11. [1]
+not (s < t) and not (t < s)
+//// ok: not (s < t or t < s)
+
+_________________________________________________________________
+Question 12. [1]
+%.o : %.cpp
+        ${COMPILECPP} -c $<
+
+_________________________________________________________________
+Question 13. [3]
+void multiply_by_2 (vector<unsigned char>& value) {
+   unsigned char carry = 0;
+   for (size_t i = 0; i < value.size(); ++i) {
+      unsigned char d = value[i] * 2 + carry;
+      value[i] = d % 10;
+      carry = d / 10;
+   }
+   if (carry != 0) value.push_back (carry);
+}
+
+_________________________________________________________________
+Question 14. [2]
+template <typename iterator>
+void print (iterator begin, iterator end) {
+   string sp = "";
+   for(; begin != end; ++begin) {
+      cout << sp << *begin;
+      sp = " ";
+   }
+}
+
+_________________________________________________________________
+Question 15. [3]
+vector<int> collatz (int n) {
+   vector<int> v;
+   v.push_back (n);
+   while (n != 1) {
+      if (n % 2 == 1) n = 3 * n + 1;
+                 else n = n / 2;
+      v.push_back (n);
+   }
+   return v;
+} //// better odd test:  if (n & 1)...
+
+Solution to CMPS-109 2019q3-midterm, page 4
+
+ 1.   (A) $ O ( m * n ) $
+
+ 2.   (A) void f (const string&);
+
+ 3.   (A) graph possibly with cycles
+
+ 4.   (C) v.end() - v.begin()
+
+ 5.   (A) friend
+
+ 6.   (C) protected
+
+ 7.   (B) g++ -c
+
+ 8.   (B) $ O ( log n ) $
+
+ 9.   (A) $ O ( 1 ) $
+
+10.   (D) while (p != nullptr)
+
+11.   (C) this
+
+12.   (B) the destructor
+

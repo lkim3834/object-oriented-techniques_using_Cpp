@@ -1,0 +1,118 @@
+$Id: SCORE,v 1.13 2020-11-22 18:29:23-08 - - $
+
+Copy all of the files in this directory into the student's
+directory.  For each point deduction, give a reason.  Numbers in
+parens are the max points for each check.
+
+Grade only one partner's code and assign them the same score.
+
+Make sure the non-graded partner has a symlink for SCORE.
+e.g. in the ungraded partner's directory:
+ln -s ../(partner)/SCORE .
+
+*****************************************************************
+
+SOURCE CODE.
+
+     Run mk.build
+
+     (3) Checksource was silent, did not complain.  No extra
+         files were submitted, except as per asgt spec.  C++
+         source are all called .h, .tcc, .cpp as appropriate.
+
+     (3) Used xless, xpair in code, and did not
+         use anything prohibited from the STL.
+
+     (3) main.cpp handles files correctly.  Does options analysis
+         and parses input lines
+
+     (3) Main input line dispatch to appropriate function.
+
+     (3) Main used iterators for the = and =value "all of the 
+         key..." functions and did not make a copy of the 
+         entire list into another data structure.
+
+     The most significant work was building listmap.
+
+     (3) General good appearance and implementation of listmap.
+
+     (3) good code for listmap::insert
+         deduct 2 points if any use of function other than less
+         for comparison, specifically don't use operator==
+
+     (3) good code for listmap::find
+         deduct 2 points if any use of function other than less
+         for comparison, specifically don't use operator==
+
+     (3) listmap::iterator::erase
+
+     (3) listmap::iterator::operator++ (prefix version)
+
+source points: /30
+min 1, max 30
+
+*****************************************************************
+
+PROGRAM TESTING:
+
+    (10) If gmake failed because a file that should have been
+         submitted but was not, copy in that file from the
+         assignment directory and try again.  If that fixed
+         compilation, deduct 10 points from SUBTOTAL in addition
+         to any other deduction of points.
+
+     (3) If gmake failed, try to compile manually with:
+         g++ -std=gnu++17 -g -O0 -Wall -Wextra *.cpp -o keyvalue
+         If that worked, deduct these three 3 points.
+         If not, assign 0 for this section.
+         If gmake succeeded in building keyvalue, keep these 3 points.
+
+     Run mk.tests
+
+     (3) Leaks check showed no memory leaks.
+
+     Look at the other tests and check output for correctness.
+     Each should work in the same way as pkeyvalue.perl
+     Give partial credit for partially correct output.
+
+     (3) run1.stdin
+
+     (3) run2.stdin
+
+     (3) run3.files
+
+     (3) run4.files
+
+     (3) run5.files
+
+     (3) run6.files
+
+     (3) run7.nofiles
+
+     Unix correctness:
+
+     (3) was the exit status 0 for good tests and non-0 for bad?
+         were error messages sent to stderr (cerr)?
+
+     subtotal = /30 (max 30).
+
+     If there were no core dumps during testing, or if the
+     subtotal is less than 24, transfer this subtotal to the
+     line below.  If there were any core dumps, the maximum
+     testing points here will be 24.
+
+testing points: /30
+min 0, max 30.
+
+*****************************************************************
+
+SUBTOTAL=
+min 1, max 60
+
+If pair programming, TOTALSCORE = SUBTOTAL - TOTALPAIR.
+If not, TOTALSCORE = SUBTOTAL.
+
+TOTALSCORE=
+min 1, max 60
+
+

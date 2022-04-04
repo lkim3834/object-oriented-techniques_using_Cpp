@@ -1,0 +1,209 @@
+$Id: soln-cmps109-2019q3-final.txt,v 1.6 2019-08-15 14:00:55-07 - - $
+Solution to CMPS-109 2019q3-final, page 1
+
+Any logically correct variation on these answers is ok too.
+Assign fractional points in increments of 1/2 per question.
+
+_________________________________________________________________
+Question 1. [3]
+
+bool ubigint::operator< (const ubigint& that) {
+   if (ubigvalue.size() < that.ubigvalue.size()) return true;
+   if (ubigvalue.size() > that.ubigvalue.size()) return false;
+   for (ssize_t i = ubigvalue.size() - 1; i >= 0; --i) {
+      if (ubigvalue[i] < that.ubigvalue[i]) return true;
+      if (ubigvalue[i] > that.ubigvalue[i]) return false;
+   }
+   return false;
+}
+
+_________________________________________________________________
+Question 2. [3]
+
+const GLubyte RED[] = {0xFF, 0x00, 0x00}; //// ALSO:  {255,0,0} ////
+void draw_red_diamond (GLfloat xcenter, GLfloat ycenter,
+                       GLfloat width, GLfloat height) {
+   glBegin (GL_POLYGON);
+   glColor3ubv (RED);
+   glVertex2f (xcenter + width / 2, ycenter);
+   glVertex2f (xcenter, ycenter + height / 2);
+   glVertex2f (xcenter - width / 2, ycenter);
+   glVertex2f (xcenter, ycenter - height / 2);
+   glEnd();
+}
+
+_________________________________________________________________
+Question 3. [4]
+
+template <typename itor, typename item_t, class less_t>
+itor binary_search (itor begin, itor original_end,
+                    const item_t& item, less_t less) {
+   auto end = original_end;
+   while (begin < end) {
+      itor mid = begin + (end - begin) / 2;
+      if (less (*mid, item)) begin = mid + 1;
+      else if (less (item, *mid)) end = mid;
+      else return mid;
+   }
+   return original_end;
+}
+//// May also use integer indices, such as begin[i] using
+//// begin as a subscripted array with left,mid,right as size_t
+
+
+Solution to CMPS-109 2019q3-final, page 2
+
+_________________________________________________________________
+Question 4. [1]
+
+foo operator+ (const foo& a, const foo& b) {
+   foo result = a;
+   return a += b;
+}
+
+_________________________________________________________________
+Question 5. [1]
+
++-----------------------------+-----------------------------+
+|void f(int);                 | class baz: private qux {    |
+|void f(string);          A O | };                      U I |
++-----------------------------+-----------------------------+
+|template <typename T>        | void f(double);             |
+|T sum (T*);              U P | int x; f(x);            A C |
++-----------------------------+-----------------------------+
+
+_________________________________________________________________
+Question 6.
+
+struct complex {
+   double real = 0.0; double imag = 0.0; //// (a)
+
+   complex (double re = 0.0, double im = 0.0): real(re), imag(im) {
+   } //// (b)
+
+   complex& operator+= (const complex& that) {
+      real += that.real; imag += that.imag;
+   } //// (c)
+
+   operator bool() {
+      return real != 0.0 or imag != 0.0;
+   } //// (d)
+
+_________________________________________________________________
+Question 7. [4]
+
+template <typename Initor1, typename Initor2,
+          typename Outitor, typename Less>
+void merge (Initor1 begin1, Initor1 end1,
+            Initor2 begin2, Initor2 end2,
+            Outitor result, Less less) {
+   while (begin1 != end1 and begin2 != end2) {
+      if (less (*begin1, *begin2)) *result++ = *begin1++;
+                              else *result++ = *begin2++;
+   }
+   while (begin1 != end1) *result++ = *begin1++;
+   while (begin2 != end2) *result++ = *begin2++;
+}
+
+
+Solution to CMPS-109 2019q3-final, page 3
+
+_________________________________________________________________
+Question 8. [2]
+
+double inner_product (const vector<double>& a,
+                      const vector<double>& b) {
+   if (a.size() != b.size()) throw domain_error ("inner_product");
+   double sum = 0;
+   for (size_t i = 0; i < a.size(); ++i) sum += a[i] * b[i];
+   return sum;
+}
+
+_________________________________________________________________
+Question 9(a). [3]
+
+template <typename item_t>
+class forward_list<item_t>::iterator {
+  private:
+    node* curr;
+  public:
+    iterator (node* p): curr(p) {}
+    item_t& operator* () { return curr->item; }
+    iterator& operator++() { curr = curr-> link; return *this; }
+    bool operator!= (iterator& that) { return curr != that.curr; }
+};
+
+_________________________________________________________________
+Question 9(b). [3]
+
+template <typename item_t>
+void forward_list<item_t>::pop_font() {
+  node* t = head;
+  head = head->link;
+  delete t;
+}
+
+_________________________________________________________________
+Question 9(c). [2]
+
+template <typename item_t>
+forward_list<item_t>::~forward_list() {
+  while (not empty()) pop_front();
+}
+
+
+Solution to CMPS-109 2019q3-final, page 4
+
+ 1.   (A) explicit
+
+ 2.   (D) socket
+
+ 3.   (C)   24
+
+ 4.   (B) ostream&
+
+ 5.   (B) list<int> c; //// accept either answer
+      (C) map<int> c;  //// accept either answer
+
+ 6.   (D) the destructor
+
+ 7.   (A)  8
+
+ 8.   (D) v[5]
+
+ 9.   (C) **argv
+
+10.   (C) foo* operator->();
+
+11.   (C) typedef unsigned char GLubyte;
+
+12.   (C) foo (foo&&);
+
+
+
+Solution to CMPS-109 2019q3-final, page 5
+
+ 1.   (D) vector<char>
+
+ 2.   (B) list
+
+ 3.   (B) .*?
+
+ 4.   (D) foo >bar 2>&1
+
+ 5.   (B) foo operator++ (foo&, int);
+
+ 6.   (D) 78
+
+ 7.   (B) std::cerr
+
+ 8.   (B) ls -a
+
+ 9.   (C) hash table
+
+10.   (C) reinterpret_cast
+
+11.   (B) return *this;
+
+12.   (C) $ O ( n ) $
+

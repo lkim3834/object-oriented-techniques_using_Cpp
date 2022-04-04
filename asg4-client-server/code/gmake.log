@@ -1,0 +1,6 @@
+checksource cxid.cpp
+checksource: TOTAL COMPLAINTS: 0
+cpplint.py.perl cxid.cpp
+Done processing cxid.cpp
+g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c cxid.cpp
+g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -o cxid cxid.o protocol.o socket.o debug.o

@@ -1,0 +1,31 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2019.12.13.02.19.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: libfns.h,v 1.2 2015-07-02 16:03:36-07 - - $
+
+// Library functions not members of any class.
+
+#include "bigint.h"
+
+bigint pow (const bigint& base, const bigint& exponent);
+
+@

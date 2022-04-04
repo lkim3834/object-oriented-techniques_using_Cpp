@@ -1,0 +1,202 @@
+$Id: soln-cse111-2020q1-final.txt,v 1.13 2020-03-13 13:25:57-07 - - $
+Solution to CSE-111 2020q1-midterm, page 1
+
+Any logically correct variation on these answers is ok too.
+Assign fractional points in increments of 1/2 per question.
+
+_________________________________________________________________
+Question 1(a). [4]
+
+class expr {
+   public:
+      virtual double eval() const = 0;
+      virtual void print (ostream&) const = 0;
+      expr() = default;
+      virtual ~expr() {};
+      expr (const expr&) = delete;
+      expr& operator= (const expr&) = delete;
+      expr (expr&&) = delete;
+      expr& operator= (expr&&) = delete;
+};
+
+_________________________________________________________________
+Question 1(b). [2]
+
+class leaf: public expr {
+   private:
+      double value;
+   public:
+      leaf (double v = 0): value(v) {}
+      double eval() const override { return value; }
+      void print (ostream& out) const override { out << value; }
+};
+
+_________________________________________________________________
+Question 1(c). [4]
+
+class tree: public expr {
+   private:
+      expr* left;
+      expr* right;
+   public:
+      tree (expr* lt, expr* rt): left(lt), right(rt) {}
+      virtual ~tree() { delete left; delete right; }
+      double eval() const override {
+         return left->eval() + right->eval();
+      }
+      void print (ostream& out) override {
+         out << "(";
+         left->print (out);
+         out << "+";
+         right->print (out);
+         out << ")";
+      }
+};
+
+
+Solution to CSE-111 2020q1-midterm, page 2
+_________________________________________________________________
+Question 2. [2]
+
+int main() {
+   map<string,size_t> m;
+   string w;
+   while (cin >> w) ++m[w];
+   for (const auto& p: m) cout << p.first << " " << p.second << endl;
+   return 0;
+}
+
+_________________________________________________________________
+Question 3. [3]
+
+template <typename T>
+pair<double,double> minmax (T begin, T end) {
+   if (begin == end) return pair(NAN,NAN); //// or: return {NAN,NAN};
+   double min = *begin;
+   double max = *begin;
+   for (++begin; begin != end; ++begin) {
+      if (min > *begin) min = *begin;
+      if (max < *begin) max = *begin;
+   }
+   return {min, max}; //// or: use explicit pair ctor.
+}
+
+_________________________________________________________________
+Question 4. [2]
+
+template <typename T>
+ostream& operator<< (ostream& out, const pair<T,T>& range) {
+   out << "{" << range.first << ", " << range.second << "}";
+   return out;
+}
+
+_________________________________________________________________
+Question 5. [3]
+
+template <typename T>
+ostream& operator<< (ostream& out, const pair<T,T>& range) {
+   out << "{";
+   bool comma = false;
+   for (T itor = range.first; itor != range.second; ++itor) {
+      if (comma) cout << ", ";
+      comma = true;
+      out << *itor;
+   }
+   out << "}";
+   return out;
+}
+
+
+Solution to CSE-111 2020q1-midterm, page 3
+_________________________________________________________________
+Question 6. [3]
+
+void draw_blue_square (GLfloat xpos, GLfloat ypos, GLfloat length) {
+   glBegin (GL_POLYGON);
+   static GLubyte blue[] {0, 0, 255};
+   glColor3ubv (blue);
+   glVertex2f (xpos, ypos);
+   glVertex2f (xpos + length, ypos);
+   glVertex2f (xpos + length, ypos + length);
+   glVertex2f (xpos, ypos + length);
+   glEnd();
+}
+
+_________________________________________________________________
+Question 7(a). [3]
+
+intvec& intvec::operator= (const intvec& that) {
+   if (this == &that) return *this;
+   if (data_ != nullptr) delete[] data_;
+   data_ = new int[that.size_];
+   size_ = that.size_;
+   std::copy (&that.data_[0], &that.data_[that.size_], data_);
+   return *this;
+}
+//// OK to use a loop instead of std::copy
+
+_________________________________________________________________
+Question 7(b). [3]
+
+intvec& intvec::operator= (intvec&& that) {
+   if (this == &that) return *this;
+   if (data_ != nullptr) delete[] data_;
+   data_ = that.data_;
+   size_ = that.size_;
+   that.data_ = nullptr;
+   that.size_ = 0;
+   return *this;
+}
+
+_________________________________________________________________
+Question 7(c). [1]
+
+intvec::~intvec() {
+   if (data_ != nullptr) delete[] data_;
+}
+
+
+Solution to CSE-111 2020q1-midterm, page 4
+
+_________________________________________________________________
+Question 8. [4]
+
+string readpipe (const string& command) {
+   FILE* pipe = popen (command.c_str(), "r");
+   if (pipe == nullptr) throw runtime_error ("readpipe");
+   string result; 
+   char buffer[1000];
+   for (;;) {
+      char* rc = fgets (buffer, sizeof buffer, pipe);
+      if (rc == nullptr) break;
+      result.append (buffer);  //// can also use +=
+   }
+   pclose (pipe); 
+   return result; 
+}   
+
+_________________________________________________________________
+Question 9. [4]
+
+template <typename Initor1, typename Initor2, typename Outitor>
+void merge (Initor1 begin1, Initor1 end1,
+            Initor2 begin2, Initor2 end2, Outitor result) { 
+   while (begin1 != end1 and begin2 != end2) { 
+      if (*begin1 < *begin2) *result++ = *begin1++;
+                        else *result++ = *begin2++;
+   }
+   while (begin1 != end1) *result++ = *begin1++;
+   while (begin2 != end2) *result++ = *begin2++;
+}   
+
+_________________________________________________________________
+Question 10. [4]
+
+template <typename itor>
+bool equal (iter b1, itor e1, itor b2, itor e2) {
+   while (b1 != e1 and b2 != e2){ 
+      if (*b1++ != *b2++) return false;
+   }
+   return b1 == e1 and b2 == e2;
+}   
+

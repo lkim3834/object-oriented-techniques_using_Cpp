@@ -1,0 +1,474 @@
+head	1.12;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.12
+date	2020.10.19.20.14.59;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.10.19.20.14.14;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.10.11.19.25.22;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.07.02.22.38.57;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.01.06.21.39.55;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2019.12.13.22.39.21;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2019.12.13.04.33.02;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2019.12.13.04.20.36;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2019.12.13.03.56.31;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2019.12.13.03.24.16;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.12.13.03.22.40;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.12.13.02.19.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.12
+log
+@-
+@
+text
+@// $Id: ubigint.cpp,v 1.11 2020-10-19 13:14:14-07 - - $
+
+#include <cctype>
+#include <cstdlib>
+#include <exception>
+#include <stack>
+#include <stdexcept>
+using namespace std;
+
+#include "debug.h"
+#include "relops.h"
+#include "ubigint.h"
+
+ubigint::ubigint (unsigned long that): uvalue (that) {
+   DEBUGF ('~', this << " -> " << uvalue)
+}
+
+ubigint::ubigint (const string& that): uvalue(0) {
+   DEBUGF ('~', "that = \"" << that << "\"");
+   for (char digit: that) {
+      if (not isdigit (digit)) {
+         throw invalid_argument ("ubigint::ubigint(" + that + ")");
+      }
+      uvalue = uvalue * 10 + digit - '0';
+   }
+}
+
+ubigint ubigint::operator+ (const ubigint& that) const {
+   DEBUGF ('u', *this << "+" << that);
+   ubigint result (uvalue + that.uvalue);
+   DEBUGF ('u', result);
+   return result;
+}
+
+ubigint ubigint::operator- (const ubigint& that) const {
+   if (*this < that) throw domain_error ("ubigint::operator-(a<b)");
+   return ubigint (uvalue - that.uvalue);
+}
+
+ubigint ubigint::operator* (const ubigint& that) const {
+   return ubigint (uvalue * that.uvalue);
+}
+
+void ubigint::multiply_by_2() {
+   uvalue *= 2;
+}
+
+void ubigint::divide_by_2() {
+   uvalue /= 2;
+}
+
+
+struct quo_rem { ubigint quotient; ubigint remainder; };
+quo_rem udivide (const ubigint& dividend, const ubigint& divisor_) {
+   // NOTE: udivide is a non-member function.
+   ubigint divisor {divisor_};
+   ubigint zero {0};
+   if (divisor == zero) throw domain_error ("udivide by zero");
+   ubigint power_of_2 {1};
+   ubigint quotient {0};
+   ubigint remainder {dividend}; // left operand, dividend
+   while (divisor < remainder) {
+      divisor.multiply_by_2();
+      power_of_2.multiply_by_2();
+   }
+   while (power_of_2 > zero) {
+      if (divisor <= remainder) {
+         remainder = remainder - divisor;
+         quotient = quotient + power_of_2;
+      }
+      divisor.divide_by_2();
+      power_of_2.divide_by_2();
+   }
+   DEBUGF ('/', "quotient = " << quotient);
+   DEBUGF ('/', "remainder = " << remainder);
+   return {.quotient = quotient, .remainder = remainder};
+}
+
+ubigint ubigint::operator/ (const ubigint& that) const {
+   return udivide (*this, that).quotient;
+}
+
+ubigint ubigint::operator% (const ubigint& that) const {
+   return udivide (*this, that).remainder;
+}
+
+bool ubigint::operator== (const ubigint& that) const {
+   return uvalue == that.uvalue;
+}
+
+bool ubigint::operator< (const ubigint& that) const {
+   return uvalue < that.uvalue;
+}
+
+ostream& operator<< (ostream& out, const ubigint& that) { 
+   return out << "ubigint(" << that.uvalue << ")";
+}
+
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.10 2020-10-11 12:25:22-07 - - $
+d74 2
+a75 2
+   DEBUGF ('/', 'quotient = ' << quotient)
+   DEBUGF ('/', 'remainder = ' << remainder)
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.9 2020-07-02 15:38:57-07 - - $
+d74 2
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.8 2020-01-06 13:39:55-08 - - $
+d10 2
+a12 1
+#include "debug.h"
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.16 2019-04-02 16:28:42-07 - - $
+d28 4
+a31 1
+   return ubigint (uvalue + that.uvalue);
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.6 2019-12-12 20:33:02-08 - - $
+d10 1
+a11 2
+#include "ubigint.h"
+#include "util.h"
+d27 2
+a28 3
+ubigint& ubigint::operator+= (const ubigint& that) {
+   uvalue += that.uvalue;
+   return *this;
+d31 1
+a31 1
+ubigint& ubigint::operator-= (const ubigint& that) {
+d33 1
+a33 2
+   uvalue -= that.uvalue;
+   return *this;
+d36 2
+a37 3
+ubigint& ubigint::operator*= (const ubigint& that) {
+   uvalue *= that.uvalue;
+   return *this;
+d49 6
+a54 13
+void ubigint::divrem (ubigint divisor, bool want_quotient) {
+   // Ancient Egyptian division algorithm
+   // http://mathforum.org/library/drmath/view/57574.html
+   // https://rosettacode.org/wiki/Egyptian_division
+   // divisor is by value, not by const& because this
+   // algorithm modifies the divisor's value
+   // *this results in remainder at the end of the algorithm
+   // quotient is a local variable assigned to *this for division
+   static const ubigint ZERO {0};
+   if (divisor == ZERO) {
+      throw ydc_error (want_quotient ? "divide by zero"
+                                     : "remainder by zero");
+   }
+d57 1
+a57 1
+   ubigint& remainder = *this; // ref to this named for clarity
+d62 1
+a62 1
+   while (power_of_2 > ZERO) {
+d70 1
+a70 1
+   if (want_quotient) *this = quotient;
+d73 2
+a74 3
+ubigint& ubigint::operator/= (const ubigint& that) {
+   divrem (that, true);
+   return *this;
+d77 2
+a78 3
+ubigint& ubigint::operator%= (const ubigint& that) {
+   divrem (that, false);
+   return *this;
+a88 1
+
+a90 25
+}
+
+ubigint operator+ (const ubigint& lhs, const ubigint& rhs) {
+   ubigint result (lhs);
+   return result += rhs;
+}
+
+ubigint operator- (const ubigint& lhs, const ubigint& rhs) {
+   ubigint result (lhs);
+   return result -= rhs;
+}
+
+ubigint operator* (const ubigint& lhs, const ubigint& rhs) {
+   ubigint result (lhs);
+   return result *= rhs;
+}
+
+ubigint operator/ (const ubigint& lhs, const ubigint& rhs) {
+   ubigint result (lhs);
+   return result /= rhs;
+}
+
+ubigint operator% (const ubigint& lhs, const ubigint& rhs) {
+   ubigint result (lhs);
+   return result %= rhs;
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.5 2019-12-12 20:20:36-08 - - $
+d54 7
+d68 1
+a68 1
+   ubigint& remainder = *this;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.4 2019-12-12 19:56:31-08 - - $
+d53 1
+a53 1
+void ubigint::divrem (ubigint divisor, divrem_type operation) {
+d56 2
+a57 6
+      const char* error = nullptr;;
+      switch (operation) {
+         case QUOTIENT: error = "divide by zero"; break;
+         case REMAINDER: error = "remainder by zero"; break;
+      }
+      throw ydc_error (error);
+d74 1
+a74 1
+   if (operation == QUOTIENT) *this = quotient;
+d78 1
+a78 1
+   divrem (that, QUOTIENT);
+d83 1
+a83 1
+   divrem (that, REMAINDER);
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.3 2019-12-12 19:24:16-08 - - $
+d53 1
+a53 4
+void udivide (const ubigint& dividend, const ubigint& divisor_,
+              ubigint& quotient, ubigint& remainder,
+              const char* error) {
+   ubigint divisor {divisor_};
+d55 8
+a62 1
+   if (divisor == ZERO) throw ydc_error (error);
+d64 2
+a65 2
+   quotient = 0;
+   remainder = dividend;
+d78 1
+d82 2
+a83 3
+   ubigint quotient, remainder;
+   udivide (*this, that, quotient, remainder, "divide by zero");
+   return *this = quotient;
+d87 2
+a88 3
+   ubigint quotient, remainder;
+   udivide (*this, that, quotient, remainder, "remainder by zero");
+   return *this = remainder;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.2 2019-12-12 19:22:40-08 - - $
+d55 1
+a55 1
+              const char* operation) {
+d58 1
+a58 1
+   if (divisor == ZERO) throw ydc_error (operation + " by zero"s);
+d78 1
+a78 1
+   udivide (*this, that, quotient, remainder, "divide");
+d84 1
+a84 1
+   udivide (*this, that, quotient, remainder, "remainder");
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.1 2019-12-12 18:19:23-08 - - $
+d54 2
+a55 1
+              ubigint& quotient, ubigint& remainder) {
+d58 1
+a58 1
+   if (divisor == ZERO) throw ydc_error ("divide by zero");
+d78 1
+a78 1
+   udivide (*this, that, quotient, remainder);
+d84 1
+a84 1
+   udivide (*this, that, quotient, remainder);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ubigint.cpp,v 1.18 2019-12-12 18:17:49-08 - - $
+d10 1
+d12 1
+a12 1
+#include "debug.h"
+d56 2
+a57 2
+   ubigint zero {0};
+   if (divisor == zero) throw domain_error ("udivide by zero");
+d65 1
+a65 1
+   while (power_of_2 > zero) {
+@

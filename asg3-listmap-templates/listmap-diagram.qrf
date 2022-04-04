@@ -1,0 +1,10 @@
+.\" references for ./listmap-diagram
+.ds qrf*ref-CURR-PAGE-hn 
+.ds qrf*ref-CURR-PAGE-pn 1
+.ds qrf*ref-CURR-PAGE-xx 1
+.ds qrf*ref-SCORE-TOTAL-END-hn 
+.ds qrf*ref-SCORE-TOTAL-END-pn 1
+.ds qrf*ref-SCORE-TOTAL-END-xx 0
+.ds qrf*ref-END-PNR-hn 
+.ds qrf*ref-END-PNR-pn 1
+.ds qrf*ref-END-PNR-xx 1

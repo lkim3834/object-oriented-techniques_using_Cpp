@@ -1,0 +1,50 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2019.12.16.22.04.44;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.12.13.02.31.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/bash
+# $Id: mk.build,v 1.1 2019-12-12 18:31:28-08 - - $
+# Checksource and do the build.
+
+export PATH=$PATH:/afs/cats.ucsc.edu/courses/cse111-wm/bin/
+partnercheck 2>&1 | tee partnercheck.log
+checksource Makefile README *.h *.cpp >checksource.log 2>&1
+gmake >gmake.log 2>&1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk.build,v 1.5 2019-10-14 18:35:53-07 - - $
+d7 1
+a7 1
+checksource Makefile README* *.h *.c* >checksource.log 2>&1
+@

@@ -1,0 +1,212 @@
+$Id: soln-cse111-2019q4-final.txt,v 1.1 2019-12-11 12:23:07-08 - - $
+Solution to CMPS-109 2019q3-final, page 1
+
+Any logically correct variation on these answers is ok too.
+Assign fractional points in increments of 1/2 per question.
+
+_________________________________________________________________
+Question 1(a). [4]
+
+class expr {
+public:
+   virtual double eval() const = 0;
+   virtual void print (ostream&) const = 0;
+   virtual ~expr() = default;
+   expr() = default;
+   expr (const expr&) = delete;
+   expr (expr&&) = delete; 
+   expr& operator= (const expr&) = delete;
+   expr& operator= (expr&&) = delete; 
+};
+
+_________________________________________________________________
+Question 1(b). [2]
+
+class leaf: public expr {
+      double value
+   public:
+      leaf (double v = 0): value(v) {}
+      virtual double eval() const override { return value; }
+      virtual void print (ostream& out) const override { out << value; }
+};
+// "virtual" is not needed when override is used, but not wrong.
+
+_________________________________________________________________
+Question 1(c). [4]
+
+class tree: public leaf {
+   expr* left; expr* right;
+public:
+   tree (expr* lf =nullptr, expr* rt=nullptr): left(lf), right(rt) {}
+   virtual ~tree() { delete left; delete right; }
+   virtual double eval() const override {
+      if (left == nullptr or right == nullptr) throw null_tree_error();
+      return left->eval() + right->eval();
+   }
+   virtual void print (ostream& out) const override {
+      if (left == nullptr or right == nullptr) throw null_tree_error();
+      out << "("; left->print(); out << "+"; right->print(); out << ")";
+   }
+};
+// "virtual" is not needed when override is used, but not wrong.
+
+Solution to CMPS-109 2019q3-final, page 2
+
+_________________________________________________________________
+Question 2. [2]
+
+template <typename T>
+ostream& operator<< (ostream& out, const T& cont) {
+   cout << "{";
+   string comma = "";
+   for (const auto& i: cont) {
+      cout << comma << i;
+      comma = ",";
+   }
+   return cout << "}";
+}
+
+_________________________________________________________________
+Question 3. [3]
+
+template <typename container>
+bool palindrome (const container& cont) {
+   auto begin = cont.begin();
+   auto end = cont.end();
+   while (begin != end and begin != --end) {
+      if (*begin != *end) return false;
+      ++begin;
+   }
+   return true;
+}
+
+_________________________________________________________________
+Question 4. [2]
+
+template <typename container>
+void test_palindrome (const container& cont) {
+   cout << boolalpha << palindrome (cont);
+   for (const auto& item: cont) cout << " " << item;
+   cout << endl;
+}
+
+
+_________________________________________________________________
+Question 5. [3]
+
+bool ubigint::operator< (const ubigint& that) const { 
+   if (ubigvalue.size() < that.ubigvalue.size()) return true;
+   if (ubigvalue.size() > that.ubigvalue.size()) return false;
+   if (ubigvalue.size() == 0) return false;
+   for (size_t i = ubigvalue.size() - 1; i > 0; --i) {
+      if (ubigvalue[i] < that.ubigvalue[i]) return true;
+      if (ubigvalue[i] > that.ubigvalue[i]) return false;
+   }
+   return ubigvalue[0] < that.ubigvalue[0];
+}
+
+Solution to CMPS-109 2019q3-final, page 3
+_________________________________________________________________
+Question 6. [1]
+for file in test*.ydc
+do
+   ydc <$file >$file.out
+done
+
+_________________________________________________________________
+Question 7. [1]
+void f(int);           A O  |class baz: private qux    U I
+void f(string);             |};
+template <typename T>  U P  |void f(double);           A C
+T sum (T*);                 |int x; f(x);
+
+_________________________________________________________________
+Question 8. [1]
+template <typename value>
+inline bool operator>  (const value& left, const value& right) {
+   return right < left; 
+}
+_________________________________________________________________
+Question 9. [1]
+foo operator++ (foo& item, int) {
+   foo result = item;
+   ++item;
+   return result;
+}
+_________________________________________________________________
+Question 10. [1]
+operator bool() const { return pointer != nullptr; }
+
+_________________________________________________________________
+Question 11. [1]
+bigint operator+ (const bigint& left, const bigint& right) {
+   bigint result = left;
+   return result += right;
+}
+_________________________________________________________________
+Question 12. [2]
+template <typename T>
+T max (const T& one, const T& two) {
+   return one < two ? two : one;
+}
+_________________________________________________________________
+Question 13. [2]
+all : ${EXECBIN}
+${EXECBIN} : ${OBJECTS}
+	${GPP} -o $@ ${OBJECTS}
+%.o : %.cpp
+	${GPP} -c $<
+
+Solution to CMPS-109 2019q3-final, page 4
+
+ 1.   (B) pair<const string, double>
+
+ 2.   (C) vector is $ O ( n ) $;  list is $ O ( 1 ) $
+
+ 3.   (C) reinterpret_cast
+
+ 4.   (D) socket(2)
+
+ 5.   (B) $@
+
+ 6.   (D) virtual
+
+ 7.   (D) operator bool() const;
+
+ 8.   (A) operator()
+
+ 9.   (C) ostream& operator<< (ostream&, const foo&);
+
+10.   (A) signal & 0x7F
+
+11.   (A) explicit
+
+12.   (D) yes
+
+
+Solution to CMPS-109 2019q3-final, page 5
+
+ 1.   (D) 0x78
+
+ 2.   (C) memory leak
+
+ 3.   (B) int
+
+ 4.   (B) return map::end()
+
+ 5.   (C) #ifndef __FOO_H__
+
+ 6.   (C) v.size() == v.end() - v.begin()
+
+ 7.   (C) bidirectional
+
+ 8.   (C) listen(2)
+
+ 9.   (D) YELLOW
+
+10.   (B) p->second
+
+11.   (C) not (a < b) and not (b < a)
+
+12.   (A) daemon
+

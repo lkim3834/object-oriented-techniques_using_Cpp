@@ -1,0 +1,7 @@
+checksource: non-ASCII character \x80
+README: 1 errors: line 3
+checksource: non-ASCII character \x99
+README: 1 errors: line 3
+checksource: non-ASCII character \xE2
+README: 1 errors: line 3
+checksource: TOTAL COMPLAINTS: 3

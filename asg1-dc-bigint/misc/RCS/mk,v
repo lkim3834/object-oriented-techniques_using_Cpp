@@ -1,0 +1,47 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2019.04.03.23.17.52;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.04.03.23.16.58;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: mk,v 1.1 2019-04-03 16:16:58-07 - - $
+cid + $0 egyptian-div.perl
+egyptian-div.perl 76543 123 >egyptian-div.out
+mkpspdf egyptian-div.ps egyptian-div.perl egyptian-div.out
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 4
+a5 4
+# $Id$
+cid + $0 egyptian-division.perl
+egyptian-division.perl 76543 123 >egyptian-division.out
+mkpspdf egyptian-division.ps egyptian-division.perl egyptian-division.out
+@

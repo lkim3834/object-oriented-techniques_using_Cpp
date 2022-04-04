@@ -1,0 +1,109 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.4
+date	2021.05.01.21.26.30;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.05.01.21.25.52;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.05.01.21.23.10;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.05.01.21.22.38;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@// $Id: pos-indep-exec.cpp,v 1.3 2021-05-01 14:25:52-07 - - $
+
+#include <iostream>
+using namespace std;
+
+int main (int argc, char** argv) {
+   cout << "&argc   = " << &argc << endl;
+   cout << "argv    = " << argv << endl;
+   cout << "argv[0] = " << static_cast<void*> (argv[0])
+        << " = \"" << argv[0] << "\"" << endl;
+   cout << "new int = " << new int << endl;
+}
+
+// 
+// https://en.wikipedia.org/wiki/Position-independent_code
+// 
+// Position-independent executables[edit]
+// 
+// See also: Address space layout randomization
+// 
+// Position-independent executables (PIE) are executable binaries
+// made entirely from position-independent code.  While some
+// systems only run PIC executables, there are other reasons they
+// are used.  PIE binaries are used in some security-focused Linux
+// distributions to allow PaX or Exec Shield to use address space
+// layout randomization to prevent attackers from knowing where
+// existing executable code is during a security attack using
+// exploits that rely on knowing the offset of the executable
+// code in the binary, such as return-to-libc attacks.
+// 
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: pos-indep-exec.cpp,v 1.2 2021-05-01 14:23:10-07 - - $
+a5 2
+static int statvar[256];
+
+a11 1
+   cout << "statvar = " << statvar << endl;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: pos-indep-exec.cpp,v 1.1 2021-05-01 14:22:38-07 - - $
+d6 2
+d14 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: local-addrs.cpp,v 1.18 2021-05-01 14:14:39-07 - - $
+d11 1
+@
